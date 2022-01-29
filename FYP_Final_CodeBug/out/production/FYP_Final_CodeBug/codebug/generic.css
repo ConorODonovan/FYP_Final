@@ -1,0 +1,16 @@
+/* Style sheet for generic elements that remain the same across the entire application */
+
+#top-anchor-pane {
+    -fx-background-color: blue;
+    -fx-border-style: solid;
+    -fx-border-width: 0px 0px 6px 0px;
+    -fx-border-color: orange;
+}
+
+#top-vbox {
+    -fx-background-color: blue;
+}
+
+#menu-bar {
+    -fx-background-color: orange;
+}
