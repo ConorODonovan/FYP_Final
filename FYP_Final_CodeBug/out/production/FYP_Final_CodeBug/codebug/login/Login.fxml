@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebug.login.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../generic.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebug.login.LoginController">
    <top>
-      <AnchorPane id="top-anchor-pane" fx:id="loginTop" prefHeight="100.0" stylesheets="@../generic.css" BorderPane.alignment="CENTER">
+      <AnchorPane id="top-anchor-pane" fx:id="loginTop" prefHeight="100.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox id="top-vbox" fx:id="loginTopVBox" prefWidth="1920.0">
+            <VBox id="top-vbox" fx:id="loginTopVBox" prefHeight="100.0" prefWidth="1920.0">
                <children>
                   <MenuBar id="menu-bar" fx:id="loginMenuBar" prefWidth="1920.0">
                     <menus>

@@ -14,7 +14,27 @@ import java.io.IOException;
 public class HomepageController {
 
     @FXML
+    Button buttonGoToExercises; // Temporary button for screen navigation
+    Button buttonGoToGameEngine; // Temporary button for screen navigation
     Button buttonBackToLogin; // Temporary button for screen navigation
+
+    @FXML
+    public void goToExercises(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/Exercises.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, 1920, 1080);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void goToGameEngine(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/codebug/gameengine/GameEngine.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, 1920, 1080);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @FXML
     public void backToLogin(ActionEvent event) throws IOException {

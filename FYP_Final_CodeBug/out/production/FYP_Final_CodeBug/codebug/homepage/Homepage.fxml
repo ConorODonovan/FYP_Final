@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebug.homepage.HomepageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../generic.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebug.homepage.HomepageController">
    <top>
-      <AnchorPane id="top-anchor-pane" prefHeight="100.0" stylesheets="@../generic.css" BorderPane.alignment="CENTER">
+      <AnchorPane id="top-anchor-pane" prefHeight="100.0" BorderPane.alignment="CENTER">
          <children>
             <VBox id="top-vbox" prefHeight="100.0" prefWidth="1920.0">
                <children>
@@ -39,10 +39,10 @@
       </AnchorPane>
    </top>
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Exercises" />
-            <Button mnemonicParsing="false" text="Game Engine" />
+            <Button fx:id="buttonGoToExercises" mnemonicParsing="false" onAction="#goToExercises" text="Exercises" />
+            <Button fx:id="buttonGoToGameEngine" mnemonicParsing="false" onAction="#goToGameEngine" text="Game Engine" />
             <Button mnemonicParsing="false" text="Something Something" />
             <Button fx:id="buttonBackToLogin" mnemonicParsing="false" onAction="#backToLogin" text="Back to Login" />
          </children>
