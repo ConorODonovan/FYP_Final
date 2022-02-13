@@ -16,9 +16,8 @@ import java.io.IOException;
 public class BinaryConverterController {
 
     // TODO
-    // Automatic conversion of each field
     // Limit each field's character length to prevent overflow
-    // Ensure all textfields clear when one is clear
+    // Display specific input error text
 
     @FXML
     TextField textFieldBinary;
@@ -69,6 +68,14 @@ public class BinaryConverterController {
             if (!textFieldHexadecimal.isFocused()) {
                 convertBinToHex(); // Automatically update textFieldHexadecimal with converted binary input
             }
+
+            if (textFieldBinary.isFocused()) {
+                if (textFieldBinary.getText().isEmpty()) {
+                    textFieldOctal.clear();
+                    textFieldDecimal.clear();
+                    textFieldHexadecimal.clear();
+                }
+            }
         });
 
         // Input validation for Octal TextField
@@ -83,6 +90,20 @@ public class BinaryConverterController {
                     textFieldOctal.setText("" + textFieldOctal.getText().substring(0, textFieldOctal.getText().length() - 1));
                     Shake shake = new Shake(textFieldOctal);
                     shake.play();
+                }
+            }
+
+            if (!textFieldBinary.isFocused()) {
+                if (textFieldOctal.isFocused()) {
+                    convertOctToBin(); // Automatically updates textFieldBinary with converted octal input
+                }
+            }
+
+            if (textFieldOctal.isFocused()) {
+                if (textFieldOctal.getText().isEmpty()) {
+                    textFieldBinary.clear();
+                    textFieldDecimal.clear();
+                    textFieldHexadecimal.clear();
                 }
             }
         });
@@ -102,8 +123,18 @@ public class BinaryConverterController {
                 }
             }
 
-            if (!textFieldBinary.isFocused()){
-                convertDecToBin(); // Automatically updates textFieldBinary with converted decimal input
+            if (!textFieldBinary.isFocused()) {
+                if (textFieldDecimal.isFocused()) {
+                    convertDecToBin(); // Automatically updates textFieldBinary with converted decimal input
+                }
+            }
+
+            if (textFieldDecimal.isFocused()) {
+                if (textFieldDecimal.getText().isEmpty()) {
+                    textFieldBinary.clear();
+                    textFieldOctal.clear();
+                    textFieldHexadecimal.clear();
+                }
             }
         });
 
@@ -125,6 +156,20 @@ public class BinaryConverterController {
                     textFieldHexadecimal.setText("" + textFieldHexadecimal.getText().substring(0, textFieldHexadecimal.getText().length() - 1));
                     Shake shake = new Shake(textFieldHexadecimal);
                     shake.play();
+                }
+            }
+
+            if (!textFieldBinary.isFocused()) {
+                if (textFieldHexadecimal.isFocused()) {
+                    convertHexToBin(); // Automatically updates textFieldBinary with converted hexadecimal input
+                }
+            }
+
+            if (textFieldHexadecimal.isFocused()) {
+                if (textFieldHexadecimal.getText().isEmpty()) {
+                    textFieldBinary.clear();
+                    textFieldOctal.clear();
+                    textFieldDecimal.clear();
                 }
             }
         });
@@ -158,8 +203,12 @@ public class BinaryConverterController {
     }
 
     public void convertOctToBin() {
-        // TODO
-        // Write this method
+        if (!textFieldOctal.getText().isEmpty()) {
+            String octalString = textFieldOctal.getText();
+            int octalNum = Integer.parseInt(octalString, 8);
+            String binaryString = Integer.toBinaryString(octalNum);
+            textFieldBinary.setText(binaryString); // Set textFieldBinary to binary value of octal input
+        }
     }
 
     public void convertDecToBin() {
@@ -174,9 +223,9 @@ public class BinaryConverterController {
     public void convertHexToBin() {
         if (!textFieldHexadecimal.getText().isEmpty()) {
             String hexadecimalString = textFieldHexadecimal.getText();
-
-            // TODO
-            // This one's a bit more complicated; come back to it
+            int hexadecimalNum = Integer.parseInt(hexadecimalString, 16);
+            String binaryString = Integer.toBinaryString(hexadecimalNum);
+            textFieldBinary.setText(binaryString); // Set textFieldBinary to binary value of hexadecimal input
         }
     }
 

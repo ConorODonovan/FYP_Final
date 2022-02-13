@@ -45,6 +45,7 @@
             <Button fx:id="buttonBackToHomepage" mnemonicParsing="false" onAction="#backToHomepage" text="Back to Homepage" />
             <Button fx:id="buttonTestTransistorExercise" mnemonicParsing="false" onAction="#goToTestScene" text="Test Transistor Exercise" />
             <Button fx:id="buttonBinaryConverter" mnemonicParsing="false" onAction="#goToBinaryConverter" text="Binary Converter" />
+            <Button fx:id="buttonCiphers" mnemonicParsing="false" onAction="#goToCiphers" text="Ciphers" />
          </children>
       </VBox>
    </center>
