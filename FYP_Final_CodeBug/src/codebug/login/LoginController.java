@@ -1,5 +1,8 @@
 package codebug.login;
 
+import animatefx.animation.FadeIn;
+import animatefx.animation.RubberBand;
+import animatefx.animation.Tada;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +12,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -29,7 +35,20 @@ public class LoginController {
     @FXML
     MenuItem LoginMenuHelp;
     @FXML
-    Button loginButtonTest; // Temporary button for screen navigation
+    ImageView imageViewLogo;
+    @FXML
+    VBox vboxLogin;
+    @FXML
+    TextField textFieldUserName;
+    @FXML
+    TextField textFieldPassword;
+    @FXML
+    Button buttonLogin;
+
+    public void mouseClick() {
+        RubberBand logoTada = new RubberBand(imageViewLogo);
+        logoTada.play();
+    }
 
     private boolean loginCheck() {
         return true;

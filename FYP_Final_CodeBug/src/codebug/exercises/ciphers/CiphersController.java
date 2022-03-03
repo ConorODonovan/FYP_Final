@@ -2,10 +2,22 @@ package codebug.exercises.ciphers;
 
 import animatefx.animation.Shake;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class CiphersController {
+
+    @FXML
+    ImageView logo;
 
     @FXML
     TextField textToEncrypt;
@@ -19,6 +31,24 @@ public class CiphersController {
     Button buttonEncrypt;
     @FXML
     Button buttonDecrypt;
+    @FXML
+    TextField vigenereTextToEncrypt;
+    @FXML
+    TextField keywordEncrypt;
+    @FXML
+    Button vigenereEncrypt;
+    @FXML
+    TextField vigenereEncryptedText;
+    @FXML
+    TextField vigenereTextToDecrypt;
+    @FXML
+    TextField keywordDecrypt;
+    @FXML
+    Button vigenereDecrypt;
+    @FXML
+    TextField vigenereDecryptedText;
+
+
 
     @FXML
     private void initialize() {
@@ -60,6 +90,26 @@ public class CiphersController {
         decryptedText.setEditable(false);
     }
 
+    // Return to main menu by clicking logo
+    // TODO
+    // Fix errors that occur when this method is called
+    @FXML
+    public void goToMainMenu() {
+        logo.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            Parent root = null;
+            try {
+                root = FXMLLoader.load(getClass().getResource("/codebug/homepage/Homepage.fxml"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            assert root != null;
+            Scene scene = new Scene(root, 1920, 1080);
+            stage.setScene(scene);
+            stage.show();
+        });
+    }
+
     @FXML
     public void encrypt() {
         String plainText = textToEncrypt.getText();
@@ -72,5 +122,19 @@ public class CiphersController {
         String cipherText = textToDecrypt.getText();
         String plainText = CaesarCipher.decrypt(cipherText, 3);
         decryptedText.setText(plainText);
+    }
+
+    @FXML
+    public void encryptVigenere() {
+        String plainText = vigenereTextToEncrypt.getText();
+        String keyword = keywordEncrypt.getText();
+        vigenereEncryptedText.setText(VigenereCipher.encrypt(plainText, keyword));
+    }
+
+    @FXML
+    public void decryptVigenere() {
+        String cipherText = vigenereTextToDecrypt.getText();
+        String keyword = keywordDecrypt.getText();
+        vigenereDecryptedText.setText(VigenereCipher.decrypt(cipherText, keyword));
     }
 }
