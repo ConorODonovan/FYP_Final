@@ -27,12 +27,9 @@
                     <menus>
                       <Menu mnemonicParsing="false" text="File">
                         <items>
-                          <MenuItem mnemonicParsing="false" text="Close" />
-                        </items>
-                      </Menu>
-                      <Menu mnemonicParsing="false" text="Edit">
-                        <items>
-                          <MenuItem mnemonicParsing="false" text="Delete" />
+                              <MenuItem mnemonicParsing="false" text="Preferences" />
+                          <MenuItem mnemonicParsing="false" text="Logout" />
+                              <MenuItem mnemonicParsing="false" text="Exit" />
                         </items>
                       </Menu>
                       <Menu mnemonicParsing="false" text="Help">
@@ -69,76 +66,50 @@
                <children>
                   <VBox id="vbox-progress" prefHeight="734.0" prefWidth="400.0">
                      <children>
-                        <Label text="PROGRESS">
+                        <Label id="exercises-progress-header" text="PROGRESS">
                            <VBox.margin>
                               <Insets bottom="32.0" top="32.0" />
                            </VBox.margin>
                         </Label>
-                        <HBox prefHeight="32.0" prefWidth="100.0">
+                        <VBox>
                            <children>
-                              <Label text="Numbers - Beginner" />
+                              <HBox prefHeight="32.0" prefWidth="186.0">
+                                 <children>
+                                    <VBox HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label id="progress-numbers" text="Numbers - Beginner" />
+                                          <Label id="progress-numbers" text="Numbers - Intermediate" />
+                                          <Label id="progress-numbers" text="Numbers - Advanced" />
+                                          <Label id="progress-numbers" text="Ciphers - Beginner" />
+                                          <Label id="progress-numbers" text="Ciphers - Intermediate" />
+                                          <Label id="progress-numbers" text="Ciphers - Advanced" />
+                                          <Label id="progress-numbers" text="Transistors - Beginner" />
+                                          <Label id="progress-numbers" text="Transistors - Intermediate" />
+                                          <Label id="progress-numbers" text="Transistors - Advanced" />
+                                          <Label id="progress-numbers" text="Escape Room" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label id="completion-numbers" text="Not Completed" />
+                                          <Label id="completion-numbers" text="Not Completed" />
+                                          <Label id="completion-numbers" text="Not Completed" />
+                                          <Label id="completion-numbers" text="Not Completed" />
+                                          <Label id="completion-numbers" text="Not Completed" />
+                                          <Label id="completion-numbers" text="Not Completed" />
+                                          <Label id="completion-numbers" text="Not Completed" />
+                                          <Label id="completion-numbers" text="Not Completed" />
+                                          <Label id="completion-numbers" text="Not Completed" />
+                                          <Label id="completion-numbers" text="Not Completed" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets right="24.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                              </HBox>
                            </children>
-                        </HBox>
-                        <HBox prefHeight="32.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Numbers - Intermediate" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="32.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Numbers - Advanced" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="32.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Ciphers - Beginner" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="32.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Ciphers - Intermiediate" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="32.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Ciphers - Advanced" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="32.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Transistors - Beginner" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="32.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Transistors - Intermediate" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="32.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Transistors - Advanced" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="32.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Functions - Beginner" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="32.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Functions - Intermediate" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="32.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Functions - Advanced" />
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="32.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Escape Room" />
-                           </children>
-                        </HBox>
+                        </VBox>
                      </children>
                      <padding>
                         <Insets left="16.0" />
@@ -158,7 +129,7 @@
                                        <children>
                                           <HBox prefHeight="930.0" prefWidth="1526.0">
                                              <children>
-                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="763.0">
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="1280.0">
                                                    <children>
                                                       <Label id="tab-panel-label" text="Numbers">
                                                          <VBox.margin>
@@ -171,11 +142,26 @@
                                                 </VBox>
                                                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="763.0">
                                                    <children>
-                                                      <Button fx:id="numbersButtonBeginner" mnemonicParsing="false" onAction="#goToNumbersBeginner" text="Beginner" />
-                                                      <Button fx:id="numbersButtonIntermediate" mnemonicParsing="false" onAction="#goToNumbersIntermediate" text="Intermediate" />
-                                                      <Button fx:id="numbersButtonAdvanced" mnemonicParsing="false" onAction="#goToNumbersAdvanced" text="Advanced" />
-                                                      <Button fx:id="buttonBinaryConverter" mnemonicParsing="false" onAction="#goToBinaryConverter" text="Sandbox" />
+                                                      <Button id="exercises-button" fx:id="numbersButtonBeginner" mnemonicParsing="false" onAction="#goToNumbersBeginner" prefWidth="200.0" text="Beginner">
+                                                         <VBox.margin>
+                                                            <Insets bottom="32.0" />
+                                                         </VBox.margin></Button>
+                                                      <Button id="exercises-button" fx:id="numbersButtonIntermediate" mnemonicParsing="false" onAction="#goToNumbersIntermediate" prefWidth="200.0" text="Intermediate">
+                                                         <VBox.margin>
+                                                            <Insets bottom="32.0" />
+                                                         </VBox.margin></Button>
+                                                      <Button id="exercises-button" fx:id="numbersButtonAdvanced" mnemonicParsing="false" onAction="#goToNumbersAdvanced" prefWidth="200.0" text="Advanced">
+                                                         <VBox.margin>
+                                                            <Insets bottom="32.0" />
+                                                         </VBox.margin></Button>
+                                                      <Button id="exercises-button" fx:id="buttonBinaryConverter" mnemonicParsing="false" onAction="#goToBinaryConverter" prefWidth="200.0" text="Sandbox">
+                                                         <VBox.margin>
+                                                            <Insets />
+                                                         </VBox.margin></Button>
                                                    </children>
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
                                                 </VBox>
                                              </children>
                                           </HBox>
@@ -189,7 +175,7 @@
                                        <children>
                                           <HBox prefHeight="930.0" prefWidth="1527.0">
                                              <children>
-                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="763.0">
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="1280.0">
                                                    <children>
                                                       <Label id="tab-panel-label" text="Cryptography">
                                                          <VBox.margin>
@@ -203,10 +189,19 @@
                                                 </VBox>
                                                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="763.0">
                                                    <children>
-                                                      <Button fx:id="cipherButtonBeginner" mnemonicParsing="false" onAction="#goToCiphersBeginner" text="Beginner" />
-                                                      <Button fx:id="cipherButtonIntermediate" mnemonicParsing="false" onAction="#goToCiphersIntermediate" text="Intermediate" />
-                                                      <Button fx:id="cipherButtonAdvanced" mnemonicParsing="false" onAction="#goToCiphersAdvanced" text="Advanced" />
-                                                      <Button fx:id="buttonCiphers" mnemonicParsing="false" onAction="#goToCiphers" text="Sandbox" />
+                                                      <Button id="exercises-button" fx:id="cipherButtonBeginner" mnemonicParsing="false" onAction="#goToCiphersBeginner" prefWidth="200.0" text="Beginner">
+                                                         <VBox.margin>
+                                                            <Insets bottom="32.0" />
+                                                         </VBox.margin></Button>
+                                                      <Button id="exercises-button" fx:id="cipherButtonIntermediate" mnemonicParsing="false" onAction="#goToCiphersIntermediate" prefWidth="200.0" text="Intermediate">
+                                                         <VBox.margin>
+                                                            <Insets bottom="32.0" />
+                                                         </VBox.margin></Button>
+                                                      <Button id="exercises-button" fx:id="cipherButtonAdvanced" mnemonicParsing="false" onAction="#goToCiphersAdvanced" prefWidth="200.0" text="Advanced">
+                                                         <VBox.margin>
+                                                            <Insets bottom="32.0" />
+                                                         </VBox.margin></Button>
+                                                      <Button id="exercises-button" fx:id="buttonCiphers" mnemonicParsing="false" onAction="#goToCiphers" prefWidth="200.0" text="Sandbox" />
                                                    </children>
                                                 </VBox>
                                              </children>
@@ -220,7 +215,7 @@
                                        <children>
                                           <HBox prefHeight="930.0" prefWidth="1528.0">
                                              <children>
-                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="763.0">
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="1280.0">
                                                    <children>
                                                       <Label id="tab-panel-label" text="Transistors">
                                                          <VBox.margin>
@@ -234,41 +229,19 @@
                                                 </VBox>
                                                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="763.0">
                                                    <children>
-                                                      <Button fx:id="transistorsButtonBeginner" mnemonicParsing="false" onAction="#goToTransistorsBeginner" text="Beginner" />
-                                                      <Button fx:id="transistorsButtonIntermediate" mnemonicParsing="false" onAction="#goToTransistorsIntermediate" text="Intermediate" />
-                                                      <Button fx:id="transistorsButtonAdvanced" mnemonicParsing="false" onAction="#goToTransistorsAdvanced" text="Advanced" />
-                                                      <Button fx:id="buttonTestTransistorExercise" mnemonicParsing="false" onAction="#goToTestScene" text="Sandbox" />
-                                                   </children>
-                                                </VBox>
-                                             </children>
-                                          </HBox>
-                                       </children></AnchorPane>
-                                </content>
-                              </Tab>
-                              <Tab id="exercises-tab" text="Functions">
-                                <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                       <children>
-                                          <HBox prefHeight="931.0" prefWidth="1526.0">
-                                             <children>
-                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="763.0">
-                                                   <children>
-                                                      <Label id="tab-panel-label" text="Functions">
+                                                      <Button id="exercises-button" fx:id="transistorsButtonBeginner" mnemonicParsing="false" onAction="#goToTransistorsBeginner" prefWidth="200.0" text="Beginner">
                                                          <VBox.margin>
-                                                            <Insets bottom="128.0" top="128.0" />
-                                                         </VBox.margin>
-                                                      </Label>
-                                                      <Label text="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
-                                                      <Label text="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-                                                      <Label text="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
-                                                   </children>
-                                                </VBox>
-                                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="763.0">
-                                                   <children>
-                                                      <Button fx:id="functionsButtonBeginner" mnemonicParsing="false" onAction="#goToFunctionsBeginner" text="Beginner" />
-                                                      <Button fx:id="functionsButtonIntermediate" mnemonicParsing="false" onAction="#goToFunctionsIntermediate" text="Intermediate" />
-                                                      <Button fx:id="functionsButtonAdvanced" mnemonicParsing="false" onAction="#goToFunctionsAdvanced" text="Advanced" />
-                                                      <Button fx:id="functionsButtonSandbox" mnemonicParsing="false" onAction="#goToFunctions" text="Sandbox" />
+                                                            <Insets bottom="32.0" />
+                                                         </VBox.margin></Button>
+                                                      <Button id="exercises-button" fx:id="transistorsButtonIntermediate" mnemonicParsing="false" onAction="#goToTransistorsIntermediate" prefWidth="200.0" text="Intermediate">
+                                                         <VBox.margin>
+                                                            <Insets bottom="32.0" />
+                                                         </VBox.margin></Button>
+                                                      <Button id="exercises-button" fx:id="transistorsButtonAdvanced" mnemonicParsing="false" onAction="#goToTransistorsAdvanced" prefWidth="200.0" text="Advanced">
+                                                         <VBox.margin>
+                                                            <Insets bottom="32.0" />
+                                                         </VBox.margin></Button>
+                                                      <Button id="exercises-button" fx:id="buttonTestTransistorExercise" mnemonicParsing="false" onAction="#goToTestScene" prefWidth="200.0" text="Sandbox" />
                                                    </children>
                                                 </VBox>
                                              </children>
@@ -282,7 +255,7 @@
                                        <children>
                                           <HBox prefHeight="931.0" prefWidth="1526.0">
                                              <children>
-                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="763.0">
+                                                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="1280.0">
                                                    <children>
                                                       <Label id="tab-panel-label" text="Escape Room">
                                                          <VBox.margin>
@@ -296,7 +269,7 @@
                                                 </VBox>
                                                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="763.0">
                                                    <children>
-                                                      <Button fx:id="buttonEscapeRoom" mnemonicParsing="false" onAction="#goToEscapeRoom" text="Escape Room" />
+                                                      <Button id="exercises-button" fx:id="buttonEscapeRoom" mnemonicParsing="false" onAction="#goToEscapeRoom" prefWidth="200.0" text="Escape Room" />
                                                    </children>
                                                 </VBox>
                                              </children>

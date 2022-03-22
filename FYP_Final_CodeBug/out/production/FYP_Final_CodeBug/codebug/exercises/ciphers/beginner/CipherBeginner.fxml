@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../../generic.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebug.exercises.ciphers.beginner.CipherBeginnerController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebug.exercises.ciphers.beginner.CipherBeginnerController">
    <top>
       <AnchorPane id="top-anchor-pane" prefHeight="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -23,12 +31,9 @@
                     <menus>
                       <Menu mnemonicParsing="false" text="File">
                         <items>
-                          <MenuItem mnemonicParsing="false" text="Close" />
-                        </items>
-                      </Menu>
-                      <Menu mnemonicParsing="false" text="Edit">
-                        <items>
-                          <MenuItem mnemonicParsing="false" text="Delete" />
+                              <MenuItem mnemonicParsing="false" text="Preferences" />
+                          <MenuItem mnemonicParsing="false" text="Logout" />
+                              <MenuItem mnemonicParsing="false" text="Exit" />
                         </items>
                       </Menu>
                       <Menu mnemonicParsing="false" text="Help">
@@ -59,6 +64,278 @@
       </AnchorPane>
    </top>
    <cursor>
-      <Cursor fx:constant="S_RESIZE" />
+      <Cursor fx:constant="DEFAULT" />
    </cursor>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+         <children>
+            <TabPane id="tabpane-cipher" minWidth="500.0" prefHeight="977.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="40.0" tabMinHeight="40.0">
+              <tabs>
+                <Tab id="cipher-tab" closable="false" text="Caesar Cipher">
+                     <content>
+                        <VBox prefHeight="909.0" prefWidth="496.0">
+                           <children>
+                              <Label id="cipher-left-label" text="Text to Encrypt">
+                                 <VBox.margin>
+                                    <Insets top="32.0" />
+                                 </VBox.margin></Label>
+                              <TextField id="textfield-cipher-answer" fx:id="caesarEncryptField">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin></TextField>
+                              <Button id="button-cipher-answer" fx:id="caesarEncryptButton" mnemonicParsing="false" onAction="#encryptCaesar" text="ENCRYPT">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Label id="cipher-left-label" text="Encrypted Text">
+                                 <VBox.margin>
+                                    <Insets top="16.0" />
+                                 </VBox.margin></Label>
+                              <TextField id="textfield-cipher-answer" fx:id="caesarEncryptedText">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin></TextField>
+                              <Label id="cipher-left-label" text="Text to Decrypt">
+                                 <VBox.margin>
+                                    <Insets top="32.0" />
+                                 </VBox.margin></Label>
+                              <TextField id="textfield-cipher-answer" fx:id="caesarDecryptField">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin></TextField>
+                              <Button id="button-cipher-answer" fx:id="caesarDecryptButton" mnemonicParsing="false" onAction="#decryptCaesar" text="DECRYPT">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Label id="cipher-left-label" text="Decrypted Text">
+                                 <VBox.margin>
+                                    <Insets top="16.0" />
+                                 </VBox.margin></Label>
+                              <TextField id="textfield-cipher-answer" fx:id="caesarDecryptedText">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin></TextField>
+                           </children>
+                           <padding>
+                              <Insets left="16.0" right="16.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                </Tab>
+                <Tab id="cipher-tab" closable="false" text="Vigenere Cipher">
+                     <content>
+                        <VBox minWidth="300.0" prefHeight="200.0" prefWidth="300.0">
+                           <children>
+                              <Label id="cipher-left-label" text="Text to Encrypt">
+                                 <VBox.margin>
+                                    <Insets top="32.0" />
+                                 </VBox.margin></Label>
+                              <TextField id="textfield-cipher-answer" fx:id="vigenereEncryptField">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin></TextField>
+                              <Label id="cipher-left-label" text="Keyword">
+                                 <VBox.margin>
+                                    <Insets top="16.0" />
+                                 </VBox.margin></Label>
+                              <TextField id="textfield-cipher-answer" fx:id="vigenereEncryptKeyword">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin></TextField>
+                              <Button id="button-cipher-answer" fx:id="vigenereEncryptButton" mnemonicParsing="false" onAction="#encryptVigenere" text="ENCRYPT">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin></Button>
+                              <Label id="cipher-left-label" text="Encrypted Text">
+                                 <VBox.margin>
+                                    <Insets top="16.0" />
+                                 </VBox.margin></Label>
+                              <TextField id="textfield-cipher-answer" fx:id="vigenereEncryptedText">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin></TextField>
+                              <Label id="cipher-left-label" text="Text to Decrypt">
+                                 <VBox.margin>
+                                    <Insets top="32.0" />
+                                 </VBox.margin></Label>
+                              <TextField id="textfield-cipher-answer" fx:id="vigenereDecryptField">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin></TextField>
+                              <Label id="cipher-left-label" text="Keyword">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin></Label>
+                              <TextField id="textfield-cipher-answer" fx:id="vigenereDecryptKeyword">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin></TextField>
+                              <Button id="button-cipher-answer" fx:id="vigenereDecryptButton" mnemonicParsing="false" onAction="#decryptVigenere" text="DECRYPT">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin></Button>
+                              <Label id="cipher-left-label" text="Decrypted Text">
+                                 <VBox.margin>
+                                    <Insets top="16.0" />
+                                 </VBox.margin></Label>
+                              <TextField id="textfield-cipher-answer" fx:id="vigenereDecryptedText">
+                                 <VBox.margin>
+                                    <Insets top="8.0" />
+                                 </VBox.margin></TextField>
+                           </children>
+                           <padding>
+                              <Insets left="16.0" right="16.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <GridPane id="gridpane-cipher" alignment="CENTER" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="100.0" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="260.0" minHeight="10.0" prefHeight="260.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="260.0" minHeight="10.0" prefHeight="260.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="260.0" minHeight="10.0" prefHeight="260.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="140.0" prefHeight="140.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label id="cipher-exercise-header" text="Ciphers - Beginner" GridPane.columnSpan="3" GridPane.halignment="CENTER" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+               <children>
+                  <Label id="cipher-question-label" text="Encrypt this sentence using the Caesar Cipher" />
+                  <VBox id="vbox-paper" alignment="CENTER" prefHeight="200.0">
+                     <children>
+                        <Label id="question-label" fx:id="labelQuestion1a" text="You can find the hidden package" />
+                        <Label id="question-label" fx:id="labelQuestion1b" text="in the storage locker" />
+                        <Label id="question-label" fx:id="labelQuestion1c" text="at the train station" />
+                     </children>
+                  </VBox>
+               </children>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <TextField id="textfield-cipher-answer" fx:id="textFieldAnswer1" />
+                  <Button id="button-cipher-answer" fx:id="buttonQuestion1" mnemonicParsing="false" onAction="#question1" text="CHECK ANSWER">
+                     <VBox.margin>
+                        <Insets top="32.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+               <children>
+                  <Label id="cipher-question-label" text="Decrypt this sentence using the Caesar Cipher" />
+                  <VBox id="vbox-paper" alignment="CENTER" prefHeight="200.0">
+                     <children>
+                        <Label id="question-label" fx:id="labelQuestion2a" text="WKH VHFUHW SDVVZRUG" />
+                        <Label id="question-label" fx:id="labelQuestion2b" text="LV RSHQVHVDPH" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <TextField id="textfield-cipher-answer" fx:id="textFieldAnswer2" />
+                  <Button id="button-cipher-answer" fx:id="buttonQuestion2" mnemonicParsing="false" onAction="#question2" text="CHECK ANSWER">
+                     <VBox.margin>
+                        <Insets top="32.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
+               <children>
+                  <Label id="cipher-question-label" text="Encrypt this sentence using the Vigenere Cipher and the keyword &quot;LEMON&quot;" />
+                  <VBox id="vbox-paper" alignment="CENTER" prefHeight="200.0">
+                     <children>
+                        <Label id="question-label" fx:id="labelQuestion3a" text="The secret password" />
+                        <Label id="question-label" fx:id="labelQuestion3b" text="is Open Sesame" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <TextField id="textfield-cipher-answer" fx:id="textFieldAnswer3" />
+                  <Button id="button-cipher-answer" fx:id="buttonQuestion3" mnemonicParsing="false" onAction="#question3" text="CHECK ANSWER">
+                     <VBox.margin>
+                        <Insets top="32.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <Label id="cipher-result" fx:id="result1" text="Waiting..." />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <children>
+                  <Label id="cipher-result" fx:id="result2" text="Waiting..." />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <children>
+                  <Label id="cipher-result" fx:id="result3" text="Waiting..." />
+               </children>
+            </HBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="4">
+               <children>
+                  <Button id="button-cipher-answer" disable="true" mnemonicParsing="false" text="Previous Exercise" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <children>
+                  <Button id="button-cipher-answer" fx:id="buttonExerciseMenu" mnemonicParsing="false" onAction="#backToExerciseMenu" text="Exercise Menu">
+                     <VBox.margin>
+                        <Insets right="256.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <children>
+                  <Button id="button-cipher-answer" fx:id="buttonNextExercise" mnemonicParsing="false" onAction="#nextExercise" text="Next Exercise">
+                     <VBox.margin>
+                        <Insets left="-128.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+   </center>
+   <stylesheets>
+      <URL value="@../../../generic.css" />
+      <URL value="@../ciphers.css" />
+   </stylesheets>
 </BorderPane>

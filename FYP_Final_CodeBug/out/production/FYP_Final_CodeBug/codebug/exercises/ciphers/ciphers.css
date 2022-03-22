@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Montserrat:wght@400;600;700&family=Poppins&family=Rajdhani:wght@400;700&family=Redressed&family=Special+Elite&family=Varela+Round&display=swap');
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #FFFFFF;
+}
+
+#cipher-tab {
+    -fx-background-color: #EADBCB;
+    -fx-background-insets: 0.0 0.0 0.0 4.0;
+    -fx-border-radius: 0px 12px 0px 0px;
+    -fx-background-radius: 12px 12px 0px 0px;
+    -fx-font-family: 'Special Elite', sans-serif;
+    -fx-font-size: 24px;
+}
+
+#cipher-tab:hover {
+    -fx-background-color: #C39A7F;
+}
+
+#cipher-tab:selected {
+    -fx-background-color: #DBB98C;
+}
+
+#tabpane-cipher {
+    -fx-background-color: #DBB98C;
+    -fx-border-color: #B47D37;
+    -fx-border-style: dashed;
+    -fx-border-width: 0 4 0 0;
+}
+
+#cipher-left-label {
+    -fx-font-family: 'Special Elite', sans-serif;
+    -fx-font-size: 24px;
+}
+
+#gridpane-cipher {
+    -fx-background-color: #FFFFFF;
+}
+
+#cipher-exercise-header {
+    -fx-font-family: 'Special Elite', sans-serif;
+    -fx-font-size: 48px;
+}
+
+#cipher-question-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+
+#vbox-paper {
+    -fx-background-image: url("cipher_paper.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 480 200;
+    -fx-background-position: center center;
+}
+
+#question-label {
+    -fx-font-family: 'Special Elite', sans-serif;
+    -fx-font-size: 18px;
+}
+
+#textfield-cipher-answer {
+    -fx-background-radius: 24px 24px 24px 24px;
+    -fx-border-radius: 16px 16px 16px 16px;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 4);
+}
+
+#button-cipher-answer {
+    -fx-background-color: #333333;
+    -fx-background-radius: 24px 24px 24px 24px;
+    -fx-border-radius: 16px 16px 16px 16px;
+    -fx-border-color: #BBBBBB;
+    -fx-border-width: 4;
+    -fx-font-family: 'Special Elite', sans-serif;
+    -fx-font-size: 18px;
+    -fx-text-fill: #FFFFFF;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 8);
+}
+
+#cipher-result {
+    -fx-font-family: 'Special Elite', sans-serif;
+    -fx-font-size: 24px;
+}

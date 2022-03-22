@@ -2,7 +2,31 @@
     -fx-background-color: #FFFFFF;
     -fx-border-style: solid;
     -fx-border-width: 0px 6px 0px 0px;
-    -fx-border-color: #FFC107;
+    -fx-border-color: #EC9706;
+}
+
+#exercises-progress-header {
+    -fx-text-fill: #2196F3;
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+}
+
+#progress-numbers {
+    -fx-text-fill: #2196F3;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px;
+    -fx-border-insets: 8px;
+    -fx-background-insets: 8px;
+}
+
+#completion-numbers {
+    -fx-text-fill: indianred;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px;
+    -fx-border-insets: 8px;
+    -fx-background-insets: 8px;
 }
 
 #vbox-exercises-learn-about {
@@ -20,7 +44,7 @@
 }
 
 #exercises-tab {
-    -fx-background-color: #FFC107;
+    -fx-background-color: #EC9706;
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 24px;
     -fx-font-weight: bold;
@@ -55,4 +79,15 @@
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 48px;
     -fx-font-weight: bold;
+}
+
+#exercises-button {
+    -fx-font-size: 20px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #EC9706;
+}
+
+#exercises-button:hover {
+    -fx-background-color: #C79100;
 }

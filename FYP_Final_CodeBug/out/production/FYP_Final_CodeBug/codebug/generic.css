@@ -1,5 +1,5 @@
 /* Style sheet for generic elements that remain the same across the entire application */
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Montserrat:wght@400;600;700&family=Poppins&family=Redressed&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Montserrat:wght@400;600;700&family=Poppins&family=Rajdhani&family=Redressed&family=Varela+Round&display=swap');
 
 .root {
     -fx-font-family: 'Montserrat', sans-serif;
@@ -9,7 +9,7 @@
     -fx-background-color: #2196F3;
     -fx-border-style: solid;
     -fx-border-width: 0px 0px 6px 0px;
-    -fx-border-color: #FFC107;
+    -fx-border-color: #EC9706;
 }
 
 #top-vbox {

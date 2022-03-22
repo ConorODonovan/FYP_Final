@@ -52,6 +52,7 @@ public class CiphersController {
 
     @FXML
     private void initialize() {
+        // Caesar Cipher field listeners
         textToEncrypt.textProperty().addListener((ov, oldValue, newValue) -> {
             textToEncrypt.setText(newValue.toUpperCase());
 
@@ -88,6 +89,79 @@ public class CiphersController {
 
         encryptedText.setEditable(false);
         decryptedText.setEditable(false);
+
+        // Vigenere Cipher field listeners
+        vigenereTextToEncrypt.textProperty().addListener((ov, oldValue, newValue) -> {
+            vigenereTextToEncrypt.setText(newValue.toUpperCase());
+
+            String allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+
+            for (int i = 0; i < vigenereTextToEncrypt.getText().length(); i++) {
+                char c = vigenereTextToEncrypt.getText().charAt(i);
+
+                // This doesn't work properly
+                if (allowedCharacters.indexOf(c) == -1) {
+                    vigenereTextToEncrypt.setText("" + vigenereTextToEncrypt.getText().substring(0, vigenereTextToEncrypt.getText().length() - 1));
+                    Shake shake = new Shake(vigenereTextToEncrypt);
+                    shake.play();
+                }
+            }
+        });
+
+        keywordEncrypt.textProperty().addListener((ov, oldValue, newValue) -> {
+            keywordEncrypt.setText(newValue.toUpperCase());
+
+            String allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+
+            for (int i = 0; i < keywordEncrypt.getText().length(); i++) {
+                char c = keywordEncrypt.getText().charAt(i);
+
+                // This doesn't work properly
+                if (allowedCharacters.indexOf(c) == -1) {
+                    keywordEncrypt.setText("" + keywordEncrypt.getText().substring(0, keywordEncrypt.getText().length() - 1));
+                    Shake shake = new Shake(keywordEncrypt);
+                    shake.play();
+                }
+            }
+        });
+
+        vigenereTextToDecrypt.textProperty().addListener((ov, oldValue, newValue) -> {
+            vigenereTextToDecrypt.setText(newValue.toUpperCase());
+
+            String allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+
+            for (int i = 0; i < vigenereTextToDecrypt.getText().length(); i++) {
+                char c = vigenereTextToDecrypt.getText().charAt(i);
+
+                // This doesn't work properly
+                if (allowedCharacters.indexOf(c) == -1) {
+                    vigenereTextToDecrypt.setText("" + vigenereTextToDecrypt.getText().substring(0, vigenereTextToDecrypt.getText().length() - 1));
+                    Shake shake = new Shake(vigenereTextToDecrypt);
+                    shake.play();
+                }
+            }
+        });
+
+        keywordDecrypt.textProperty().addListener((ov, oldValue, newValue) -> {
+            keywordDecrypt.setText(newValue.toUpperCase());
+
+            String allowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+
+            for (int i = 0; i < keywordDecrypt.getText().length(); i++) {
+                char c = keywordDecrypt.getText().charAt(i);
+
+                // This doesn't work properly
+                if (allowedCharacters.indexOf(c) == -1) {
+                    keywordDecrypt.setText("" + keywordDecrypt.getText().substring(0, keywordDecrypt.getText().length() - 1));
+                    Shake shake = new Shake(keywordDecrypt);
+                    shake.play();
+                }
+            }
+        });
+
+        vigenereEncryptedText.setEditable(false);
+        vigenereDecryptedText.setEditable(false);
+
     }
 
     // Return to main menu by clicking logo

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -9,64 +13,366 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebug.exercises.transistors.beginner.TransistorsBeginnerController">
-   <children>
-      <AnchorPane prefHeight="400.0" prefWidth="600.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebug.exercises.transistors.beginner.TransistorsBeginnerController">
+   <top>
+      <AnchorPane id="top-anchor-pane" prefHeight="100.0" BorderPane.alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="400.0" prefWidth="600.0">
+            <VBox id="top-vbox" prefHeight="100.0" prefWidth="1920.0">
                <children>
-                  <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../../generic.css">
-                     <top>
-                        <AnchorPane id="top-anchor-pane" prefHeight="100.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <VBox id="top-vbox" prefHeight="100.0" prefWidth="1920.0">
-                                 <children>
-                                    <MenuBar id="menu-bar">
-                                      <menus>
-                                        <Menu mnemonicParsing="false" text="File">
-                                          <items>
-                                            <MenuItem mnemonicParsing="false" text="Close" />
-                                          </items>
-                                        </Menu>
-                                        <Menu mnemonicParsing="false" text="Edit">
-                                          <items>
-                                            <MenuItem mnemonicParsing="false" text="Delete" />
-                                          </items>
-                                        </Menu>
-                                        <Menu mnemonicParsing="false" text="Help">
-                                          <items>
-                                            <MenuItem mnemonicParsing="false" text="About" />
-                                          </items>
-                                        </Menu>
-                                      </menus>
-                                    </MenuBar>
-                                    <HBox prefHeight="100.0" prefWidth="200.0">
-                                       <children>
-                                          <ImageView fx:id="logo" fitHeight="64.0" fitWidth="280.0" onMouseEntered="#goToMainMenu" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../../resources/logos/codebug_logo_fullsize.png" />
-                                             </image>
-                                             <HBox.margin>
-                                                <Insets left="12.0" top="5.0" />
-                                             </HBox.margin>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </ImageView>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
-                     </top>
-                  </BorderPane>
+                  <MenuBar id="menu-bar">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Preferences" />
+                              <MenuItem mnemonicParsing="false" text="Logout" />
+                              <MenuItem mnemonicParsing="false" text="Exit" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="About" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="logo" fitHeight="64.0" fitWidth="280.0" onMouseEntered="#goToMainMenu" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../resources/logos/codebug_logo_fullsize.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="12.0" top="5.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                  </HBox>
                </children>
-            </AnchorPane>
+            </VBox>
          </children>
       </AnchorPane>
-   </children>
-</AnchorPane>
+   </top>
+   <left>
+      <VBox id="transistors-vbox-left" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label id="transistors-left-header" text="Logic Gates">
+               <VBox.margin>
+                  <Insets top="32.0" />
+               </VBox.margin></Label>
+            <Label id="transistors-left-subheader" text="Hover for more info">
+               <VBox.margin>
+                  <Insets top="24.0" />
+               </VBox.margin></Label>
+            <StackPane id="transistors-left-icon-background" fx:id="stackPaneAND">
+               <children>
+                  <ImageView id="transistors-left-icon" fx:id="logicGateIconAND" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/transistors/AND.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets left="110.0" right="110.0" top="24.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="8.0" />
+               </padding>
+            </StackPane>
+            <StackPane id="transistors-left-icon-background" fx:id="stackPaneOR">
+               <children>
+                  <ImageView id="transistors-left-icon" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/transistors/OR.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets left="110.0" right="110.0" top="24.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="8.0" />
+               </padding>
+            </StackPane>
+            <StackPane id="transistors-left-icon-background" fx:id="stackPaneNOT">
+               <children>
+                  <ImageView id="transistors-left-icon" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/transistors/NOT.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets left="110.0" right="110.0" top="24.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="8.0" />
+               </padding>
+            </StackPane>
+            <StackPane id="transistors-left-icon-background" fx:id="stackPaneNAND">
+               <children>
+                  <ImageView id="transistors-left-icon" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/transistors/NAND.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets left="110.0" right="110.0" top="24.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="8.0" />
+               </padding>
+            </StackPane>
+            <StackPane id="transistors-left-icon-background" fx:id="stackPaneNOR">
+               <children>
+                  <ImageView id="transistors-left-icon" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/transistors/NOR.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets left="110.0" right="110.0" top="24.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="8.0" />
+               </padding>
+            </StackPane>
+            <StackPane id="transistors-left-icon-background" fx:id="stackPaneXOR">
+               <children>
+                  <ImageView id="transistors-left-icon" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/transistors/XOR.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets left="110.0" right="110.0" top="24.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="8.0" />
+               </padding>
+            </StackPane>
+            <StackPane id="transistors-left-icon-background" fx:id="stackPaneXNOR">
+               <children>
+                  <ImageView id="transistors-left-icon" fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/transistors/XNOR.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets left="110.0" right="110.0" top="24.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="8.0" />
+               </padding>
+            </StackPane>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <GridPane id="transistors-gridpane" alignment="CENTER" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="400.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="600.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="400.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="200.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="200.0" prefHeight="30.0" vgrow="NEVER" />
+          <RowConstraints minHeight="200.0" prefHeight="30.0" vgrow="NEVER" />
+          <RowConstraints minHeight="200.0" prefHeight="30.0" vgrow="NEVER" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox alignment="TOP_RIGHT" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <children>
+                  <Button id="transistors-button" disable="true" mnemonicParsing="false" text="Previous Exercise">
+                     <VBox.margin>
+                        <Insets top="32.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <children>
+                  <Button id="transistors-button" mnemonicParsing="false" text="Exercises Menu">
+                     <VBox.margin>
+                        <Insets top="32.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+               <children>
+                  <Button id="transistors-button" mnemonicParsing="false" text="Next Exercise">
+                     <VBox.margin>
+                        <Insets top="32.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+            <AnchorPane maxHeight="200.0" minHeight="200.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/transistors/Transistor_OFF.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/transistors/Transistor_OFF.png" />
+                     </image>
+                  </ImageView>
+                  <Line endX="100.0" layoutX="230.0" layoutY="140.0" startX="-100.0" />
+                  <Line endX="100.0" layoutX="230.0" layoutY="60.0" startX="-100.0" />
+                  <Line endX="20.0" endY="80.0" layoutX="310.0" layoutY="60.0" startX="20.0" />
+                  <Line fx:id="lineMiddleLeft1" endX="95.0" layoutX="305.0" layoutY="100.0" startX="27.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Line endX="220.0" layoutY="100.0" />
+                  <Line endX="320.0" layoutX="200.0" layoutY="100.0" startX="100.0" />
+                  <Button id="transistors-button" fx:id="checkAnswerButton1" layoutX="170.0" layoutY="150.0" mnemonicParsing="false" onAction="#checkAnswer1" text="Check Answer">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <ComboBox id="transistors-dropdown" fx:id="answer1" layoutX="210.0" layoutY="70.0" prefHeight="64.0" prefWidth="100.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="170.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/transistors/Transistor_ON.png" />
+                     </image>
+                  </ImageView>
+                  <Line endX="70.0" layoutX="100.0" layoutY="100.0" startX="-100.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane maxHeight="200.0" minHeight="200.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+               <children>
+                  <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/transistors/Transistor_OFF.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/transistors/Transistor_ON.png" />
+                     </image>
+                  </ImageView>
+                  <Line endX="100.0" layoutX="230.0" layoutY="140.0" startX="-100.0" />
+                  <Line endX="100.0" layoutX="230.0" layoutY="60.0" startX="-100.0" />
+                  <Line endX="20.0" endY="80.0" layoutX="310.0" layoutY="60.0" startX="20.0" />
+                  <Line fx:id="lineMiddleLeft2" endX="100.0" layoutX="305.0" layoutY="100.0" startX="27.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Line endX="220.0" layoutY="100.0" />
+                  <Line endX="320.0" layoutX="200.0" layoutY="100.0" startX="100.0" />
+                  <Button id="transistors-button" fx:id="checkAnswerButton2" layoutX="170.0" layoutY="150.0" mnemonicParsing="false" onAction="#checkAnswer2" text="Check Answer">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <ComboBox id="transistors-dropdown" fx:id="answer2" layoutX="210.0" layoutY="70.0" prefHeight="64.0" prefWidth="100.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <children>
+                  <Line endX="70.0" layoutX="100.0" layoutY="100.0" startX="-100.0" />
+                  <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="170.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/transistors/Transistor_ON.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane maxHeight="200.0" minHeight="200.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+               <children>
+                  <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/transistors/Transistor_ON.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="64.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/transistors/Transistor_ON.png" />
+                     </image>
+                  </ImageView>
+                  <Line endX="100.0" layoutX="230.0" layoutY="140.0" startX="-100.0" />
+                  <Line endX="100.0" layoutX="230.0" layoutY="60.0" startX="-100.0" />
+                  <Line endX="20.0" endY="80.0" layoutX="310.0" layoutY="60.0" startX="20.0" />
+                  <Line fx:id="lineMiddleLeft3" endX="100.0" layoutX="305.0" layoutY="100.0" startX="27.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <Line endX="320.0" layoutX="200.0" layoutY="100.0" startX="100.0" />
+                  <Line endX="220.0" layoutY="100.0" />
+                  <Button id="transistors-button" fx:id="checkAnswerButton3" layoutX="170.0" layoutY="150.0" mnemonicParsing="false" onAction="#checkAnswer3" text="Check Answer">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <ComboBox id="transistors-dropdown" fx:id="answer3" layoutX="210.0" layoutY="70.0" prefHeight="64.0" prefWidth="100.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <children>
+                  <Line endX="70.0" layoutX="100.0" layoutY="100.0" startX="-100.0" />
+                  <ImageView fitHeight="64.0" fitWidth="64.0" layoutX="170.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../resources/transistors/Transistor_OFF.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <children>
+                  <Label id="label-result" fx:id="result1" text="Waiting..." />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <children>
+                  <Label id="label-result" fx:id="result2" text="Waiting..." />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <children>
+                  <Label id="label-result" fx:id="result3" text="Waiting..." />
+               </children>
+            </HBox>
+            <VBox alignment="CENTER" GridPane.columnSpan="4">
+               <children>
+                  <Label id="transistors-header" alignment="CENTER" text="Transistors Exercise - Beginner" />
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+   </center>
+   <stylesheets>
+      <URL value="@../../../generic.css" />
+      <URL value="@../transistors.css" />
+   </stylesheets>
+</BorderPane>

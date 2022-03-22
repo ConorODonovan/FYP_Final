@@ -2,21 +2,36 @@
   <dictionary name="Conor">
     <words>
       <w>abcdefghijklmnopqrstuvwxyz</w>
+      <w>bbbbbb</w>
       <w>binaryconverter</w>
       <w>binaryconvertor</w>
       <w>borderpane</w>
       <w>codebug</w>
       <w>connectable</w>
       <w>coords</w>
+      <w>dropshadow</w>
+      <w>eadbcb</w>
+      <w>eeeeee</w>
+      <w>escaperoom</w>
       <w>ffea</w>
       <w>ffffff</w>
       <w>gameengine</w>
+      <w>gridpane</w>
+      <w>indianred</w>
       <w>lightblue</w>
       <w>logicgateicons</w>
+      <w>nand</w>
+      <w>nums</w>
+      <w>rajdhani</w>
+      <w>subheader</w>
+      <w>tabpane</w>
       <w>tada</w>
+      <w>textfield</w>
       <w>textfields</w>
+      <w>varela</w>
       <w>vbox</w>
       <w>vigenere</w>
+      <w>xnor</w>
     </words>
   </dictionary>
 </component>

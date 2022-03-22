@@ -80,29 +80,29 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/codebug/exercises/transistors" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Dropbox\Dropbox\College\Year 4\Final Year Project\Project\FYP_Final_CodeBug\src\codebug\exercises\transistors" />
+      <recent name="F:\Dropbox\Dropbox\College\Year 4\Final Year Project\Project\FYP_Final_CodeBug\src\codebug\resources\backgrounds" />
+      <recent name="F:\Dropbox\Dropbox\College\Year 4\Final Year Project\Project\FYP_Final_CodeBug\src\codebug\exercises\ciphers" />
+      <recent name="F:\Dropbox\Dropbox\College\Year 4\Final Year Project\Project\FYP_Final_CodeBug\src\codebug\resources\menuicons" />
+      <recent name="F:\Dropbox\Dropbox\College\Year 4\Final Year Project\Project\FYP_Final_CodeBug\src\codebug\resources\logos" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="codebug.exercises.transistors" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Dropbox\Dropbox\College\Year 4\Final Year Project\Project\FYP_Final_CodeBug\src\codebug\exercises\ciphers\beginner" />
       <recent name="F:\Dropbox\Dropbox\College\Year 4\Final Year Project\Project\FYP_Final_CodeBug\src\codebug\exercises\binaryconverter\intermediate" />
       <recent name="F:\Dropbox\Dropbox\College\Year 4\Final Year Project\Project\FYP_Final_CodeBug\src\codebug\exercises\binaryconverter\beginner" />
       <recent name="F:\Dropbox\Dropbox\College\Year 4\Final Year Project\Project\FYP_Final_CodeBug\src\codebug\exercises\transistors" />
       <recent name="F:\Dropbox\Dropbox\College\Year 4\Final Year Project\Project\FYP_Final_CodeBug\src\codebug\exercises\binaryconverter" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="codebug.exercises.transistors" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\Dropbox\Dropbox\College\Year 4\Final Year Project\Project\FYP_Final_CodeBug\src\codebug\resources\menuicons" />
-      <recent name="F:\Dropbox\Dropbox\College\Year 4\Final Year Project\Project\FYP_Final_CodeBug\src\codebug\resources\backgrounds" />
-      <recent name="F:\Dropbox\Dropbox\College\Year 4\Final Year Project\Project\FYP_Final_CodeBug\src\codebug\resources\logos" />
-      <recent name="F:\Dropbox\Dropbox\College\Year 4\Final Year Project\Project\FYP_Final_CodeBug\src\codebug\exercises\transistors" />
-      <recent name="F:\Dropbox\Dropbox\College\Year 4\Final Year Project\Project\FYP_Final_CodeBug\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -205,6 +205,9 @@
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="1302000" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />

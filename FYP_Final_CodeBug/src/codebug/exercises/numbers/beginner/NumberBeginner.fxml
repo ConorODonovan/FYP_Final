@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -18,7 +19,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../../../generic.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebug.exercises.numbers.beginner.NumberBeginnerController">
+<BorderPane id="borderpane-main" fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebug.exercises.numbers.beginner.NumberBeginnerController">
    <top>
       <AnchorPane id="top-anchor-pane" prefHeight="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -28,12 +29,9 @@
                     <menus>
                       <Menu mnemonicParsing="false" text="File">
                         <items>
-                          <MenuItem mnemonicParsing="false" text="Close" />
-                        </items>
-                      </Menu>
-                      <Menu mnemonicParsing="false" text="Edit">
-                        <items>
-                          <MenuItem mnemonicParsing="false" text="Delete" />
+                          <MenuItem mnemonicParsing="false" text="Preferences" />
+                              <MenuItem mnemonicParsing="false" text="Logout" />
+                              <MenuItem mnemonicParsing="false" text="Exit" />
                         </items>
                       </Menu>
                       <Menu mnemonicParsing="false" text="Help">
@@ -64,23 +62,56 @@
       </AnchorPane>
    </top>
    <left>
-      <VBox id="vbox-converter" prefHeight="200.0" prefWidth="300.0" stylesheets="@../numbers.css" BorderPane.alignment="CENTER">
+      <VBox id="vbox-converter" prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Converter" />
-            <Label text="Binary" />
-            <TextField fx:id="binFieldConverter" />
-            <Label text="Octal" />
-            <TextField fx:id="octFieldConverter" />
-            <Label text="Decimal" />
-            <TextField fx:id="decFieldConverter" />
-            <Label text="Hexadecimal" />
-            <TextField fx:id="hexFieldConverter" />
-            <Button fx:id="buttonClear" mnemonicParsing="false" onAction="#clearTextFields" text="Clear" />
+            <Label id="number-exercise-label-header" text="Converter">
+               <VBox.margin>
+                  <Insets left="32.0" top="32.0" />
+               </VBox.margin></Label>
+            <Label id="number-exercise-label" text="Binary">
+               <VBox.margin>
+                  <Insets left="32.0" top="32.0" />
+               </VBox.margin></Label>
+            <TextField id="number-exercise-textfield" fx:id="binFieldConverter">
+               <VBox.margin>
+                  <Insets left="32.0" right="32.0" />
+               </VBox.margin></TextField>
+            <Label id="number-exercise-label" text="Octal">
+               <VBox.margin>
+                  <Insets left="32.0" top="32.0" />
+               </VBox.margin></Label>
+            <TextField id="number-exercise-textfield" fx:id="octFieldConverter">
+               <VBox.margin>
+                  <Insets left="32.0" right="32.0" />
+               </VBox.margin></TextField>
+            <Label id="number-exercise-label" text="Decimal">
+               <VBox.margin>
+                  <Insets left="32.0" top="32.0" />
+               </VBox.margin></Label>
+            <TextField id="number-exercise-textfield" fx:id="decFieldConverter">
+               <VBox.margin>
+                  <Insets left="32.0" right="32.0" />
+               </VBox.margin></TextField>
+            <Label id="number-exercise-label" text="Hexadecimal">
+               <VBox.margin>
+                  <Insets left="32.0" top="32.0" />
+               </VBox.margin></Label>
+            <TextField id="number-exercise-textfield" fx:id="hexFieldConverter">
+               <VBox.margin>
+                  <Insets left="32.0" right="32.0" />
+               </VBox.margin></TextField>
+            <Button id="number-exercise-button" fx:id="buttonClear" mnemonicParsing="false" onAction="#clearTextFields" onMouseEntered="#buttonGlow" onMouseExited="#buttonNoGlow" text="CLEAR ALL">
+               <VBox.margin>
+                  <Insets left="32.0" top="48.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </VBox>
    </left>
    <center>
-      <GridPane alignment="CENTER" BorderPane.alignment="CENTER">
+      <GridPane id="numbers-gridpane" alignment="CENTER" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -94,74 +125,135 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Number Conversion - Beginner" GridPane.columnSpan="3" GridPane.halignment="CENTER" />
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+            <Label id="numbers-header-label" text="Number Conversion - Beginner" GridPane.columnSpan="3" GridPane.halignment="CENTER" />
+            <VBox id="numbers-vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                <children>
-                  <Label text="Convert from Decimal to Binary" />
-                  <Label fx:id="numToConvert1" text="27" />
+                  <Label id="number-label" text="Convert from Decimal to Binary" />
+                  <Label id="number-label-digits" fx:id="numToConvert1" text="27" />
                </children>
+               <GridPane.margin>
+                  <Insets bottom="96.0" left="96.0" />
+               </GridPane.margin>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+            <VBox id="numbers-vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
                <children>
-                  <Label text="Convert from Binary to Decimal" />
-                  <Label fx:id="numToConvert2" text="101010" />
+                  <Label id="number-label" text="Convert from Binary to Decimal" />
+                  <Label id="number-label-digits" fx:id="numToConvert2" text="101010" />
                </children>
+               <GridPane.margin>
+                  <Insets bottom="96.0" left="96.0" />
+               </GridPane.margin>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
+            <VBox id="numbers-vbox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
                <children>
-                  <Label text="Convert from Binary to Hexadecimal" />
-                  <Label fx:id="numToConvert3" text="11001010" />
+                  <Label id="number-label" text="Convert from Binary to Hexadecimal" />
+                  <Label id="number-label-digits" fx:id="numToConvert3" text="11001010" />
                </children>
+               <GridPane.margin>
+                  <Insets bottom="96.0" left="96.0" />
+               </GridPane.margin>
             </VBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <HBox id="numbers-vbox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <TextField fx:id="answer1" alignment="CENTER" focusTraversable="false" promptText="Answer" />
-                  <Button fx:id="submitAnswer1" mnemonicParsing="false" onAction="#checkAnswer1" text="Check Answer" />
+                  <TextField id="numbers-textfield" fx:id="answer1" alignment="CENTER" focusTraversable="false" maxHeight="-Infinity" prefHeight="60.0" promptText="Answer" />
+                  <Button id="numbers-button" fx:id="submitAnswer1" maxHeight="-Infinity" mnemonicParsing="false" onAction="#checkAnswer1" onMouseEntered="#answer1Glow" onMouseExited="#answer1NoGlow" prefHeight="60.0" text="Check Answer">
+                     <HBox.margin>
+                        <Insets left="-2.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
+               <GridPane.margin>
+                  <Insets bottom="96.0" />
+               </GridPane.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <HBox id="numbers-vbox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <TextField fx:id="answer2" alignment="CENTER" focusTraversable="false" promptText="Answer" />
-                  <Button fx:id="submitAnswer2" mnemonicParsing="false" onAction="#checkAnswer2" text="Check Answer" />
+                  <TextField id="numbers-textfield" fx:id="answer2" alignment="CENTER" focusTraversable="false" maxHeight="-Infinity" prefHeight="60.0" promptText="Answer" />
+                  <Button id="numbers-button" fx:id="submitAnswer2" maxHeight="-Infinity" mnemonicParsing="false" onAction="#checkAnswer2" onMouseEntered="#answer2Glow" onMouseExited="#answer2NoGlow" prefHeight="60.0" text="Check Answer">
+                     <HBox.margin>
+                        <Insets left="-2.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
+               <GridPane.margin>
+                  <Insets bottom="96.0" />
+               </GridPane.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <HBox id="numbers-vbox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <TextField fx:id="answer3" alignment="CENTER" focusTraversable="false" promptText="Answer" />
-                  <Button fx:id="submitAnswer3" mnemonicParsing="false" onAction="#checkAnswer3" text="Check Answer" />
+                  <TextField id="numbers-textfield" fx:id="answer3" alignment="CENTER" focusTraversable="false" maxHeight="-Infinity" prefHeight="60.0" promptText="Answer" />
+                  <Button id="numbers-button" fx:id="submitAnswer3" maxHeight="-Infinity" mnemonicParsing="false" onAction="#checkAnswer3" onMouseEntered="#answer3Glow" onMouseExited="#answer3NoGlow" prefHeight="60.0" text="Check Answer">
+                     <HBox.margin>
+                        <Insets left="-2.0" />
+                     </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
+               <GridPane.margin>
+                  <Insets bottom="96.0" />
+               </GridPane.margin>
             </HBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="4">
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="4">
                <children>
-                  <Button disable="true" mnemonicParsing="false" text="Previous Exercise" />
+                  <Button id="numbers-button" disable="true" mnemonicParsing="false" text="Previous Exercise">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin></Button>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
-                  <Button fx:id="backToExerciseMenu" mnemonicParsing="false" onAction="#backToExerciseMenu" text="Exercise Menu" />
+                  <Button id="numbers-button" fx:id="backToExerciseMenu" mnemonicParsing="false" onAction="#backToExerciseMenu" onMouseEntered="#buttonExerciseMenuGlow" onMouseExited="#buttonExerciseMenuNoGlow" text="Exercise Menu">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <children>
-                  <Button mnemonicParsing="false" text="Next Exercise" />
+                  <Button id="numbers-button" fx:id="nextExercise" mnemonicParsing="false" onAction="#nextExercise" onMouseEntered="#buttonNextExerciseGlow" onMouseExited="#buttonNextExerciseNoGlow" text="Next Exercise">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </VBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <HBox id="numbers-vbox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
-                  <Label fx:id="result1" text="Waiting" />
+                  <Label id="numbers-result" fx:id="result1" text="Waiting..." />
                </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets bottom="96.0" right="96.0" />
+               </GridPane.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <HBox id="numbers-vbox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <children>
-                  <Label fx:id="result2" text="Waiting" />
+                  <Label id="numbers-result" fx:id="result2" text="Waiting..." />
                </children>
+               <GridPane.margin>
+                  <Insets bottom="96.0" right="96.0" />
+               </GridPane.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <HBox id="numbers-vbox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <children>
-                  <Label fx:id="result3" text="Waiting" />
+                  <Label id="numbers-result" fx:id="result3" text="Waiting..." />
                </children>
+               <GridPane.margin>
+                  <Insets bottom="96.0" right="96.0" />
+               </GridPane.margin>
             </HBox>
          </children>
       </GridPane>
    </center>
+   <stylesheets>
+      <URL value="@../../../generic.css" />
+      <URL value="@../numbers.css" />
+   </stylesheets>
 </BorderPane>

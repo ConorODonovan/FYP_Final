@@ -32,7 +32,7 @@
     -fx-font-size: 20px;
     -fx-font-weight: 800;
     -fx-text-fill: #FFFFFF;
-    -fx-background-color: #FFC107;
+    -fx-background-color: #EC9706;
 }
 
 #button-login:hover {
@@ -51,13 +51,13 @@
 }
 
 #register-label {
-    -fx-text-fill: #FFC107;
+    -fx-text-fill: #EC9706;
     -fx-font-size: 72px;
     -fx-font-weight: bold;
 }
 
 #register-vbox {
-    -fx-background-color: #FFC107;
+    -fx-background-color: #EC9706;
     -fx-background-radius: 0px 16px 16px 16px;
     -fx-border-radius: 0px 16px 16px 16px;
 }

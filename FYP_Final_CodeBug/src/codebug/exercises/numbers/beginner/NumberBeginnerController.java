@@ -1,6 +1,6 @@
 package codebug.exercises.numbers.beginner;
 
-import animatefx.animation.Shake;
+import animatefx.animation.*;
 import codebug.exercises.numbers.NumberConversion;
 import codebug.exercises.numbers.RandomNumberGenerator;
 import javafx.event.ActionEvent;
@@ -12,11 +12,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class NumberBeginnerController {
@@ -41,8 +43,6 @@ public class NumberBeginnerController {
     @FXML
     Label numToConvert3;
     @FXML
-    Button backToExerciseMenu;
-    @FXML
     TextField answer1;
     @FXML
     TextField answer2;
@@ -62,7 +62,26 @@ public class NumberBeginnerController {
     Label result3;
 
     @FXML
+    Button backToExerciseMenu;
+    @FXML
+    Button nextExercise;
+
+    @FXML
     private void initialize() {
+
+        // TextField border glow effect
+        DropShadow borderGlow = new DropShadow();
+        borderGlow.setOffsetY(0f);
+        borderGlow.setOffsetX(0f);
+        borderGlow.setColor(Color.GREEN); // TODO Change this colour to match the other green
+        borderGlow.setWidth(30);
+        borderGlow.setHeight(30);
+
+        binFieldConverter.setEffect(borderGlow);
+        octFieldConverter.setEffect(borderGlow);
+        decFieldConverter.setEffect(borderGlow);
+        hexFieldConverter.setEffect(borderGlow);
+
         // Input validation for Binary TextField
         binFieldConverter.textProperty().addListener(e -> {
             for (int i = 0; i < binFieldConverter.getText().length(); i++) {
@@ -264,6 +283,110 @@ public class NumberBeginnerController {
         hexFieldConverter.clear();
     }
 
+    @FXML
+    public void buttonGlow() {
+        DropShadow borderGlow = new DropShadow();
+        borderGlow.setOffsetY(0f);
+        borderGlow.setOffsetX(0f);
+        borderGlow.setColor(Color.GREEN);
+        borderGlow.setWidth(30);
+        borderGlow.setHeight(30);
+        buttonClear.setEffect(borderGlow);
+    }
+
+    @FXML
+    public void buttonNoGlow() {
+        buttonClear.setEffect(null);
+    }
+
+    @FXML
+    public void answer1Glow() {
+        DropShadow borderGlow = new DropShadow();
+        borderGlow.setOffsetY(0f);
+        borderGlow.setOffsetX(0f);
+        borderGlow.setColor(Color.GREEN);
+        borderGlow.setWidth(30);
+        borderGlow.setHeight(30);
+        answer1.setEffect(borderGlow);
+        submitAnswer1.setEffect(borderGlow);
+    }
+
+    @FXML
+    public void answer1NoGlow() {
+        answer1.setEffect(null);
+        submitAnswer1.setEffect(null);
+    }
+
+    @FXML
+    public void answer2Glow() {
+        DropShadow borderGlow = new DropShadow();
+        borderGlow.setOffsetY(0f);
+        borderGlow.setOffsetX(0f);
+        borderGlow.setColor(Color.GREEN);
+        borderGlow.setWidth(30);
+        borderGlow.setHeight(30);
+        answer2.setEffect(borderGlow);
+        submitAnswer2.setEffect(borderGlow);
+    }
+
+    @FXML
+    public void answer2NoGlow() {
+        answer2.setEffect(null);
+        submitAnswer2.setEffect(null);
+    }
+
+    @FXML
+    public void answer3Glow() {
+        DropShadow borderGlow = new DropShadow();
+        borderGlow.setOffsetY(0f);
+        borderGlow.setOffsetX(0f);
+        borderGlow.setColor(Color.GREEN);
+        borderGlow.setWidth(30);
+        borderGlow.setHeight(30);
+        answer3.setEffect(borderGlow);
+        submitAnswer3.setEffect(borderGlow);
+    }
+
+    @FXML
+    public void answer3NoGlow() {
+        answer3.setEffect(null);
+        submitAnswer3.setEffect(null);
+    }
+
+    @FXML
+    public void buttonExerciseMenuGlow() {
+        DropShadow borderGlow = new DropShadow();
+        borderGlow.setOffsetY(0f);
+        borderGlow.setOffsetX(0f);
+        borderGlow.setColor(Color.GREEN);
+        borderGlow.setWidth(30);
+        borderGlow.setHeight(30);
+        backToExerciseMenu.setEffect(borderGlow);
+    }
+
+    @FXML
+    public void buttonExerciseMenuNoGlow() {
+        backToExerciseMenu.setEffect(null);
+    }
+
+    @FXML
+    public void buttonNextExerciseGlow() {
+        DropShadow borderGlow = new DropShadow();
+        borderGlow.setOffsetY(0f);
+        borderGlow.setOffsetX(0f);
+        borderGlow.setColor(Color.GREEN);
+        borderGlow.setWidth(30);
+        borderGlow.setHeight(30);
+        nextExercise.setEffect(borderGlow);
+        nextExercise.setEffect(borderGlow);
+    }
+
+    @FXML
+    public void buttonNextExerciseNoGlow() {
+        nextExercise.setEffect(null);
+        nextExercise.setEffect(null);
+    }
+
     // Random number generation
     @FXML
     private String generateRandomBin() {
@@ -289,10 +412,10 @@ public class NumberBeginnerController {
     public void checkAnswer1() {
         if (NumberConversion.convertBinToDec(answer1.getText()).equals(numToConvert1.getText())) {
             result1.setText("Correct!");
-            result1.setTextFill(Color.GREEN);
+            result1.setTextFill(Color.FORESTGREEN);
         } else {
             result1.setText("Incorrect!");
-            result1.setTextFill(Color.RED);
+            result1.setTextFill(Color.INDIANRED);
         }
     }
 
@@ -300,10 +423,10 @@ public class NumberBeginnerController {
     public void checkAnswer2() {
         if (NumberConversion.convertDecToBin(answer2.getText()).equals(numToConvert2.getText())) {
             result2.setText("Correct!");
-            result2.setTextFill(Color.GREEN);
+            result2.setTextFill(Color.FORESTGREEN);
         } else {
             result2.setText("Incorrect!");
-            result2.setTextFill(Color.RED);
+            result2.setTextFill(Color.INDIANRED);
         }
     }
 
@@ -311,16 +434,25 @@ public class NumberBeginnerController {
     public void checkAnswer3() {
         if (NumberConversion.convertHexToBin(answer3.getText()).equals(numToConvert3.getText())) {
             result3.setText("Correct!");
-            result3.setTextFill(Color.GREEN);
+            result3.setTextFill(Color.FORESTGREEN);
         } else {
             result3.setText("Incorrect!");
-            result3.setTextFill(Color.RED);
+            result3.setTextFill(Color.INDIANRED);
         }
     }
 
     @FXML
     public void backToExerciseMenu(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/Exercises.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, 1920, 1080);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void nextExercise(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/numbers/intermediate/NumberIntermediate.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, 1920, 1080);
         stage.setScene(scene);

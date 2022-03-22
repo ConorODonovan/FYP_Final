@@ -1,0 +1,57 @@
+#transistors-vbox-left {
+    -fx-background-color: #0165BC;
+}
+
+#transistors-left-header {
+    -fx-font-size: 32px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #C5F1F9;
+}
+
+#transistors-left-subheader {
+    -fx-font-size: 18px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #C5F1F9;
+}
+
+#transistors-left-icon-background {
+    -fx-background-color: #C5F1F9;
+    -fx-background-radius: 0px 16px 0px 16px;
+    -fx-border-radius: 16px 16px 16px 16px;
+}
+
+#transistors-gridpane {
+    -fx-background-image: url("circuit_board_background.png"); /*Point this to resources folder instead*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 1920;
+}
+
+#transistors-header {
+    -fx-font-size: 48px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #0165BC;
+}
+
+#transistors-dropdown {
+    -fx-background-color: #C5F1F9;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-color: #0165BC;
+}
+
+#transistors-button {
+    -fx-text-fill: #C5F1F9;
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+    -fx-background-color: #0165BC;
+}
+
+#transistors-button:hover {
+    -fx-background-color: #014372;
+}
+
+#label-result {
+    -fx-text-fill: #0165BC;
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+}

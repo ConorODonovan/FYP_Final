@@ -1,3 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Montserrat:wght@400;600;700&family=Poppins&family=Rajdhani:wght@400;700&family=Redressed&family=Varela+Round&display=swap');
+
+#numbers-gridpane {
+    -fx-background-image: url("numbers_background.png"); /*Point this to resources folder instead*/
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 1920;
+}
+
 #vbox-converter {
-    -fx-background-color: #2196F3;
+    -fx-background-color: #282A35;
+}
+
+#number-exercise-textfield {
+    -fx-font-family: 'Rajdhani', sans-serif;
+    -fx-border-style: solid;
+    -fx-border-width: 4px;
+    -fx-border-color: #04AA6B;
+    -fx-text-fill: #04AA6B;
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+    -fx-background-color: #282A35;
+}
+
+#number-exercise-label-header {
+    -fx-font-family: 'Rajdhani', sans-serif;
+    -fx-text-fill: #04AA6B;
+    -fx-font-size: 48px;
+}
+
+#number-exercise-label {
+    -fx-font-family: 'Rajdhani', sans-serif;
+    -fx-text-fill: #04AA6B;
+    -fx-font-size: 32px;
+}
+
+#number-exercise-button {
+    -fx-font-family: 'Rajdhani', sans-serif;
+    -fx-text-fill: #282A35;
+    -fx-font-size: 32px;
+    -fx-font-weight: 700;
+    -fx-background-color: #04AA6B;
+}
+
+#numbers-header-label {
+    -fx-font-family: 'Rajdhani', sans-serif;
+    -fx-text-fill: #282A35;
+    -fx-font-size: 48px;
+    -fx-font-weight: 700;
+}
+
+#numbers-vbox {
+    -fx-font-family: 'Rajdhani', sans-serif;
+    -fx-background-color: #282A35;
+}
+
+#number-label {
+    -fx-text-fill: #04AA6B;
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+}
+
+#number-label-long {
+    -fx-text-fill: #04AA6B;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+}
+
+#number-label-digits {
+    -fx-text-fill: #04AA6B;
+    -fx-font-size: 36px;
+    -fx-font-weight: 700;
+}
+
+#numbers-textfield {
+    -fx-font-family: 'Rajdhani', sans-serif;
+    -fx-border-style: solid;
+    -fx-border-width: 4px;
+    -fx-border-color: #04AA6B;
+    -fx-text-fill: #04AA6B;
+    -fx-font-size: 24px;
+    -fx-font-weight: 700;
+    -fx-background-color: #282A35;
+}
+
+#numbers-button {
+    -fx-font-family: 'Rajdhani', sans-serif;
+    -fx-text-fill: #282A35;
+    -fx-font-size: 24px;
+    -fx-font-weight: 700;
+    -fx-background-color: #04AA6B;
+    -fx-border-style: solid;
+    -fx-border-width: 4px;
+    -fx-border-color: #04AA6B;
+    -fx-background-insets: 0, 0, 0, 0;
+}
+
+#numbers-result {
+    -fx-font-family: 'Rajdhani', sans-serif;
+    -fx-text-fill: #04AA6B;
+    -fx-font-size: 24px;
+    -fx-font-weight: 700;
 }

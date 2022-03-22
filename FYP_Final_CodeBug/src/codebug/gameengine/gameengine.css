@@ -1,0 +1,5 @@
+#game-window {
+    -fx-border-style: solid;
+    -fx-border-width: 0px 6px 6px 6px;
+    -fx-border-color: #EC9706;
+}

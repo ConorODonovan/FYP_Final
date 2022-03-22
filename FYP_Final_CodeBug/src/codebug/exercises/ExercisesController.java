@@ -132,15 +132,6 @@ public class ExercisesController {
         stage.show();
     }
 
-    @FXML
-    public void goToFunctions(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/functions/FunctionsExercise.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root, 1920, 1080);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     // Numbers - go to exercises
     public void goToNumbersBeginner(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/numbers/beginner/NumberBeginner.fxml"));
@@ -210,31 +201,6 @@ public class ExercisesController {
 
     public void goToTransistorsAdvanced(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/transistors/advanced/TransistorsAdvanced.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root, 1920, 1080);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    // Functions - go to exercises
-    public void goToFunctionsBeginner(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/functions/beginner/FunctionsBeginner.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root, 1920, 1080);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void goToFunctionsIntermediate(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/functions/intermediate/FunctionsIntermediate.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root, 1920, 1080);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void goToFunctionsAdvanced(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/functions/advanced/FunctionsAdvanced.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, 1920, 1080);
         stage.setScene(scene);
