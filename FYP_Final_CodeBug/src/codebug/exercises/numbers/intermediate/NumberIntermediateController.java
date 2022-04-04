@@ -3,6 +3,7 @@ package codebug.exercises.numbers.intermediate;
 import animatefx.animation.Shake;
 import codebug.exercises.numbers.NumberConversion;
 import codebug.exercises.numbers.RandomNumberGenerator;
+import codebug.ui.TopMenuBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -92,6 +93,12 @@ public class NumberIntermediateController {
     Button buttonBackToMenu;
     @FXML
     Button buttonNextExercise;
+
+    // Top Menu Bar functionality
+    @FXML
+    public void openAboutWindow() throws Exception {
+        TopMenuBar.openAboutWindow();
+    }
 
     // Return to main menu by clicking logo
     // TODO

@@ -3,6 +3,7 @@ package codebug.exercises.ciphers.beginner;
 import animatefx.animation.Shake;
 import codebug.exercises.ciphers.CaesarCipher;
 import codebug.exercises.ciphers.VigenereCipher;
+import codebug.ui.TopMenuBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -221,6 +222,12 @@ public class CipherBeginnerController {
 
         vigenereEncryptedText.setEditable(false);
         vigenereDecryptedText.setEditable(false);
+    }
+
+    // Top Menu Bar functionality
+    @FXML
+    public void openAboutWindow() throws Exception {
+        TopMenuBar.openAboutWindow();
     }
 
     @FXML

@@ -36,7 +36,7 @@
                       </Menu>
                       <Menu fx:id="LoginMenuHelp" mnemonicParsing="false" text="Help">
                         <items>
-                          <MenuItem mnemonicParsing="false" text="About" />
+                          <MenuItem mnemonicParsing="false" onAction="#openAboutWindow" text="About" />
                         </items>
                       </Menu>
                     </menus>
@@ -142,7 +142,7 @@
                         </Label>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <children>
-                              <TextField id="password-field" alignment="CENTER" focusTraversable="false" promptText="Username" GridPane.rowIndex="1">
+                              <TextField id="password-field" fx:id="registerUsername" alignment="CENTER" focusTraversable="false" promptText="Username" GridPane.rowIndex="1">
                                  <HBox.margin>
                                     <Insets />
                                  </HBox.margin></TextField>
@@ -150,7 +150,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <children>
-                              <PasswordField id="password-field" alignment="CENTER" focusTraversable="false" promptText="Email Address" GridPane.rowIndex="1">
+                              <PasswordField id="password-field" fx:id="registerEmail" alignment="CENTER" focusTraversable="false" promptText="Email Address" GridPane.rowIndex="1">
                                  <HBox.margin>
                                     <Insets top="-8.0" />
                                  </HBox.margin></PasswordField>
@@ -158,7 +158,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <PasswordField id="password-field" alignment="CENTER" promptText="Password">
+                              <PasswordField id="password-field" fx:id="registerPassword" alignment="CENTER" promptText="Password">
                                  <HBox.margin>
                                     <Insets top="-16.0" />
                                  </HBox.margin>
@@ -167,14 +167,14 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <PasswordField id="password-field" alignment="CENTER" promptText="Confirm Password">
+                              <PasswordField id="password-field" fx:id="registerConfirmPassword" alignment="CENTER" promptText="Confirm Password">
                                  <HBox.margin>
                                     <Insets top="-24.0" />
                                  </HBox.margin>
                               </PasswordField>
                            </children>
                         </HBox>
-                        <Button id="button-register" contentDisplay="CENTER" mnemonicParsing="false" text="REGISTER" GridPane.rowIndex="1">
+                        <Button id="button-register" fx:id="buttonRegister" contentDisplay="CENTER" mnemonicParsing="false" onAction="#userRegistration" text="REGISTER" GridPane.rowIndex="1">
                            <VBox.margin>
                               <Insets bottom="32.0" />
                            </VBox.margin>

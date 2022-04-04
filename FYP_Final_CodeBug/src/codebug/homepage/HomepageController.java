@@ -1,6 +1,7 @@
 package codebug.homepage;
 
 import animatefx.animation.*;
+import codebug.ui.TopMenuBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,6 +38,12 @@ public class HomepageController {
     ImageView imageViewCreate = new ImageView();
     @FXML
     ImageView imageViewPlay = new ImageView();
+
+    // Top Menu Bar functionality
+    @FXML
+    public void openAboutWindow() throws Exception {
+        TopMenuBar.openAboutWindow();
+    }
 
     public void mouseClick() {
         RubberBand logoTada = new RubberBand(imageViewLogo);

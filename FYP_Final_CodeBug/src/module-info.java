@@ -4,6 +4,7 @@ module JavaFX.Tests {
     requires javafx.controls;
     requires AnimateFX;
     requires java.logging;
+    requires java.sql;
 
     opens codebug.exercises;
     opens codebug.exercises.numbers;

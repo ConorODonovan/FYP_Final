@@ -1,5 +1,6 @@
 package codebug.exercises;
 
+import codebug.ui.TopMenuBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -66,6 +67,12 @@ public class ExercisesController {
     // Escape Room buttons
     @FXML
     Button buttonEscapeRoom;
+
+    // Top Menu Bar functionality
+    @FXML
+    public void openAboutWindow() throws Exception {
+        TopMenuBar.openAboutWindow();
+    }
 
     // Return to main menu by clicking logo
     // TODO

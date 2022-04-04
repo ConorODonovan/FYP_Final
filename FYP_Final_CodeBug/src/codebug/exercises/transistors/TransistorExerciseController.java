@@ -3,6 +3,7 @@ package codebug.exercises.transistors;
 import codebug.exercises.exercisenodes.LogicGate;
 import codebug.exercises.exercisenodes.Transistor;
 import codebug.ui.Draggable;
+import codebug.ui.TopMenuBar;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -31,6 +32,12 @@ public class TransistorExerciseController {
     @FXML
     public void initialize() {
         centerPane.setCenter(new RootLayout());
+    }
+
+    // Top Menu Bar functionality
+    @FXML
+    public void openAboutWindow() throws Exception {
+        TopMenuBar.openAboutWindow();
     }
 
     // Return to main menu by clicking logo

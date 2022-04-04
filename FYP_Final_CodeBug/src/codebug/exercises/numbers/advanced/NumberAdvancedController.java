@@ -3,6 +3,7 @@ package codebug.exercises.numbers.advanced;
 import animatefx.animation.Shake;
 import codebug.exercises.numbers.NumberConversion;
 import codebug.exercises.numbers.RandomNumberGenerator;
+import codebug.ui.TopMenuBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -258,6 +259,12 @@ public class NumberAdvancedController {
         numberToConvert4b.setText(generateRandomHex());
         numberToConvert5a.setText(generateRandomHex());
         numberToConvert5b.setText(generateRandomHex());
+    }
+
+    // Top Menu Bar functionality
+    @FXML
+    public void openAboutWindow() throws Exception {
+        TopMenuBar.openAboutWindow();
     }
 
     private void convertBinToOct() {

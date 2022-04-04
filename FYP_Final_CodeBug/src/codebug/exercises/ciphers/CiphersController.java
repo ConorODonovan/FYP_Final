@@ -1,6 +1,8 @@
 package codebug.exercises.ciphers;
 
 import animatefx.animation.Shake;
+import codebug.ui.TopMenuBar;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,7 +13,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class CiphersController {
@@ -31,6 +32,7 @@ public class CiphersController {
     Button buttonEncrypt;
     @FXML
     Button buttonDecrypt;
+
     @FXML
     TextField vigenereTextToEncrypt;
     @FXML
@@ -48,6 +50,10 @@ public class CiphersController {
     @FXML
     TextField vigenereDecryptedText;
 
+    @FXML
+    Button backToExerciseMenuCaesar;
+    @FXML
+    Button backToExerciseMenuVigenere;
 
 
     @FXML
@@ -161,7 +167,12 @@ public class CiphersController {
 
         vigenereEncryptedText.setEditable(false);
         vigenereDecryptedText.setEditable(false);
+    }
 
+    // Top Menu Bar functionality
+    @FXML
+    public void openAboutWindow() throws Exception {
+        TopMenuBar.openAboutWindow();
     }
 
     // Return to main menu by clicking logo
@@ -210,5 +221,15 @@ public class CiphersController {
         String cipherText = vigenereTextToDecrypt.getText();
         String keyword = keywordDecrypt.getText();
         vigenereDecryptedText.setText(VigenereCipher.decrypt(cipherText, keyword));
+    }
+
+    // Go back to exercise menu
+    @FXML
+    public void backToExerciseMenu(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/Exercises.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, 1920, 1080);
+        stage.setScene(scene);
+        stage.show();
     }
 }

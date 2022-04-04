@@ -1,6 +1,7 @@
 package codebug.exercises.numbers;
 
 import animatefx.animation.Shake;
+import codebug.ui.TopMenuBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,7 +44,13 @@ public class BinaryConverterController {
     @FXML
     Button buttonClear;
     @FXML
-    Button buttonBackToMainMenu;
+    Button buttonBackToExerciseMenu;
+
+    // Top Menu Bar functionality
+    @FXML
+    public void openAboutWindow() throws Exception {
+        TopMenuBar.openAboutWindow();
+    }
 
     // Return to main menu by clicking logo
     // TODO
@@ -243,8 +250,8 @@ public class BinaryConverterController {
     }
 
     @FXML
-    public void backToMainMenu(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/codebug/homepage/Homepage.fxml"));
+    public void backToExerciseMenu(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/Exercises.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, 1920, 1080);
         stage.setScene(scene);

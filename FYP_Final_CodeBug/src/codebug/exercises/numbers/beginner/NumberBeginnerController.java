@@ -3,6 +3,7 @@ package codebug.exercises.numbers.beginner;
 import animatefx.animation.*;
 import codebug.exercises.numbers.NumberConversion;
 import codebug.exercises.numbers.RandomNumberGenerator;
+import codebug.ui.TopMenuBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -216,7 +217,12 @@ public class NumberBeginnerController {
         numToConvert1.setText(generateRandomDec());
         numToConvert2.setText(generateRandomBin());
         numToConvert3.setText(generateRandomBin());
+    }
 
+    // Top Menu Bar functionality
+    @FXML
+    public void openAboutWindow() throws Exception {
+        TopMenuBar.openAboutWindow();
     }
 
     // Return to main menu by clicking logo

@@ -1,14 +1,13 @@
 package codebug.exercises.transistors.beginner;
 
+import codebug.ui.TopMenuBar;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -16,6 +15,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -37,7 +37,8 @@ public class TransistorsBeginnerController {
     Line lineMiddleLeft3;
 
     @FXML
-    ComboBox<ImageView> answer1;
+    ComboBox<Image> answer1;
+//    ComboBox<ImageView> answer1;
     @FXML
     ComboBox<ImageView> answer2;
     @FXML
@@ -73,10 +74,17 @@ public class TransistorsBeginnerController {
     StackPane stackPaneXNOR;
 
     @FXML
+    Button buttonBackToExerciseMenu;
+    @FXML
+    Button buttonNextExercise;
+
+    @FXML
     public void initialize() throws FileNotFoundException {
 
         // TODO
         // Change file paths from absolute to relative
+
+        // AND
         FileInputStream iconAND = new FileInputStream("F:/Dropbox/Dropbox/College/Year 4/Final Year Project/Project/FYP_Final_CodeBug/src/codebug/resources/transistors/AND.png");
         Image imageAND = new Image(iconAND);
         ImageView logicGateAND = new ImageView(imageAND);
@@ -84,9 +92,13 @@ public class TransistorsBeginnerController {
         logicGateAND.setFitHeight(64);
 
         // Tooltip
-        Tooltip tooltipAND = new Tooltip("AND");
+        Tooltip tooltipAND = new Tooltip("0 AND 0 = 0\n" +
+                "0 AND 1 = 0\n" +
+                "1 AND 0 = 0\n" +
+                "1 AND 1 = 1");
         Tooltip.install(stackPaneAND, tooltipAND);
 
+        // OR
         FileInputStream iconOR = new FileInputStream("F:/Dropbox/Dropbox/College/Year 4/Final Year Project/Project/FYP_Final_CodeBug/src/codebug/resources/transistors/OR.png");
         Image imageOR = new Image(iconOR);
         ImageView logicGateOR = new ImageView(imageOR);
@@ -94,9 +106,13 @@ public class TransistorsBeginnerController {
         logicGateOR.setFitHeight(64);
 
         // Tooltip
-        Tooltip tooltipOR = new Tooltip("OR");
+        Tooltip tooltipOR = new Tooltip("0 OR 0 = 0\n" +
+                "0 OR 1 = 1\n" +
+                "1 OR 0 = 1\n" +
+                "1 OR 1 = 1");
         Tooltip.install(stackPaneOR, tooltipOR);
 
+        // NOT
         FileInputStream iconNOT = new FileInputStream("F:/Dropbox/Dropbox/College/Year 4/Final Year Project/Project/FYP_Final_CodeBug/src/codebug/resources/transistors/NOT.png");
         Image imageNOT = new Image(iconNOT);
         ImageView logicGateNOT = new ImageView(imageNOT);
@@ -104,9 +120,11 @@ public class TransistorsBeginnerController {
         logicGateNOT.setFitHeight(64);
 
         // Tooltip
-        Tooltip tooltipNOT = new Tooltip("NOT");
+        Tooltip tooltipNOT = new Tooltip("NOT 0 = 1\n" +
+                "NOT 1 = 0");
         Tooltip.install(stackPaneNOT, tooltipNOT);
 
+        // NAND
         FileInputStream iconNAND = new FileInputStream("F:/Dropbox/Dropbox/College/Year 4/Final Year Project/Project/FYP_Final_CodeBug/src/codebug/resources/transistors/NAND.png");
         Image imageNAND = new Image(iconNAND);
         ImageView logicGateNAND = new ImageView(imageNAND);
@@ -114,9 +132,13 @@ public class TransistorsBeginnerController {
         logicGateNAND.setFitHeight(64);
 
         // Tooltip
-        Tooltip tooltipNAND = new Tooltip("NAND");
+        Tooltip tooltipNAND = new Tooltip("0 NAND 0 = 1\n" +
+                "0 NAND 1 = 1\n" +
+                "1 NAND 0 = 1\n" +
+                "1 NAND 1 = 0");
         Tooltip.install(stackPaneNAND, tooltipNAND);
 
+        // NOR
         FileInputStream iconNOR = new FileInputStream("F:/Dropbox/Dropbox/College/Year 4/Final Year Project/Project/FYP_Final_CodeBug/src/codebug/resources/transistors/NOR.png");
         Image imageNOR = new Image(iconNOR);
         ImageView logicGateNOR = new ImageView(imageNOR);
@@ -124,9 +146,13 @@ public class TransistorsBeginnerController {
         logicGateNOR.setFitHeight(64);
 
         // Tooltip
-        Tooltip tooltipNOR = new Tooltip("NOR");
+        Tooltip tooltipNOR = new Tooltip("0 NOR 0 = 1\n" +
+                "0 NOR 1 = 0\n" +
+                "1 NOR 0 = 0\n" +
+                "1 NOR 1 = 0");
         Tooltip.install(stackPaneNOR, tooltipNOR);
 
+        // XOR
         FileInputStream iconXOR = new FileInputStream("F:/Dropbox/Dropbox/College/Year 4/Final Year Project/Project/FYP_Final_CodeBug/src/codebug/resources/transistors/XOR.png");
         Image imageXOR = new Image(iconXOR);
         ImageView logicGateXOR = new ImageView(imageXOR);
@@ -134,9 +160,13 @@ public class TransistorsBeginnerController {
         logicGateXOR.setFitHeight(64);
 
         // Tooltip
-        Tooltip tooltipXOR = new Tooltip("XOR");
+        Tooltip tooltipXOR = new Tooltip("0 XOR 0 = 0\n" +
+                "0 XOR 1 = 1\n" +
+                "1 XOR 0 = 1\n" +
+                "1 XOR 1 = 0");
         Tooltip.install(stackPaneXOR, tooltipXOR);
 
+        // XNOR
         FileInputStream iconXNOR = new FileInputStream("F:/Dropbox/Dropbox/College/Year 4/Final Year Project/Project/FYP_Final_CodeBug/src/codebug/resources/transistors/XNOR.png");
         Image imageXNOR = new Image(iconXNOR);
         ImageView logicGateXNOR = new ImageView(imageXNOR);
@@ -144,19 +174,54 @@ public class TransistorsBeginnerController {
         logicGateXNOR.setFitHeight(64);
 
         // Tooltip
-        Tooltip tooltipXNOR = new Tooltip("XNOR");
+        Tooltip tooltipXNOR = new Tooltip("0 XNOR 0 = 1\n" +
+                "0 XNOR 1 = 0\n" +
+                "1 XNOR 0 = 0\n" +
+                "1 XNOR 1 = 1");
         Tooltip.install(stackPaneXNOR, tooltipXNOR);
 
         // TODO
         // Fix ComboBox items disappearing once selected (CellFactory?)
 
-        answer1.getItems().add(logicGateAND);
-        answer1.getItems().add(logicGateOR);
-        answer1.getItems().add(logicGateNOT);
-        answer1.getItems().add(logicGateNAND);
-        answer1.getItems().add(logicGateNOR);
-        answer1.getItems().add(logicGateXOR);
-        answer1.getItems().add(logicGateXNOR);
+//        answer1.getItems().add(logicGateAND);
+//        answer1.getItems().add(logicGateOR);
+//        answer1.getItems().add(logicGateNOT);
+//        answer1.getItems().add(logicGateNAND);
+//        answer1.getItems().add(logicGateNOR);
+//        answer1.getItems().add(logicGateXOR);
+//        answer1.getItems().add(logicGateXNOR);
+
+        answer1.getItems().add(imageAND);
+        answer1.getItems().add(imageOR);
+        answer1.getItems().add(imageNOT);
+        answer1.getItems().add(imageNAND);
+        answer1.getItems().add(imageNOR);
+        answer1.getItems().add(imageXOR);
+        answer1.getItems().add(imageXNOR);
+
+        // TODO
+        // Image not displaying as selected
+        answer1.setCellFactory(new Callback<ListView<Image>, ListCell<Image>>() {
+            @Override public ListCell<Image> call(ListView<Image> p) {
+                return new ListCell<Image>() {
+//                    private final Image image;
+                    {
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+//                        image = new Image();
+                    }
+
+                    @Override protected void updateItem(Image item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (item == null || empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(new ImageView(item));
+                        }
+                    }
+                };
+            }
+        });
 
         answer2.getItems().add(logicGateAND);
         answer2.getItems().add(logicGateOR);
@@ -176,6 +241,12 @@ public class TransistorsBeginnerController {
 
         System.out.println(answer1.getItems().get(0));
         System.out.println(answer1.getItems().get(6));
+    }
+
+    // Top Menu Bar functionality
+    @FXML
+    public void openAboutWindow() throws Exception {
+        TopMenuBar.openAboutWindow();
     }
 
     // Return to main menu by clicking logo
@@ -202,10 +273,10 @@ public class TransistorsBeginnerController {
     public void checkAnswer1() {
         if (answer1.getValue() == answer1.getItems().get(3) || answer1.getValue() == answer1.getItems().get(4) || answer1.getValue() == answer1.getItems().get(6)) {
             result1.setText("Correct!");
-            result1.setTextFill(Color.GREEN);
+            result1.setTextFill(Color.FORESTGREEN);
         } else {
             result1.setText("Incorrect!");
-            result1.setTextFill(Color.RED);
+            result1.setTextFill(Color.INDIANRED);
         }
     }
 
@@ -213,10 +284,10 @@ public class TransistorsBeginnerController {
     public void checkAnswer2() {
         if (answer2.getValue() == answer2.getItems().get(1) || answer2.getValue() == answer2.getItems().get(3) || answer2.getValue() == answer2.getItems().get(5)) {
             result2.setText("Correct!");
-            result2.setTextFill(Color.GREEN);
+            result2.setTextFill(Color.FORESTGREEN);
         } else {
             result2.setText("Incorrect!");
-            result2.setTextFill(Color.RED);
+            result2.setTextFill(Color.INDIANRED);
         }
     }
 
@@ -224,10 +295,28 @@ public class TransistorsBeginnerController {
     public void checkAnswer3() {
         if (answer3.getValue() == answer3.getItems().get(0) || answer3.getValue() == answer3.getItems().get(1) || answer3.getValue() == answer3.getItems().get(6)) {
             result3.setText("Correct!");
-            result3.setTextFill(Color.GREEN);
+            result3.setTextFill(Color.FORESTGREEN);
         } else {
             result3.setText("Incorrect!");
-            result3.setTextFill(Color.RED);
+            result3.setTextFill(Color.INDIANRED);
         }
+    }
+
+    @FXML
+    public void backToExerciseMenu(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/Exercises.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, 1920, 1080);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void nextExercise(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/transistors/intermediate/TransistorsIntermediate.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, 1920, 1080);
+        stage.setScene(scene);
+        stage.show();
     }
 }

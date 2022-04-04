@@ -28,6 +28,13 @@
     -fx-border-width: 0 4 0 0;
 }
 
+#tabpane-cipher-sandbox {
+    -fx-background-color: #DBB98C;
+    -fx-border-color: #B47D37;
+    -fx-border-style: dashed;
+    -fx-border-width: 0 4 0 4;
+}
+
 #cipher-left-label {
     -fx-font-family: 'Special Elite', sans-serif;
     -fx-font-size: 24px;

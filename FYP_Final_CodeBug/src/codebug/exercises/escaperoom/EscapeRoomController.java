@@ -1,5 +1,6 @@
 package codebug.exercises.escaperoom;
 
+import codebug.ui.TopMenuBar;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -15,6 +16,12 @@ public class EscapeRoomController {
 
     @FXML
     ImageView logo;
+
+    // Top Menu Bar functionality
+    @FXML
+    public void openAboutWindow() throws Exception {
+        TopMenuBar.openAboutWindow();
+    }
 
     // Return to main menu by clicking logo
     // TODO

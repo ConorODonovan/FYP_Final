@@ -5,13 +5,13 @@
 }
 
 #login-label {
-    -fx-text-fill: #2196F3;
+    -fx-text-fill: #135FA5;
     -fx-font-size: 72px;
     -fx-font-weight: bold;
 }
 
 #login-vbox {
-    -fx-background-color: #2196F3;
+    -fx-background-color: #135FA5;
     -fx-background-radius: 0px 16px 16px 16px;
     -fx-border-radius: 0px 16px 16px 16px;
 }
@@ -43,11 +43,11 @@
     -fx-font-size: 20px;
     -fx-font-weight: 800;
     -fx-text-fill: #FFFFFF;
-    -fx-background-color: #2196F3;
+    -fx-background-color: #135FA5;
 }
 
 #button-register:hover {
-    -fx-background-color: #1976D2;
+    -fx-background-color: #0D4372;
 }
 
 #register-label {

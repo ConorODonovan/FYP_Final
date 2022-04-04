@@ -1,0 +1,9 @@
+#vbox-about {
+    -fx-background-color: #135FA5;
+}
+
+#about-label {
+    -fx-text-fill: #C79100;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}

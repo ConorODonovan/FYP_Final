@@ -5,13 +5,13 @@
 }
 
 #main-menu-text {
-    -fx-text-fill: #2196F3;
+    -fx-text-fill: #135FA5;
     -fx-font-size: 24px;
     -fx-font-weight: bold;
 }
 
 #main-menu-vbox {
-    -fx-background-color: #2196F3;
+    -fx-background-color: #135FA5;
     -fx-background-radius: 16px;
     -fx-border-radius: 16px;
 }

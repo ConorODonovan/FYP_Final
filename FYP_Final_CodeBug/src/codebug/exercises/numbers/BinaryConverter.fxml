@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane id="borderpane-main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebug.exercises.numbers.BinaryConverterController">
+<BorderPane id="numbers-gridpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebug.exercises.numbers.BinaryConverterController">
    <top>
       <AnchorPane id="top-anchor-pane" prefHeight="100.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
          <children>
@@ -33,7 +33,7 @@
                       </Menu>
                       <Menu mnemonicParsing="false" text="Help">
                         <items>
-                          <MenuItem mnemonicParsing="false" text="About" />
+                          <MenuItem mnemonicParsing="false" onAction="#openAboutWindow" text="About" />
                         </items>
                       </Menu>
                     </menus>
@@ -61,37 +61,78 @@
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="Binary Converter" />
+            <Label id="numbers-header-label" text="Number Converter">
+               <VBox.margin>
+                  <Insets top="-32.0" />
+               </VBox.margin></Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Binary" />
-                  <TextField fx:id="textFieldBinary" />
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label id="number-exercise-label" text="Binary">
+                           <VBox.margin>
+                              <Insets top="32.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField id="numbers-textfield" fx:id="textFieldBinary" minWidth="512.0" />
+                     </children>
+                  </VBox>
                   <Label fx:id="labelTestBinary" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Octal" />
-                  <TextField fx:id="textFieldOctal" />
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label id="number-exercise-label" text="Octal">
+                           <VBox.margin>
+                              <Insets top="32.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField id="numbers-textfield" fx:id="textFieldOctal" minWidth="512.0" />
+                     </children>
+                  </VBox>
                   <Label fx:id="labelTestOctal" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Decimal" />
-                  <TextField fx:id="textFieldDecimal" />
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label id="number-exercise-label" text="Decimal">
+                           <VBox.margin>
+                              <Insets top="32.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField id="numbers-textfield" fx:id="textFieldDecimal" minWidth="512.0" />
+                     </children>
+                  </VBox>
                   <Label fx:id="labelTestDecimal" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="Hexadecimal" />
-                  <TextField fx:id="textFieldHexadecimal" />
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label id="number-exercise-label" text="Hexadecimal">
+                           <VBox.margin>
+                              <Insets top="32.0" />
+                           </VBox.margin>
+                        </Label>
+                        <TextField id="numbers-textfield" fx:id="textFieldHexadecimal" minWidth="512.0" />
+                     </children>
+                  </VBox>
                   <Label fx:id="labelTestHexadecimal" />
                </children>
             </HBox>
-            <Button fx:id="buttonClear" mnemonicParsing="false" onAction="#clearTextFields" text="Clear" />
-            <Button fx:id="buttonBackToMainMenu" mnemonicParsing="false" onAction="#backToMainMenu" text="Back to Main Menu" />
+            <Button id="numbers-button" fx:id="buttonClear" minWidth="260.0" mnemonicParsing="false" onAction="#clearTextFields" text="Clear">
+               <VBox.margin>
+                  <Insets top="64.0" />
+               </VBox.margin></Button>
+            <Button id="numbers-button" fx:id="buttonBackToExerciseMenu" minWidth="260.0" mnemonicParsing="false" onAction="#backToExerciseMenu" text="Back to Exercise Menu">
+               <VBox.margin>
+                  <Insets top="32.0" />
+               </VBox.margin></Button>
          </children>
       </VBox>
    </center>
