@@ -6,6 +6,9 @@ module JavaFX.Tests {
     requires java.logging;
     requires java.sql;
 
+    opens codebug.themes;
+    opens codebug.settings;
+    opens codebug.about;
     opens codebug.exercises;
     opens codebug.exercises.numbers;
     opens codebug.exercises.numbers.beginner;
@@ -19,14 +22,10 @@ module JavaFX.Tests {
     opens codebug.exercises.transistors.beginner;
     opens codebug.exercises.transistors.intermediate;
     opens codebug.exercises.transistors.advanced;
-    opens codebug.exercises.functions;
-    opens codebug.exercises.functions.beginner;
-    opens codebug.exercises.functions.intermediate;
-    opens codebug.exercises.functions.advanced;
     opens codebug.exercises.escaperoom;
-    opens codebug.exercises.cpuramrom;
     opens codebug.gameengine;
     opens codebug.login;
     opens codebug.homepage;
+    opens codebug.admin;
     opens codebug;
 }

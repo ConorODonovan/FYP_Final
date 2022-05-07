@@ -1,63 +1,64 @@
+/*
+Conor O'Donovan - D18125705
+Final Year Project
+CodeBug
+TransistorsBeginnerController - Controls logic for Transistors Beginner Exercise
+ */
+
 package codebug.exercises.transistors.beginner;
 
+import codebug.database.DBUtils;
+import codebug.ui.NavigationManager;
 import codebug.ui.TopMenuBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.Light;
+import javafx.scene.effect.Lighting;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
-import javafx.stage.Stage;
 import javafx.util.Callback;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class TransistorsBeginnerController {
 
+    // Declaration of variables
+    // Variables annotated with @FXML are UI elements
     @FXML
-    ImageView logo;
-
+    Label usernameLabel;
+    @FXML
+    ImageView logoTop;
     @FXML
     ImageView logicGateIconAND;
-
     @FXML
     Line lineMiddleLeft1;
     @FXML
     Line lineMiddleLeft2;
     @FXML
     Line lineMiddleLeft3;
-
     @FXML
     ComboBox<Image> answer1;
-//    ComboBox<ImageView> answer1;
     @FXML
-    ComboBox<ImageView> answer2;
+    ComboBox<Image> answer2;
     @FXML
-    ComboBox<ImageView> answer3;
-
+    ComboBox<Image> answer3;
     @FXML
     Button checkAnswerButton1;
     @FXML
     Button checkAnswerButton2;
     @FXML
     Button checkAnswerButton3;
-
     @FXML
     Label result1;
     @FXML
     Label result2;
     @FXML
     Label result3;
-
     @FXML
     StackPane stackPaneAND;
     @FXML
@@ -72,18 +73,114 @@ public class TransistorsBeginnerController {
     StackPane stackPaneXOR;
     @FXML
     StackPane stackPaneXNOR;
-
     @FXML
     Button buttonBackToExerciseMenu;
     @FXML
     Button buttonNextExercise;
 
+    // Initialize method runs on first opening the page
     @FXML
     public void initialize() throws FileNotFoundException {
 
-        // TODO
-        // Change file paths from absolute to relative
+        // Get user currently logged in
+        String currentUser = DBUtils.getCurrentUser();
 
+        // Sets label in top right to username
+        if (currentUser == null) {
+            usernameLabel.setText("Please log in");
+        } else {
+            usernameLabel.setText("Logged in as " + currentUser);
+        }
+
+        // Checks which theme the user last selected and ensures it is applied
+        switch (DBUtils.getTheme()) {
+            case "Default": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(236, 151, 6);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "Nature": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(82, 183, 136);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "Ocean": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(122, 191, 201);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "Dusk": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(246, 156, 153);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "Sunset": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(255, 111, 75);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "Monochrome": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(148, 148, 148);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "High Contrast": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(255, 180, 0);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+        }
+
+        // Explanatory icons on left side
         // AND
         FileInputStream iconAND = new FileInputStream("F:/Dropbox/Dropbox/College/Year 4/Final Year Project/Project/FYP_Final_CodeBug/src/codebug/resources/transistors/AND.png");
         Image imageAND = new Image(iconAND);
@@ -180,17 +277,6 @@ public class TransistorsBeginnerController {
                 "1 XNOR 1 = 1");
         Tooltip.install(stackPaneXNOR, tooltipXNOR);
 
-        // TODO
-        // Fix ComboBox items disappearing once selected (CellFactory?)
-
-//        answer1.getItems().add(logicGateAND);
-//        answer1.getItems().add(logicGateOR);
-//        answer1.getItems().add(logicGateNOT);
-//        answer1.getItems().add(logicGateNAND);
-//        answer1.getItems().add(logicGateNOR);
-//        answer1.getItems().add(logicGateXOR);
-//        answer1.getItems().add(logicGateXNOR);
-
         answer1.getItems().add(imageAND);
         answer1.getItems().add(imageOR);
         answer1.getItems().add(imageNOT);
@@ -199,15 +285,11 @@ public class TransistorsBeginnerController {
         answer1.getItems().add(imageXOR);
         answer1.getItems().add(imageXNOR);
 
-        // TODO
-        // Image not displaying as selected
         answer1.setCellFactory(new Callback<ListView<Image>, ListCell<Image>>() {
             @Override public ListCell<Image> call(ListView<Image> p) {
                 return new ListCell<Image>() {
-//                    private final Image image;
                     {
                         setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-//                        image = new Image();
                     }
 
                     @Override protected void updateItem(Image item, boolean empty) {
@@ -223,52 +305,64 @@ public class TransistorsBeginnerController {
             }
         });
 
-        answer2.getItems().add(logicGateAND);
-        answer2.getItems().add(logicGateOR);
-        answer2.getItems().add(logicGateNOT);
-        answer2.getItems().add(logicGateNAND);
-        answer2.getItems().add(logicGateNOR);
-        answer2.getItems().add(logicGateXOR);
-        answer2.getItems().add(logicGateXNOR);
+        answer2.getItems().add(imageAND);
+        answer2.getItems().add(imageOR);
+        answer2.getItems().add(imageNOT);
+        answer2.getItems().add(imageNAND);
+        answer2.getItems().add(imageNOR);
+        answer2.getItems().add(imageXOR);
+        answer2.getItems().add(imageXNOR);
 
-        answer3.getItems().add(logicGateAND);
-        answer3.getItems().add(logicGateOR);
-        answer3.getItems().add(logicGateNOT);
-        answer3.getItems().add(logicGateNAND);
-        answer3.getItems().add(logicGateNOR);
-        answer3.getItems().add(logicGateXOR);
-        answer3.getItems().add(logicGateXNOR);
+        answer2.setCellFactory(new Callback<ListView<Image>, ListCell<Image>>() {
+            @Override public ListCell<Image> call(ListView<Image> p) {
+                return new ListCell<Image>() {
+                    {
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                    }
 
-        System.out.println(answer1.getItems().get(0));
-        System.out.println(answer1.getItems().get(6));
-    }
+                    @Override protected void updateItem(Image item, boolean empty) {
+                        super.updateItem(item, empty);
 
-    // Top Menu Bar functionality
-    @FXML
-    public void openAboutWindow() throws Exception {
-        TopMenuBar.openAboutWindow();
-    }
-
-    // Return to main menu by clicking logo
-    // TODO
-    // Fix errors that occur when this method is called
-    @FXML
-    public void goToMainMenu() {
-        logo.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            Parent root = null;
-            try {
-                root = FXMLLoader.load(getClass().getResource("/codebug/homepage/Homepage.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
+                        if (item == null || empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(new ImageView(item));
+                        }
+                    }
+                };
             }
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            assert root != null;
-            Scene scene = new Scene(root, 1920, 1080);
-            stage.setScene(scene);
-            stage.show();
+        });
+
+        answer3.getItems().add(imageAND);
+        answer3.getItems().add(imageOR);
+        answer3.getItems().add(imageNOT);
+        answer3.getItems().add(imageNAND);
+        answer3.getItems().add(imageNOR);
+        answer3.getItems().add(imageXOR);
+        answer3.getItems().add(imageXNOR);
+
+        answer3.setCellFactory(new Callback<ListView<Image>, ListCell<Image>>() {
+            @Override public ListCell<Image> call(ListView<Image> p) {
+                return new ListCell<Image>() {
+                    {
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                    }
+
+                    @Override protected void updateItem(Image item, boolean empty) {
+                        super.updateItem(item, empty);
+
+                        if (item == null || empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(new ImageView(item));
+                        }
+                    }
+                };
+            }
         });
     }
 
+    // Check answers
     @FXML
     public void checkAnswer1() {
         if (answer1.getValue() == answer1.getItems().get(3) || answer1.getValue() == answer1.getItems().get(4) || answer1.getValue() == answer1.getItems().get(6)) {
@@ -277,6 +371,11 @@ public class TransistorsBeginnerController {
         } else {
             result1.setText("Incorrect!");
             result1.setTextFill(Color.INDIANRED);
+        }
+
+        // Check if all answers are correct - this triggers the exercise to be flagged as complete in the database for the user
+        if (result1.getText().equals("Correct!") && result2.getText().equals("Correct!") && result3.getText().equals("Correct!")) {
+            DBUtils.updateTransistorsBeginner();
         }
     }
 
@@ -289,6 +388,11 @@ public class TransistorsBeginnerController {
             result2.setText("Incorrect!");
             result2.setTextFill(Color.INDIANRED);
         }
+
+        // Check if all answers are correct - this triggers the exercise to be flagged as complete in the database for the user
+        if (result1.getText().equals("Correct!") && result2.getText().equals("Correct!") && result3.getText().equals("Correct!")) {
+            DBUtils.updateTransistorsBeginner();
+        }
     }
 
     @FXML
@@ -300,23 +404,34 @@ public class TransistorsBeginnerController {
             result3.setText("Incorrect!");
             result3.setTextFill(Color.INDIANRED);
         }
+
+        // Check if all answers are correct - this triggers the exercise to be flagged as complete in the database for the user
+        if (result1.getText().equals("Correct!") && result2.getText().equals("Correct!") && result3.getText().equals("Correct!")) {
+            DBUtils.updateTransistorsBeginner();
+        }
     }
 
+    // Top Menu Bar functionality
     @FXML
-    public void backToExerciseMenu(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/Exercises.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root, 1920, 1080);
-        stage.setScene(scene);
-        stage.show();
+    public void openAboutWindow() throws Exception {
+        TopMenuBar.openAboutWindow();
     }
 
+    // Return to main menu by clicking logo
     @FXML
-    public void nextExercise(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/transistors/intermediate/TransistorsIntermediate.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root, 1920, 1080);
-        stage.setScene(scene);
-        stage.show();
+    public void goToMainMenu() {
+        NavigationManager.goToMainMenuNoButton(logoTop);
+    }
+
+    // Go to exercise menu
+    @FXML
+    public void backToExerciseMenu(ActionEvent e) throws IOException {
+        NavigationManager.goToExercises(e);
+    }
+
+    // Go to next exercise
+    @FXML
+    public void nextExercise(ActionEvent e) throws IOException {
+        NavigationManager.goToTransistorsAdvanced(e);
     }
 }

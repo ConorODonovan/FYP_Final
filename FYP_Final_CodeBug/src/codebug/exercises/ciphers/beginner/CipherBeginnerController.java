@@ -1,28 +1,35 @@
+/*
+Conor O'Donovan - D18125705
+Final Year Project
+CodeBug
+CipherBeginnerController - Controls logic for Cipher Beginner Exercise
+ */
+
 package codebug.exercises.ciphers.beginner;
 
 import animatefx.animation.Shake;
+import codebug.database.DBUtils;
 import codebug.exercises.ciphers.CaesarCipher;
 import codebug.exercises.ciphers.VigenereCipher;
+import codebug.ui.NavigationManager;
 import codebug.ui.TopMenuBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.Light;
+import javafx.scene.effect.Lighting;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class CipherBeginnerController {
 
+    // Declaration of variables
+    // Variables annotated with @FXML are UI elements
     @FXML
-    ImageView logo;
-
+    Label usernameLabel;
+    @FXML
+    ImageView logoTop;
     @FXML
     TextField caesarEncryptField;
     @FXML
@@ -35,7 +42,6 @@ public class CipherBeginnerController {
     Button caesarDecryptButton;
     @FXML
     TextField caesarDecryptedText;
-
     @FXML
     TextField vigenereEncryptField;
     @FXML
@@ -52,12 +58,6 @@ public class CipherBeginnerController {
     Button vigenereDecryptButton;
     @FXML
     TextField vigenereDecryptedText;
-
-    @FXML
-    Tab tab1;
-    @FXML
-    Tab tab2;
-
     @FXML
     Label labelQuestion1a;
     @FXML
@@ -91,28 +91,108 @@ public class CipherBeginnerController {
     @FXML
     Button buttonQuestion3;
 
-    // Return to main menu by clicking logo
-    // TODO
-    // Fix errors that occur when this method is called
-    @FXML
-    public void goToMainMenu() {
-        logo.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            Parent root = null;
-            try {
-                root = FXMLLoader.load(getClass().getResource("/codebug/homepage/Homepage.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            assert root != null;
-            Scene scene = new Scene(root, 1920, 1080);
-            stage.setScene(scene);
-            stage.show();
-        });
-    }
-
+    // Initialize method runs on first opening the page
     @FXML
     private void initialize() {
+
+        // Get user currently logged in
+        String currentUser = DBUtils.getCurrentUser();
+
+        // Sets label in top right to username
+        if (currentUser == null) {
+            usernameLabel.setText("Please log in");
+        } else {
+            usernameLabel.setText("Logged in as " + currentUser);
+        }
+
+        // Checks which theme the user last selected and ensures it is applied
+        switch (DBUtils.getTheme()) {
+            case "Default": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(236, 151, 6);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "Nature": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(82, 183, 136);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "Ocean": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(122, 191, 201);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "Dusk": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(246, 156, 153);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "Sunset": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(255, 111, 75);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "Monochrome": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(148, 148, 148);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "High Contrast": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(255, 180, 0);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+        }
+
         // Caesar Cipher field listeners
         caesarEncryptField.textProperty().addListener((ov, oldValue, newValue) -> {
             caesarEncryptField.setText(newValue.toUpperCase());
@@ -122,7 +202,6 @@ public class CipherBeginnerController {
             for (int i = 0; i < caesarEncryptField.getText().length(); i++) {
                 char c = caesarEncryptField.getText().charAt(i);
 
-                // This doesn't work properly
                 if (allowedCharacters.indexOf(c) == -1) {
                     caesarEncryptField.setText("" + caesarEncryptField.getText().substring(0, caesarEncryptField.getText().length() - 1));
                     Shake shake = new Shake(caesarEncryptField);
@@ -139,7 +218,6 @@ public class CipherBeginnerController {
             for (int i = 0; i < caesarDecryptField.getText().length(); i++) {
                 char c = caesarDecryptField.getText().charAt(i);
 
-                // This doesn't work properly
                 if (allowedCharacters.indexOf(c) == -1) {
                     caesarDecryptField.setText("" + caesarDecryptField.getText().substring(0, caesarDecryptField.getText().length() - 1));
                     Shake shake = new Shake(caesarDecryptField);
@@ -160,7 +238,6 @@ public class CipherBeginnerController {
             for (int i = 0; i < vigenereEncryptField.getText().length(); i++) {
                 char c = vigenereEncryptField.getText().charAt(i);
 
-                // This doesn't work properly
                 if (allowedCharacters.indexOf(c) == -1) {
                     vigenereEncryptField.setText("" + vigenereEncryptField.getText().substring(0, vigenereEncryptField.getText().length() - 1));
                     Shake shake = new Shake(vigenereEncryptField);
@@ -177,7 +254,6 @@ public class CipherBeginnerController {
             for (int i = 0; i < vigenereEncryptKeyword.getText().length(); i++) {
                 char c = vigenereEncryptKeyword.getText().charAt(i);
 
-                // This doesn't work properly
                 if (allowedCharacters.indexOf(c) == -1) {
                     vigenereEncryptKeyword.setText("" + vigenereEncryptKeyword.getText().substring(0, vigenereEncryptKeyword.getText().length() - 1));
                     Shake shake = new Shake(vigenereEncryptKeyword);
@@ -194,7 +270,6 @@ public class CipherBeginnerController {
             for (int i = 0; i < vigenereDecryptField.getText().length(); i++) {
                 char c = vigenereDecryptField.getText().charAt(i);
 
-                // This doesn't work properly
                 if (allowedCharacters.indexOf(c) == -1) {
                     vigenereDecryptField.setText("" + vigenereDecryptField.getText().substring(0, vigenereDecryptField.getText().length() - 1));
                     Shake shake = new Shake(vigenereDecryptField);
@@ -211,7 +286,6 @@ public class CipherBeginnerController {
             for (int i = 0; i < vigenereDecryptKeyword.getText().length(); i++) {
                 char c = vigenereDecryptKeyword.getText().charAt(i);
 
-                // This doesn't work properly
                 if (allowedCharacters.indexOf(c) == -1) {
                     vigenereDecryptKeyword.setText("" + vigenereDecryptKeyword.getText().substring(0, vigenereDecryptKeyword.getText().length() - 1));
                     Shake shake = new Shake(vigenereDecryptKeyword);
@@ -258,8 +332,7 @@ public class CipherBeginnerController {
         vigenereDecryptedText.setText(VigenereCipher.decrypt(cipherText, keyword));
     }
 
-    // Questions
-
+    // Checking the answers to each question
     // Question 1
     public void question1() {
         String answer = (labelQuestion1a.getText().toUpperCase()) + " " + (labelQuestion1b.getText().toUpperCase()) + " " + (labelQuestion1c.getText().toUpperCase());
@@ -273,6 +346,11 @@ public class CipherBeginnerController {
         } else {
             result1.setText("Incorrect!");
             result1.setTextFill(Color.RED);
+        }
+
+        // Check if all answers are correct - this triggers the exercise to be flagged as complete in the database for the user
+        if (result1.getText().equals("Correct!") && result2.getText().equals("Correct!") && result3.getText().equals("Correct!")) {
+            DBUtils.updateCiphersBeginner();
         }
     }
 
@@ -290,11 +368,16 @@ public class CipherBeginnerController {
             result2.setText("Incorrect!");
             result2.setTextFill(Color.RED);
         }
+
+        // Check if all answers are correct - this triggers the exercise to be flagged as complete in the database for the user
+        if (result1.getText().equals("Correct!") && result2.getText().equals("Correct!") && result3.getText().equals("Correct!")) {
+            DBUtils.updateCiphersBeginner();
+        }
     }
 
     // Question 3
     public void question3() {
-        String answer = (labelQuestion3a.getText().toUpperCase() + " " + labelQuestion2b.getText().toUpperCase());
+        String answer = (labelQuestion3a.getText().toUpperCase() + " " + labelQuestion3b.getText().toUpperCase());
 
         if (textFieldAnswer3.getText().equals(VigenereCipher.encrypt(answer.toUpperCase(), "LEMON"))) {
             result3.setText("Correct!");
@@ -303,25 +386,28 @@ public class CipherBeginnerController {
             result3.setText("Incorrect!");
             result3.setTextFill(Color.RED);
         }
+
+        // Check if all answers are correct - this triggers the exercise to be flagged as complete in the database for the user
+        if (result1.getText().equals("Correct!") && result2.getText().equals("Correct!") && result3.getText().equals("Correct!")) {
+            DBUtils.updateCiphersBeginner();
+        }
+    }
+
+    // Return to main menu by clicking logo
+    @FXML
+    public void goToMainMenu() {
+        NavigationManager.goToMainMenuNoButton(logoTop);
     }
 
     // Go back to exercise menu
     @FXML
-    public void backToExerciseMenu(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/Exercises.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root, 1920, 1080);
-        stage.setScene(scene);
-        stage.show();
+    public void backToExerciseMenu(ActionEvent e) throws IOException {
+        NavigationManager.goToExercises(e);
     }
 
     // Go to next exercise
     @FXML
-    public void nextExercise(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/ciphers/intermediate/CipherIntermediate.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root, 1920, 1080);
-        stage.setScene(scene);
-        stage.show();
+    public void nextExercise(ActionEvent e) throws IOException {
+        NavigationManager.goToCiphersIntermediate(e);
     }
 }

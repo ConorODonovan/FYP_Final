@@ -1,31 +1,39 @@
+/*
+Conor O'Donovan - D18125705
+Final Year Project
+CodeBug
+NumberAdvancedController - Controls logic for Number Advanced Exercise
+ */
+
 package codebug.exercises.numbers.advanced;
 
 import animatefx.animation.Shake;
+import codebug.database.DBUtils;
 import codebug.exercises.numbers.NumberConversion;
 import codebug.exercises.numbers.RandomNumberGenerator;
+import codebug.ui.NavigationManager;
 import codebug.ui.TopMenuBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Light;
+import javafx.scene.effect.Lighting;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class NumberAdvancedController {
 
+    // Declaration of variables
+    // Variables annotated with @FXML are UI elements
     @FXML
-    ImageView logo;
-
+    Label usernameLabel;
+    @FXML
+    ImageView logoTop;
     @FXML
     TextField binFieldConverter;
     @FXML
@@ -36,7 +44,6 @@ public class NumberAdvancedController {
     TextField hexFieldConverter;
     @FXML
     Button buttonClear;
-
     @FXML
     Label numberToConvert1a;
     @FXML
@@ -57,7 +64,6 @@ public class NumberAdvancedController {
     Label numberToConvert5a;
     @FXML
     Label numberToConvert5b;
-
     @FXML
     TextField answer1;
     @FXML
@@ -68,7 +74,6 @@ public class NumberAdvancedController {
     TextField answer4;
     @FXML
     TextField answer5;
-
     @FXML
     Button checkAnswer1;
     @FXML
@@ -79,7 +84,6 @@ public class NumberAdvancedController {
     Button checkAnswer4;
     @FXML
     Button checkAnswer5;
-
     @FXML
     Label result1;
     @FXML
@@ -90,43 +94,120 @@ public class NumberAdvancedController {
     Label result4;
     @FXML
     Label result5;
-
     @FXML
     Button buttonPreviousExercise;
     @FXML
     Button backToExerciseMenu;
 
-    // Return to main menu by clicking logo
-    // TODO
-    // Fix errors that occur when this method is called
-    @FXML
-    public void goToMainMenu() {
-        logo.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            Parent root = null;
-            try {
-                root = FXMLLoader.load(getClass().getResource("/codebug/homepage/Homepage.fxml"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            assert root != null;
-            Scene scene = new Scene(root, 1920, 1080);
-            stage.setScene(scene);
-            stage.show();
-        });
-    }
-
+    // Initialize method runs on first opening the page
     @FXML
     private void initialize() {
+
+        // Get user currently logged in
+        String currentUser = DBUtils.getCurrentUser();
+
+        // Sets label in top right to username
+        if (currentUser == null) {
+            usernameLabel.setText("Please log in");
+        } else {
+            usernameLabel.setText("Logged in as " + currentUser);
+        }
+
+        // Checks which theme the user last selected and ensures it is applied
+        switch (DBUtils.getTheme()) {
+            case "Default": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(236, 151, 6);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "Nature": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(82, 183, 136);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "Ocean": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(122, 191, 201);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "Dusk": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(246, 156, 153);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "Sunset": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(255, 111, 75);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "Monochrome": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(148, 148, 148);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+            case "High Contrast": {
+                Lighting lighting = new Lighting();
+                Color color = Color.rgb(255, 180, 0);
+                lighting.setDiffuseConstant(1.0);
+                lighting.setSpecularConstant(0.0);
+                lighting.setSpecularExponent(0.0);
+                lighting.setSurfaceScale(0.0);
+                lighting.setLight(new Light.Distant(100, 100, color));
+                logoTop.setEffect(lighting);
+
+                break;
+            }
+        }
+
         // Input validation for Binary TextField
         binFieldConverter.textProperty().addListener(e -> {
             for (int i = 0; i < binFieldConverter.getText().length(); i++) {
                 char c = binFieldConverter.getText().charAt(i);
 
-                if (c == '0' || c == '1') {
-                    // Add later
-                } else {
-//                    labelTestBinary.setText("Invalid character");
+                // Causes field to shake if invalid character entered
+                if (!(c == '0' || c == '1')) {
                     binFieldConverter.setText("" + binFieldConverter.getText().substring(0, binFieldConverter.getText().length() - 1));
                     Shake shake = new Shake(binFieldConverter);
                     shake.play();
@@ -159,10 +240,8 @@ public class NumberAdvancedController {
             for (int i = 0; i < octFieldConverter.getText().length(); i++) {
                 char c = octFieldConverter.getText().charAt(i);
 
-                if (c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7') {
-                    // Add later
-                } else {
-//                    labelTestOctal.setText("Invalid character");
+                // Causes field to shake if invalid character entered
+                if (!(c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7')) {
                     octFieldConverter.setText("" + octFieldConverter.getText().substring(0, octFieldConverter.getText().length() - 1));
                     Shake shake = new Shake(octFieldConverter);
                     shake.play();
@@ -189,10 +268,8 @@ public class NumberAdvancedController {
             for (int i = 0; i < decFieldConverter.getText().length(); i++) {
                 char c = decFieldConverter.getText().charAt(i);
 
-                if (c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9') {
-                    // Add later
-                } else {
-//                    labelTestDecimal.setText("Invalid character");
+                // Causes field to shake if invalid character entered
+                if (!(c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9')) {
                     decFieldConverter.setText("" + decFieldConverter.getText().substring(0, decFieldConverter.getText().length() - 1));
                     Shake shake = new Shake(decFieldConverter);
                     shake.play();
@@ -222,11 +299,9 @@ public class NumberAdvancedController {
             for (int i = 0; i < hexFieldConverter.getText().length(); i++) {
                 char c = hexFieldConverter.getText().charAt(i);
 
-                if (c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9'
-                        || c == 'A' || c == 'B' || c == 'C' || c == 'D' || c == 'E' || c == 'F' || c == 'a' || c == 'b' || c == 'c' || c == 'd' || c == 'e' || c == 'f') {
-                    // Add later
-                } else {
-//                    labelTestHexadecimal.setText("Invalid character");
+                // Causes field to shake if invalid character entered
+                if (!(c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9'
+                        || c == 'A' || c == 'B' || c == 'C' || c == 'D' || c == 'E' || c == 'F' || c == 'a' || c == 'b' || c == 'c' || c == 'd' || c == 'e' || c == 'f')) {
                     hexFieldConverter.setText("" + hexFieldConverter.getText().substring(0, hexFieldConverter.getText().length() - 1));
                     Shake shake = new Shake(hexFieldConverter);
                     shake.play();
@@ -267,42 +342,49 @@ public class NumberAdvancedController {
         TopMenuBar.openAboutWindow();
     }
 
+    // Convert Binary number to Octal number
     private void convertBinToOct() {
         if (!binFieldConverter.getText().isEmpty()) {
             octFieldConverter.setText(NumberConversion.convertBinToOct(binFieldConverter.getText())); // Set textFieldOctal to octal value of binary input
         }
     }
 
+    // Convert Binary number to Decimal number
     private void convertBinToDec() {
         if (!binFieldConverter.getText().isEmpty()) {
             decFieldConverter.setText(NumberConversion.convertBinToDec(binFieldConverter.getText())); // Set textFieldDecimal to decimal value of binary input
         }
     }
 
+    // Convert Binary Number to Hexadecimal number
     private void convertBinToHex() {
         if (!binFieldConverter.getText().isEmpty()) {
             hexFieldConverter.setText(NumberConversion.convertBinToHex(binFieldConverter.getText())); // Set textFieldHexadecimal to hexadecimal value of binary input
         }
     }
 
+    // Convert Octal number to Binary number
     private void convertOctToBin() {
         if (!octFieldConverter.getText().isEmpty()) {
             binFieldConverter.setText(NumberConversion.convertOctToBin(octFieldConverter.getText())); // Set textFieldBinary to binary value of octal input
         }
     }
 
+    // Convert Decimal number to Binary number
     private void convertDecToBin() {
         if (!decFieldConverter.getText().isEmpty()) {
             binFieldConverter.setText(NumberConversion.convertDecToBin(decFieldConverter.getText())); // Set textFieldBinary to binary value of decimal input
         }
     }
 
+    // Convert Hexadecimal number to Binary number
     private void convertHexToBin() {
         if (!hexFieldConverter.getText().isEmpty()) {
             binFieldConverter.setText(NumberConversion.convertHexToBin(hexFieldConverter.getText())); // Set textFieldBinary to binary value of hexadecimal input
         }
     }
 
+    // Clear all fields
     @FXML
     public void clearTextFields() {
         binFieldConverter.clear();
@@ -311,6 +393,7 @@ public class NumberAdvancedController {
         hexFieldConverter.clear();
     }
 
+    // Adds a glow effect to buttons on mouse hover
     @FXML
     public void buttonGlow() {
         DropShadow borderGlow = new DropShadow();
@@ -322,6 +405,7 @@ public class NumberAdvancedController {
         buttonClear.setEffect(borderGlow);
     }
 
+    // Removes glow effect on buttons when mouse exits
     @FXML
     public void buttonNoGlow() {
         buttonClear.setEffect(null);
@@ -452,26 +536,31 @@ public class NumberAdvancedController {
     }
 
     // Random number generation
+    // Generate random Binary number
     @FXML
     private String generateRandomBin() {
         return RandomNumberGenerator.randomBinaryNumber(24, 255);
     }
 
+    // Generate random Octal number
     @FXML
     private String generateRandomOct() {
         return RandomNumberGenerator.randomOctalNumber(32, 255);
     }
 
+    // Generate random Decimal number
     @FXML
     private String generateRandomDec() {
         return RandomNumberGenerator.randomDecimalNumber(32, 255);
     }
 
+    // Generate random Hexadecimal number
     @FXML
     private String generateRandomHex() {
         return RandomNumberGenerator.randomHexadecimalNumber(32, 255);
     }
 
+    // Check if answers are correct
     @FXML
     public void checkAnswer1() {
         String num1String = NumberConversion.convertHexToDec(numberToConvert1a.getText());
@@ -487,6 +576,11 @@ public class NumberAdvancedController {
         } else {
             result1.setText("Incorrect!");
             result1.setTextFill(Color.INDIANRED);
+        }
+
+        // Check if all answers are correct - this triggers the exercise to be flagged as complete in the database for the user
+        if (result1.getText().equals("Correct!") && result2.getText().equals("Correct!") && result3.getText().equals("Correct!") && result4.getText().equals("Correct!") && result5.getText().equals("Correct!")) {
+            DBUtils.updateNumbersAdvanced();
         }
     }
 
@@ -506,6 +600,11 @@ public class NumberAdvancedController {
             result2.setText("Incorrect!");
             result2.setTextFill(Color.INDIANRED);
         }
+
+        // Check if all answers are correct - this triggers the exercise to be flagged as complete in the database for the user
+        if (result1.getText().equals("Correct!") && result2.getText().equals("Correct!") && result3.getText().equals("Correct!") && result4.getText().equals("Correct!") && result5.getText().equals("Correct!")) {
+            DBUtils.updateNumbersAdvanced();
+        }
     }
 
     @FXML
@@ -523,6 +622,11 @@ public class NumberAdvancedController {
         } else {
             result3.setText("Incorrect!");
             result3.setTextFill(Color.INDIANRED);
+        }
+
+        // Check if all answers are correct - this triggers the exercise to be flagged as complete in the database for the user
+        if (result1.getText().equals("Correct!") && result2.getText().equals("Correct!") && result3.getText().equals("Correct!") && result4.getText().equals("Correct!") && result5.getText().equals("Correct!")) {
+            DBUtils.updateNumbersAdvanced();
         }
     }
 
@@ -542,6 +646,11 @@ public class NumberAdvancedController {
             result4.setText("Incorrect!");
             result4.setTextFill(Color.INDIANRED);
         }
+
+        // Check if all answers are correct - this triggers the exercise to be flagged as complete in the database for the user
+        if (result1.getText().equals("Correct!") && result2.getText().equals("Correct!") && result3.getText().equals("Correct!") && result4.getText().equals("Correct!") && result5.getText().equals("Correct!")) {
+            DBUtils.updateNumbersAdvanced();
+        }
     }
 
     @FXML
@@ -560,23 +669,28 @@ public class NumberAdvancedController {
             result5.setText("Incorrect!");
             result5.setTextFill(Color.INDIANRED);
         }
+
+        // Check if all answers are correct - this triggers the exercise to be flagged as complete in the database for the user
+        if (result1.getText().equals("Correct!") && result2.getText().equals("Correct!") && result3.getText().equals("Correct!") && result4.getText().equals("Correct!") && result5.getText().equals("Correct!")) {
+            DBUtils.updateNumbersAdvanced();
+        }
     }
 
+    // Return to main menu by clicking logo
     @FXML
-    public void backToExerciseMenu(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/Exercises.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root, 1920, 1080);
-        stage.setScene(scene);
-        stage.show();
+    public void goToMainMenu() {
+        NavigationManager.goToMainMenuNoButton(logoTop);
     }
 
+    // Return to exercise menu
     @FXML
-    public void previousExercise(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/codebug/exercises/numbers/intermediate/NumberIntermediate.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root, 1920, 1080);
-        stage.setScene(scene);
-        stage.show();
+    public void backToExerciseMenu(ActionEvent e) throws IOException {
+        NavigationManager.goToExercises(e);
+    }
+
+    // Go to previous exercise
+    @FXML
+    public void previousExercise(ActionEvent e) throws IOException {
+        NavigationManager.goToNumbersIntermediate(e);
     }
 }

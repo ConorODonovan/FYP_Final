@@ -1,0 +1,82 @@
+.root {
+    -fx-colour-main: #135FA5;
+    -fx-colour-main-dark: #0D4372;
+    -fx-colour-accent: #EC9706;
+    -fx-colour-accent-hover: #C79100;
+}
+
+#borderpane-main {
+    -fx-background-image: url("../resources/backgrounds/cog_background.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 1920;
+}
+
+#login-label {
+    -fx-text-fill: -fx-colour-main;
+    -fx-font-size: 72px;
+    -fx-font-weight: bold;
+}
+
+#login-vbox {
+    -fx-background-color: -fx-colour-main;
+    -fx-background-radius: 0px 16px 16px 16px;
+    -fx-border-radius: 0px 16px 16px 16px;
+}
+
+#login-field {
+    -fx-font-size: 24px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+#password-field {
+    -fx-font-size: 18px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+}
+
+#button-login {
+    -fx-font-size: 20px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: -fx-colour-accent;
+}
+
+#button-login:hover {
+    -fx-background-color: -fx-colour-accent-hover;
+}
+
+#warning-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #FFFFFF;
+}
+
+#button-register {
+    -fx-font-size: 20px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: -fx-colour-main;
+}
+
+#button-register:hover {
+    -fx-background-color: -fx-colour-main-dark;
+}
+
+#register-label {
+    -fx-text-fill: -fx-colour-accent;
+    -fx-font-size: 72px;
+    -fx-font-weight: bold;
+}
+
+#register-vbox {
+    -fx-background-color: -fx-colour-accent;
+    -fx-background-radius: 0px 16px 16px 16px;
+    -fx-border-radius: 0px 16px 16px 16px;
+}
+
+#login-register-label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}

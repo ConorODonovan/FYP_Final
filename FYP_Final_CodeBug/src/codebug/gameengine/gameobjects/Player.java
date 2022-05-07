@@ -1,3 +1,10 @@
+/*
+Conor O'Donovan - D18125705
+Final Year Project
+CodeBug
+Player Class - Inherits from GameObject Class
+ */
+
 package codebug.gameengine.gameobjects;
 
 import javafx.scene.paint.Color;
@@ -14,23 +21,34 @@ public class Player extends GameObject {
     private double jumpHeight;
     private String shoot;
 
-    Player(double x, double y, double height, double width, Color color, double gravity, double speed, String moveLeft, String moveRight, String moveUp, String moveDown, String jump, double jumpHeight, String shoot) {
+    public Player(double x, double y, double height, double width, Color color, double gravity, double speed, String moveLeft, String moveRight, String moveUp, String moveDown, String jump, double jumpHeight, String shoot) {
         super(x, y, height, width, color);
+
+        this.gravity = gravity;
+        this.speed = speed;
+        this.moveLeft = moveLeft;
+        this.moveRight = moveRight;
+        this.moveUp = moveUp;
+        this.moveDown = moveDown;
+        this.jump = jump;
+        this.jumpHeight = jumpHeight;
+        this.shoot = shoot;
     }
 
-    double getGravity() {
+    // Getters and Setters
+    public double getGravity() {
         return gravity;
     }
 
-    void setGravity(double newGravity) {
+    public void setGravity(double newGravity) {
         this.gravity = newGravity;
     }
 
-    double getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 
-    void setSpeed(double newSpeed) {
+    public void setSpeed(double newSpeed) {
         this.speed = newSpeed;
     }
 
@@ -70,11 +88,11 @@ public class Player extends GameObject {
         return jump;
     }
 
-    void setJump(String newJump) {
+    public void setJump(String newJump) {
         this.jump = newJump;
     }
 
-    double getJumpHeight() {
+    public double getJumpHeight() {
         return jumpHeight;
     }
 

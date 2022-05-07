@@ -3,3 +3,71 @@
     -fx-border-width: 0px 6px 6px 6px;
     -fx-border-color: #EC9706;
 }
+
+#tabpane-left {
+    -fx-background-color: lightblue;
+}
+
+#tab-left {
+    -fx-font-size: 16px;
+}
+
+#vbox-left {
+    -fx-background-color: lightblue;
+}
+
+#sub-tab-pane {
+    -fx-background-color: lightblue;
+}
+
+#sub-tab {
+    -fx-font-size: 16px;
+}
+
+#game-engine-button {
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+    -fx-background-color: midnightblue;
+    -fx-text-fill: #FFFFFF;
+}
+
+#game-engine-button:hover {
+    -fx-background-color: royalblue;
+}
+
+#game-engine-label {
+    -fx-font-size: 16px;
+}
+
+#game-engine-dropdown {
+    -fx-font-size: 16px;
+}
+
+#game-engine_slider {
+    -fx-font-size: 16px;
+}
+
+#play-button {
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+    -fx-background-color: #228B22;
+    -fx-text-fill: #FFFFFF;
+}
+
+#play-button:hover {
+    -fx-background-color: #006400;
+}
+
+#clear-button {
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+    -fx-background-color: #FFD700
+}
+
+#clear-button:hover {
+    -fx-background-color: #DAA520
+}
+
+.choice-box .menu-item > .label {
+    -fx-text-fill: #FFFFFF;
+}

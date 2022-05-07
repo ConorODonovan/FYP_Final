@@ -1,14 +1,17 @@
+/*
+Conor O'Donovan - D18125705
+Final Year Project
+CodeBug
+VigenereCipher - Contains methods for Vigenere Cipher encryption and decryption
+ */
+
 package codebug.exercises.ciphers;
 
 public class VigenereCipher {
 
-    // TODO
-    // Make this actually work!
-    // Only works when all capitals
-    // Doesn't work with spaces
-
     public static final String alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+    // Encrypt method - takes plaintext and key and returns ciphertext
     public static String encrypt(String text, final String key)
     {
         String res = "";
@@ -30,6 +33,7 @@ public class VigenereCipher {
         return res;
     }
 
+    // Decrypt method - takes ciphertext and key and returns plaintext
     public static String decrypt(String text, final String key)
     {
         String res = "";

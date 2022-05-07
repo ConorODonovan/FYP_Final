@@ -1,0 +1,43 @@
+.root {
+    -fx-colour-main: #3E667E;
+    -fx-colour-main-dark: #112945;
+    -fx-colour-accent: #7ABFC9;
+    -fx-colour-accent-hover: #3F9BB6;
+}
+
+#borderpane-main {
+    -fx-background-image: url("../resources/backgrounds/cog_background.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 1920;
+}
+
+#main-menu-text {
+    -fx-text-fill: -fx-colour-main;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+#main-menu-vbox {
+    -fx-background-color: -fx-colour-main;
+    -fx-background-radius: 16px;
+    -fx-border-radius: 16px;
+}
+
+#menu-label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 42px;
+    -fx-font-weight: bold;
+}
+
+#button-homepage {
+    -fx-background-color: -fx-colour-main;
+    -fx-background-radius: 16px;
+    -fx-border-radius: 16px;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 42px;
+    -fx-font-weight: bold;
+}
+
+#button-homepage:hover {
+    -fx-background-color: -fx-colour-main-dark;
+}

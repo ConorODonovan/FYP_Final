@@ -2,36 +2,60 @@
   <dictionary name="Conor">
     <words>
       <w>abcdefghijklmnopqrstuvwxyz</w>
+      <w>abfc</w>
+      <w>accenthover</w>
       <w>bbbbbb</w>
       <w>binaryconverter</w>
       <w>binaryconvertor</w>
       <w>borderpane</w>
+      <w>cccccc</w>
+      <w>ciphertext</w>
       <w>codebug</w>
       <w>connectable</w>
+      <w>conor</w>
+      <w>consolas</w>
       <w>coords</w>
+      <w>darkorange</w>
+      <w>dropbox</w>
       <w>dropshadow</w>
       <w>eadbcb</w>
       <w>eeeeee</w>
       <w>escaperoom</w>
       <w>ffea</w>
+      <w>ffff</w>
       <w>ffffff</w>
+      <w>forestgreen</w>
       <w>gameengine</w>
       <w>gridpane</w>
+      <w>highcontrast</w>
+      <w>hohfwurq</w>
       <w>indianred</w>
       <w>jdbc</w>
       <w>lightblue</w>
+      <w>lightgreen</w>
       <w>logicgateicons</w>
+      <w>maindark</w>
+      <w>menuicons</w>
+      <w>merienda</w>
+      <w>midnightblue</w>
       <w>nand</w>
+      <w>numpad</w>
+      <w>numpads</w>
       <w>nums</w>
+      <w>powerpanel</w>
       <w>rajdhani</w>
+      <w>royalblue</w>
       <w>subheader</w>
       <w>tabpane</w>
       <w>tada</w>
       <w>textfield</w>
       <w>textfields</w>
+      <w>unselect</w>
       <w>varela</w>
       <w>vbox</w>
+      <w>vclrycx</w>
       <w>vigenere</w>
+      <w>wallsafe</w>
       <w>xnor</w>
     </words>
   </dictionary>

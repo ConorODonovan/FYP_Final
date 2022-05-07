@@ -1,0 +1,105 @@
+.root {
+    -fx-colour-main: #3E667E;
+    -fx-colour-main-dark: #112945;
+    -fx-colour-accent: #7ABFC9;
+    -fx-colour-accent-hover: #3F9BB6;
+}
+
+#vbox-progress {
+    -fx-background-color: #FFFFFF;
+    -fx-border-style: solid;
+    -fx-border-width: 0px 6px 0px 0px;
+    -fx-border-color: -fx-colour-accent;
+}
+
+#exercises-progress-header {
+    -fx-text-fill: -fx-colour-main;
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+}
+
+#progress-numbers {
+    -fx-text-fill: -fx-colour-main;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px;
+    -fx-border-insets: 8px;
+    -fx-background-insets: 8px;
+}
+
+#completion-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px;
+    -fx-border-insets: 8px;
+    -fx-background-insets: 8px;
+}
+
+#vbox-exercises-learn-about {
+    -fx-background-color: FFFFFF;
+}
+
+#exercises-learn-about {
+    -fx-text-fill: -fx-colour-main;
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: FFFFFF;
+}
+
+#exercises-tab {
+    -fx-background-color: -fx-colour-accent;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-background-insets: 0.0 0.0 0.0 4.0;
+    -fx-border-radius: 0px 12px 0px 0px;
+    -fx-background-radius: 12px 12px 0px 0px;
+}
+
+#exercises-tab:hover {
+    -fx-background-color: -fx-colour-main;
+}
+
+#exercises-tab:selected {
+    -fx-background-color: -fx-colour-main;
+}
+
+#exercises-tab-pane {
+    -fx-tab-min-width: 256px;
+    -fx-tab-max-width: 256px;
+    -fx-tab-min-height: 64px;
+    -fx-tab-max-height: 64px;
+    -fx-background-color: -fx-colour-main;
+    /*-fx-background-color: linear-gradient(from 100% 10% to 100% 100%, -fx-colour-main, #FFFFFF);*/
+}
+
+.tab-label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+}
+
+#tab-panel-label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+}
+
+#exercises-button {
+    -fx-font-size: 20px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: -fx-colour-accent;
+}
+
+#exercises-button:hover {
+    -fx-background-color: -fx-colour-accent-hover;
+}
+
+#explanation-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #FFFFFF;
+}

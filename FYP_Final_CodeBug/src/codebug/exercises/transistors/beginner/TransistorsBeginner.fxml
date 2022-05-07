@@ -45,7 +45,7 @@
                   </MenuBar>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fx:id="logo" fitHeight="64.0" fitWidth="280.0" onMouseEntered="#goToMainMenu" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="logoTop" fitHeight="64.0" fitWidth="280.0" onMouseEntered="#goToMainMenu" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../resources/logos/codebug_logo_fullsize.png" />
                            </image>
@@ -56,6 +56,15 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label id="username-label" fx:id="usernameLabel" text="Username Label">
+                                 <HBox.margin>
+                                    <Insets right="32.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
                      </children>
                   </HBox>
                </children>
@@ -285,7 +294,7 @@
                   <Line endX="100.0" layoutX="230.0" layoutY="140.0" startX="-100.0" />
                   <Line endX="100.0" layoutX="230.0" layoutY="60.0" startX="-100.0" />
                   <Line endX="20.0" endY="80.0" layoutX="310.0" layoutY="60.0" startX="20.0" />
-                  <Line fx:id="lineMiddleLeft2" endX="100.0" layoutX="305.0" layoutY="100.0" startX="27.0" />
+                  <Line fx:id="lineMiddleLeft2" endX="95.0" layoutX="305.0" layoutY="100.0" startX="27.0" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -324,7 +333,7 @@
                   <Line endX="100.0" layoutX="230.0" layoutY="140.0" startX="-100.0" />
                   <Line endX="100.0" layoutX="230.0" layoutY="60.0" startX="-100.0" />
                   <Line endX="20.0" endY="80.0" layoutX="310.0" layoutY="60.0" startX="20.0" />
-                  <Line fx:id="lineMiddleLeft3" endX="100.0" layoutX="305.0" layoutY="100.0" startX="27.0" />
+                  <Line fx:id="lineMiddleLeft3" endX="95.0" layoutX="305.0" layoutY="100.0" startX="27.0" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -372,7 +381,7 @@
       </GridPane>
    </center>
    <stylesheets>
-      <URL value="@../../../generic.css" />
+      <URL value="@../../../genericDefault.css" />
       <URL value="@../transistors.css" />
    </stylesheets>
 </BorderPane>

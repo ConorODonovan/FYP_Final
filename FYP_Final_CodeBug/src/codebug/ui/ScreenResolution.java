@@ -1,3 +1,10 @@
+/*
+Conor O'Donovan - D18125705
+Final Year Project
+CodeBug
+ScreenResolution Class - Handles getting user's screen resolution
+ */
+
 package codebug.ui;
 
 import javafx.geometry.Rectangle2D;

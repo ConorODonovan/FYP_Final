@@ -45,7 +45,7 @@
                   </MenuBar>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fx:id="logo" fitHeight="64.0" fitWidth="280.0" onMouseEntered="#goToMainMenu" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="logoTop" fitHeight="64.0" fitWidth="280.0" onMouseEntered="#goToMainMenu" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../resources/logos/codebug_logo_fullsize.png" />
                            </image>
@@ -56,6 +56,15 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label id="username-label" fx:id="usernameLabel" text="Username Label">
+                                 <HBox.margin>
+                                    <Insets right="32.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
                      </children>
                   </HBox>
                </children>
@@ -218,7 +227,7 @@
             <Label id="cipher-exercise-header" text="Ciphers - Beginner" GridPane.columnSpan="3" GridPane.halignment="CENTER" />
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
                <children>
-                  <Label id="cipher-question-label" text="Encrypt this sentence using the Caesar Cipher" />
+                  <Label id="cipher-question-label" text="Encrypt this message using the Caesar Cipher" />
                   <VBox id="vbox-paper" alignment="CENTER" prefHeight="200.0">
                      <children>
                         <Label id="question-label" fx:id="labelQuestion1a" text="You can find the hidden package" />
@@ -245,7 +254,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
                <children>
-                  <Label id="cipher-question-label" text="Decrypt this sentence using the Caesar Cipher" />
+                  <Label id="cipher-question-label" text="Decrypt this message using the Caesar Cipher" />
                   <VBox id="vbox-paper" alignment="CENTER" prefHeight="200.0">
                      <children>
                         <Label id="question-label" fx:id="labelQuestion2a" text="WKH VHFUHW SDVVZRUG" />
@@ -268,7 +277,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
                <children>
-                  <Label id="cipher-question-label" text="Encrypt this sentence using the Vigenere Cipher and the keyword &quot;LEMON&quot;" />
+                  <Label id="cipher-question-label" text="Encrypt this message using the Vigenere Cipher and the keyword &quot;LEMON&quot;" />
                   <VBox id="vbox-paper" alignment="CENTER" prefHeight="200.0">
                      <children>
                         <Label id="question-label" fx:id="labelQuestion3a" text="The secret password" />
@@ -335,7 +344,7 @@
       </GridPane>
    </center>
    <stylesheets>
-      <URL value="@../../../generic.css" />
+      <URL value="@../../../genericDefault.css" />
       <URL value="@../ciphers.css" />
    </stylesheets>
 </BorderPane>

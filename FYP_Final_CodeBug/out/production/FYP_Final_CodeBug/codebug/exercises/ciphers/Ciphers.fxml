@@ -42,7 +42,7 @@
                   </MenuBar>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fx:id="logo" fitHeight="64.0" fitWidth="280.0" onMouseEntered="#goToMainMenu" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="logoTop" fitHeight="64.0" fitWidth="280.0" onMouseEntered="#goToMainMenu" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../resources/logos/codebug_logo_fullsize.png" />
                            </image>
@@ -53,6 +53,15 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label id="username-label" fx:id="usernameLabel" text="Username Label">
+                                 <HBox.margin>
+                                    <Insets right="32.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
                      </children>
                   </HBox>
                </children>
@@ -180,7 +189,7 @@
       </TabPane>
    </center>
    <stylesheets>
-      <URL value="@../../generic.css" />
+      <URL value="@../../genericDefault.css" />
       <URL value="@ciphers.css" />
    </stylesheets>
 </BorderPane>

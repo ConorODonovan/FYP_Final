@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+#escape-room-background {
+    -fx-background-image: url('../escaperoom/images/escape_room_background.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 1920 974;
+    -fx-background-position: center center;
+}
+
+#update-label {
+    -fx-font-size: 32px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: rgba(80, 80, 80, 0.75);
+    -fx-background-radius: 16px;
+    -fx-border-radius: 16px;
+}
+
+/* Journal */
+#journal {
+    -fx-background-color: #E1CBA2;
+    -fx-background-radius: 16px;
+    -fx-border-radius: 16px;
+    -fx-border-width: 4px;
+    -fx-border-color: #35271E;
+    -fx-text-fill: #35271E;
+    -fx-font-family: 'Merienda', cursive;
+    -fx-font-size: 12px;
+}
+
+#journal-header {
+    -fx-font-size: 24px;
+}
+
+/* Tablet */
+#tablet-tabpane {
+    -fx-background-color: #FFB6C1;
+    -fx-background-radius: 8px;
+    -fx-border-width: 4px;
+    -fx-border-color: #191970;
+}
+
+#tablet-tab {
+    -fx-font-size: 12px;
+    -fx-background-color: #E0FFFF;
+}
+
+#tablet-tab:selected {
+    -fx-background-color: #FFB6C1;
+}
+
+#tablet-header {
+    -fx-font-size: 24px;
+    -fx-font-weight: 800;
+}
+
+#tablet-label {
+    -fx-font-size: 16px;
+}
+
+#tablet-textfield {
+    -fx-font-size: 14px;
+}
+
+#tablet-button {
+    -fx-font-size: 16px;
+    -fx-background-color: #9370DB;
+}
+
+#tablet-button:hover {
+    -fx-font-size: 16px;
+    -fx-background-color: #191970;
+}
+
+#tablet-logic-gates {
+    -fx-background-color: #E0FFFF;
+    -fx-background-radius: 0px 16px 0px 16px;
+    -fx-border-radius: 16px 16px 16px 16px;
+}
+
+/* Number pads */
+#numpad {
+    -fx-background-color: #CCCCCC;
+    -fx-border-style: solid;
+    -fx-border-color: #444444;
+    -fx-border-width: 2;
+}
+
+#numpad-button-number {
+    -fx-background-color: #333333;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+}
+
+#numpad-button-clear {
+    -fx-background-color: indianred;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+}
+
+#numpad-button-ok {
+    -fx-background-color: forestgreen;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+}
+
+#numpad-textfield {
+    -fx-background-color: #333333;
+    -fx-font-size: 16px;
+    -fx-text-fill: red;
+}
+
+/* Computer */
+#password-computer {
+    -fx-background-color: #222222;
+    -fx-background-radius: 16px;
+    -fx-border-radius: 16px;
+}
+
+#label-computer {
+    -fx-text-fill: lightgreen;
+    -fx-font-family: consolas;
+    -fx-font-size: 16px;
+}
+
+#textfield-computer {
+    -fx-border-style: solid;
+    -fx-border-color: lightgreen;
+    -fx-border-width: 2;
+    -fx-background-color: #222222;
+    -fx-text-fill: lightgreen;
+    -fx-font-family: consolas;
+    -fx-font-size: 16px;
+}
+
+#button-computer {
+    -fx-background-color: lightgreen;
+    -fx-border-style: solid;
+    -fx-border-color: lightgreen;
+    -fx-border-width: 2;
+    -fx-background-insets: 0, 0, 0, 0;
+    -fx-font-size: 20px;
+    -fx-font-family: consolas;
+}
+
+#password-filing-cabinet {
+    -fx-background-color: #FFFFFF;
+}
+
+/* Power box */
+#transistor-box {
+    -fx-background-image: url('../escaperoom/images/power_box_inside.png');
+    -fx-border-style: solid;
+    -fx-border-color: #222222;
+    -fx-border-width: 4;
+}
+
+#transistors-dropdown {
+    -fx-background-color: #C5F1F9;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-color: #0165BC;
+}
+
+#power-box-button {
+    -fx-background-color: darkorange;
+    -fx-font-size: 16px;
+    -fx-text-fill: FFFFFF;
+    -fx-font-weight: 800;
+}
+
+/* Filing cabinet password screen */
+#password-filing-cabinet{
+    -fx-background-color: #BBBBBB;
+    -fx-border-style: solid;
+    -fx-border-color: #333333;
+    -fx-border-width: 2;
+}
+
+#password-field-filing-cabinet {
+    -fx-background-color: #333333;
+    -fx-font-size: 16px;
+    -fx-text-fill: red;
+    -fx-font-weight: 800;
+}
+
+#password-button-filing-cabinet {
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: forestgreen;
+}

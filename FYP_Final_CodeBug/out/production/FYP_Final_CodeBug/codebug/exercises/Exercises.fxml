@@ -41,7 +41,7 @@
                   </MenuBar>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fx:id="logo" fitHeight="64.0" fitWidth="280.0" onMouseEntered="#goToMainMenu" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="logoTop" fitHeight="64.0" fitWidth="280.0" onMouseEntered="#goToMainMenu" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/logos/codebug_logo_fullsize.png" />
                            </image>
@@ -52,6 +52,15 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label id="username-label" fx:id="usernameLabel" text="Username Label">
+                                 <HBox.margin>
+                                    <Insets right="32.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
                      </children>
                   </HBox>
                </children>
@@ -91,16 +100,16 @@
                                     </VBox>
                                     <VBox alignment="TOP_RIGHT" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <Label id="completion-numbers" text="Not Completed" />
-                                          <Label id="completion-numbers" text="Not Completed" />
-                                          <Label id="completion-numbers" text="Not Completed" />
-                                          <Label id="completion-numbers" text="Not Completed" />
-                                          <Label id="completion-numbers" text="Not Completed" />
-                                          <Label id="completion-numbers" text="Not Completed" />
-                                          <Label id="completion-numbers" text="Not Completed" />
-                                          <Label id="completion-numbers" text="Not Completed" />
-                                          <Label id="completion-numbers" text="Not Completed" />
-                                          <Label id="completion-numbers" text="Not Completed" />
+                                          <Label id="completion-label" fx:id="exercise1ProgressLabel" text="Not Completed" />
+                                          <Label id="completion-label" fx:id="exercise2ProgressLabel" text="Not Completed" />
+                                          <Label id="completion-label" fx:id="exercise3ProgressLabel" text="Not Completed" />
+                                          <Label id="completion-label" fx:id="exercise4ProgressLabel" text="Not Completed" />
+                                          <Label id="completion-label" fx:id="exercise5ProgressLabel" text="Not Completed" />
+                                          <Label id="completion-label" fx:id="exercise6ProgressLabel" text="Not Completed" />
+                                          <Label id="completion-label" fx:id="exercise7ProgressLabel" text="Not Completed" />
+                                          <Label id="completion-label" fx:id="exercise8ProgressLabel" text="Not Completed" />
+                                          <Label id="completion-label" fx:id="exercise9ProgressLabel" text="Not Completed" />
+                                          <Label id="completion-label" fx:id="exercise10ProgressLabel" text="Not Completed" />
                                        </children>
                                        <HBox.margin>
                                           <Insets right="24.0" />
@@ -133,11 +142,60 @@
                                                    <children>
                                                       <Label id="tab-panel-label" text="Numbers">
                                                          <VBox.margin>
-                                                            <Insets bottom="128.0" top="128.0" />
+                                                            <Insets bottom="16.0" top="32.0" />
                                                          </VBox.margin></Label>
-                                                      <Label text="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
-                                                      <Label text="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-                                                      <Label text="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                                      <Label id="explanation-label" text="To understand how computers use transistors to represent complex information, we must first understand Binary.">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin></Label>
+                                                      <Label id="explanation-label" text="A transistor is like a tiny switch. It can either be on or off, and this can be represented as 1 (on) or 0 (off).">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin></Label>
+                                                      <Label id="explanation-label" text="However, there are many more numbers than 1 and 0, not to mention" />
+                                                      <Label id="explanation-label" text="the thousands of letters and other characters we need to be able to represent.">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label id="explanation-label" text="To understand how the numbers 1 and 0 can represent extremely " />
+                                                      <Label id="explanation-label" text="complex information, we must first understand the concept of bases.">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label id="explanation-label" text="We are used to counting in Base 10 (also known as Decimal). " />
+                                                      <Label id="explanation-label" text="This means that we represent all numbers with ten unique digits: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. " />
+                                                      <Label id="explanation-label" text="This is likely because humans have ten fingers, so it felt natural to count in this way.">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label id="explanation-label" text="When counting up in Base 10, what happens when we reach 9? " />
+                                                      <Label id="explanation-label" text="We simply revert back to 0, and add a 1 to the left. " />
+                                                      <Label id="explanation-label" text="So 9 becomes 10. When we reach 19, the same thing happens. " />
+                                                      <Label id="explanation-label" text="We add another 1 to the left, and revert the right-most digit back to zero. So 19 becomes 20.">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label id="explanation-label" text="We can count in any Base, and it works in the exact same way. " />
+                                                      <Label id="explanation-label" text="When counting in Base 8 (Octal), we only have 8 unique digits (0, 1, 2, 3, 4, 5, 6, 7). " />
+                                                      <Label id="explanation-label" text="So when we reach 7, we simply revert back to 0 and add a 1 to the left. " />
+                                                      <Label id="explanation-label" text="So 7 becomes 10, 17 becomes 20, and so on.">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label id="explanation-label" text="Binary is what we call Base 2. We only have two unique digits: 0, 1. " />
+                                                      <Label id="explanation-label" text="So 1 becomes 10, 11 becomes 100, etc. " />
+                                                      <Label id="explanation-label" text="We can see that the equivalent of the number 5 in Base 10 is the number 101 in Binary (1, 2, 3, 4, 5 = 1, 10, 11, 100, 101).">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label id="explanation-label" text="This is how large numbers of transistors, each representing " />
+                                                      <Label id="explanation-label" text="either a 1 (on) or a 0 (off) can represent large amounts of complex data." />
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="763.0">
@@ -145,19 +203,31 @@
                                                       <Button id="exercises-button" fx:id="numbersButtonBeginner" mnemonicParsing="false" onAction="#goToNumbersBeginner" prefWidth="200.0" text="Beginner">
                                                          <VBox.margin>
                                                             <Insets bottom="32.0" />
-                                                         </VBox.margin></Button>
+                                                         </VBox.margin>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor></Button>
                                                       <Button id="exercises-button" fx:id="numbersButtonIntermediate" mnemonicParsing="false" onAction="#goToNumbersIntermediate" prefWidth="200.0" text="Intermediate">
                                                          <VBox.margin>
                                                             <Insets bottom="32.0" />
-                                                         </VBox.margin></Button>
+                                                         </VBox.margin>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor></Button>
                                                       <Button id="exercises-button" fx:id="numbersButtonAdvanced" mnemonicParsing="false" onAction="#goToNumbersAdvanced" prefWidth="200.0" text="Advanced">
                                                          <VBox.margin>
                                                             <Insets bottom="32.0" />
-                                                         </VBox.margin></Button>
-                                                      <Button id="exercises-button" fx:id="buttonBinaryConverter" mnemonicParsing="false" onAction="#goToBinaryConverter" prefWidth="200.0" text="Sandbox">
+                                                         </VBox.margin>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor></Button>
+                                                      <Button id="exercises-button" fx:id="buttonBinaryConverter" mnemonicParsing="false" onAction="#goToNumbersSandbox" prefWidth="200.0" text="Sandbox">
                                                          <VBox.margin>
                                                             <Insets />
-                                                         </VBox.margin></Button>
+                                                         </VBox.margin>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor></Button>
                                                    </children>
                                                    <HBox.margin>
                                                       <Insets />
@@ -179,12 +249,38 @@
                                                    <children>
                                                       <Label id="tab-panel-label" text="Cryptography">
                                                          <VBox.margin>
-                                                            <Insets bottom="128.0" top="128.0" />
+                                                            <Insets bottom="16.0" left="128.0" right="128.0" top="32.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <Label text="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
-                                                      <Label text="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-                                                      <Label text="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                                      <Label id="explanation-label" text="For thousands of years, people needed to send secret messages that, " />
+                                                      <Label id="explanation-label" text="if they fell into the wrong hands, could not be read.">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin></Label>
+                                                      <Label id="explanation-label" text="A cipher is a series of steps for encrypting information, i.e., hiding its meaning." />
+                                                      <Label id="explanation-label" text="It makes sending information more secure, whether it’s top-secret battle plans " />
+                                                      <Label id="explanation-label" text="during a war, or an email containing your personal details.">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label id="explanation-label" text="The sender performs these series of steps on the original message (this is known as an algorithm) " />
+                                                      <Label id="explanation-label" text="to turn it into something that would appearing meaningless to anybody that saw it," />
+                                                      <Label id="explanation-label" text="and the recipient has some means of reversing these steps" />
+                                                      <Label id="explanation-label" text="in order to decrypt the message and reveal the original information.">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label id="explanation-label" text="One of the earliest known ciphers is the Caesar Cipher, " />
+                                                      <Label id="explanation-label" text="used by Julius Caesar around 100BC to send secret military communications." />
+                                                      <Label id="explanation-label" text="It involves taking each letter of the message and shifting it by 3, " />
+                                                      <Label id="explanation-label" text="so A becomes D, B becomes E,  and so on.">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label id="explanation-label" text="Today, much more advanced ciphers are used to protect our data online." />
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="763.0">
@@ -219,12 +315,35 @@
                                                    <children>
                                                       <Label id="tab-panel-label" text="Transistors">
                                                          <VBox.margin>
-                                                            <Insets bottom="128.0" top="128.0" />
+                                                            <Insets bottom="16.0" top="32.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <Label text="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
-                                                      <Label text="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-                                                      <Label text="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                                      <Label id="explanation-label" text="Transistors are the building blocks of computers." />
+                                                      <Label id="explanation-label" text="They are simply a tiny electrical switch controlled by an electrical voltage.">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin></Label>
+                                                      <Label id="explanation-label" text="A transistor can be in one of two states: on or off.">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin></Label>
+                                                      <Label id="explanation-label" text="They are very small - around 10-20 nanometers (nm)." />
+                                                      <Label id="explanation-label" text="Roughly one million of them can fit in a single centimeter, or around the width of your finger.">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin></Label>
+                                                      <Label id="explanation-label" text="By arranging transistors in specific ways, we can create logic gates." />
+                                                      <Label id="explanation-label" text="By using transitors and logic gates, computers can represent and modify data as Binary Numbers.">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin></Label>
+                                                      <Label id="explanation-label" text="By combining more and more transistors, we can represent more and more complex data, from" />
+                                                      <Label id="explanation-label" text="single numbers and letters, to words, setences, images, video, and interactive media such as videogames.">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin></Label>
+                                                      <Label id="explanation-label" text="The first ever computer to use transistors was the TRADIC, built in 1954, with around 800 transistors." />
+                                                      <Label id="explanation-label" text="In comparison, there are often tens of billions of transistors in a single modern laptop or desktop computer." />
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="763.0">
@@ -241,7 +360,6 @@
                                                          <VBox.margin>
                                                             <Insets bottom="32.0" />
                                                          </VBox.margin></Button>
-                                                      <Button id="exercises-button" fx:id="buttonTestTransistorExercise" mnemonicParsing="false" onAction="#goToTestScene" prefWidth="200.0" text="Sandbox" />
                                                    </children>
                                                 </VBox>
                                              </children>
@@ -259,17 +377,29 @@
                                                    <children>
                                                       <Label id="tab-panel-label" text="Escape Room">
                                                          <VBox.margin>
-                                                            <Insets bottom="128.0" top="128.0" />
+                                                            <Insets bottom="16.0" top="32.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <Label text="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
-                                                      <Label text="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-                                                      <Label text="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+                                                      <Label id="explanation-label" text="Escape the room using all of the skills you've learned so far!">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin></Label>
+                                                      <Label id="explanation-label" text="In order to escape successfully, you must apply your knowledge of numbers, ciphers, and transistors to solve the puzzles!">
+                                                         <VBox.margin>
+                                                            <Insets bottom="16.0" />
+                                                         </VBox.margin></Label>
+                                                      <Label id="explanation-label" text="Good luck!">
+                                                         <VBox.margin>
+                                                            <Insets />
+                                                         </VBox.margin></Label>
                                                    </children>
                                                 </VBox>
                                                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="763.0">
                                                    <children>
-                                                      <Button id="exercises-button" fx:id="buttonEscapeRoom" mnemonicParsing="false" onAction="#goToEscapeRoom" prefWidth="200.0" text="Escape Room" />
+                                                      <Button id="exercises-button" fx:id="buttonEscapeRoom" mnemonicParsing="false" onAction="#goToEscapeRoom" prefWidth="200.0" text="Escape Room">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor></Button>
                                                    </children>
                                                 </VBox>
                                              </children>
@@ -287,7 +417,7 @@
       </VBox>
    </center>
    <stylesheets>
-      <URL value="@../generic.css" />
-      <URL value="@exercises.css" />
+      <URL value="@../genericDefault.css" />
+      <URL value="@exercisesDefault.css" />
    </stylesheets>
 </BorderPane>

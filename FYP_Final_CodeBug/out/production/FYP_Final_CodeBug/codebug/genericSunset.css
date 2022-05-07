@@ -1,0 +1,55 @@
+/* Style sheet for generic elements that remain the same across the entire application */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=Montserrat:wght@400;600;700&family=Poppins&family=Rajdhani&family=Redressed&family=Varela+Round&display=swap');
+
+.root {
+    -fx-colour-main: #C1246B;
+    -fx-colour-main-dark: #A11477;
+    -fx-colour-accent: #FF6F4B;
+    -fx-colour-accent-hover: #FD4C55;
+}
+
+.root {
+    -fx-font-family: 'Montserrat', sans-serif;
+}
+
+#top-anchor-pane {
+    -fx-background-color: -fx-colour-main;
+    -fx-border-style: solid;
+    -fx-border-width: 0px 0px 6px 0px;
+    -fx-border-color: -fx-colour-accent;
+}
+
+#top-vbox {
+    -fx-background-color: -fx-colour-main;
+}
+
+#menu-bar {
+    -fx-background-color: -fx-colour-main-dark;
+}
+
+#menu-bar .menu-item {
+    -fx-background-color: -fx-colour-main-dark;
+}
+
+#menu-bar .menu-item:hover {
+    -fx-background-color: -fx-colour-main;
+}
+
+#menu-bar .label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.context-menu {
+    -fx-background-color: -fx-colour-main-dark;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+    -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em;
+}
+
+#username-label {
+    -fx-text-fill: -fx-colour-accent;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}

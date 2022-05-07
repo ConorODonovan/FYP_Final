@@ -1,0 +1,16 @@
+.root {
+    -fx-colour-main: #C1246B;
+    -fx-colour-main-dark: #A11477;
+    -fx-colour-accent: #FF6F4B;
+    -fx-colour-accent-hover: #FD4C55;
+}
+
+#vbox-about {
+    -fx-background-color: -fx-colour-main;
+}
+
+#about-label {
+    -fx-text-fill: -fx-colour-accent-hover;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}

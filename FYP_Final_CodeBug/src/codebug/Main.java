@@ -1,3 +1,10 @@
+/*
+Conor O'Donovan - D18125705
+Final Year Project
+CodeBug
+Main Class - Application starts here
+ */
+
 package codebug;
 
 import codebug.ui.ScreenResolution;
@@ -20,6 +27,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    // Application start
     public static void main(String[] args) {
         launch(args);
     }

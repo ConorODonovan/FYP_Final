@@ -1,9 +1,18 @@
+/*
+Conor O'Donovan - D18125705
+Final Year Project
+CodeBug
+CaesarCipher - Contains methods for Caesar Cipher encryption and decryption
+ */
+
 package codebug.exercises.ciphers;
 
 public class CaesarCipher {
 
-    public static final String alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    // All allowed characters
+    private static final String alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+    // Caesar encrypt method - takes plaintext and shift amount and returns ciphertext
     public static String encrypt(String plainText, int shiftKey) {
         plainText = plainText.toUpperCase();
         String cipherText = "";
@@ -21,6 +30,7 @@ public class CaesarCipher {
         return cipherText;
     }
 
+    // Caesar decrypt method - takes ciphertext and shift amount and returns plaintext
     public static String decrypt(String cipherText, int shiftKey) {
         cipherText = cipherText.toUpperCase();
         String plainText = "";

@@ -45,7 +45,7 @@
                   </MenuBar>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fx:id="logo" fitHeight="64.0" fitWidth="280.0" onMouseEntered="#goToMainMenu" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="logoTop" fitHeight="64.0" fitWidth="280.0" onMouseEntered="#goToMainMenu" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/logos/codebug_logo_fullsize.png" />
                            </image>
@@ -56,6 +56,29 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Button id="play-button" fx:id="playButton" mnemonicParsing="false" onAction="#changeGameState" prefWidth="140.0" text="PLAY">
+                                 <HBox.margin>
+                                    <Insets right="32.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding></Button>
+                              <Button id="clear-button" fx:id="buttonReset" mnemonicParsing="false" onAction="#reset" prefWidth="140.0" text="CLEAR">
+                                 <HBox.margin>
+                                    <Insets right="480.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="8.0" top="8.0" />
+                                 </padding></Button>
+                              <Label id="username-label" fx:id="usernameLabel" text="Username Label">
+                                 <HBox.margin>
+                                    <Insets right="32.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
                      </children>
                   </HBox>
                </children>
@@ -66,92 +89,168 @@
    <left>
       <VBox prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <TabPane prefHeight="975.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane id="tabpane-left" prefHeight="975.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab closable="false" text="Objects">
+                <Tab id="tab-left" closable="false" text="Objects">
                   <content>
-                        <VBox prefHeight="946.0" prefWidth="400.0">
+                        <VBox id="vbox-left" alignment="TOP_CENTER" prefHeight="946.0" prefWidth="400.0">
                            <children>
-                              <Button fx:id="createPlayerButton" mnemonicParsing="false" text="Create Player" />
-                              <Button mnemonicParsing="false" text="Create Enemy/Obstacle" />
-                              <Button fx:id="createWallButton" mnemonicParsing="false" text="Create Wall" />
-                              <Button mnemonicParsing="false" text="Create Scenery" />
+                              <Button id="game-engine-button" fx:id="createPlayerButton" mnemonicParsing="false" onAction="#createPlayer" prefWidth="240.0" text="Create Player">
+                                 <VBox.margin>
+                                    <Insets top="64.0" />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="16.0" top="16.0" />
+                                 </padding></Button>
+                              <Button id="game-engine-button" fx:id="createWallButton" mnemonicParsing="false" onAction="#createWall" prefWidth="240.0" text="Create Wall">
+                                 <VBox.margin>
+                                    <Insets top="64.0" />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="16.0" top="16.0" />
+                                 </padding></Button>
                            </children>
                         </VBox>
                   </content>
                 </Tab>
-                <Tab closable="false" text="Properties">
+                <Tab id="tab-left" closable="false" text="Properties">
                   <content>
                         <VBox prefHeight="400.0" prefWidth="400.0">
                            <children>
-                              <TabPane minHeight="800.0" prefHeight="800.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE">
+                              <TabPane id="sub-tab-pane" minHeight="800.0" prefHeight="800.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE">
                                 <tabs>
-                                  <Tab closable="false" text="General">
+                                  <Tab id="sub-tab" closable="false" text="General">
                                        <content>
                                           <VBox minHeight="800.0" prefHeight="800.0" prefWidth="100.0">
                                              <children>
-                                                <Label text="Width" />
-                                                <Slider fx:id="widthSlider" />
-                                                <Label text="Height" />
-                                                <Slider fx:id="heightSlider" />
-                                                <Label text="Colour" />
-                                                <ColorPicker fx:id="colorPicker" />
-                                                <Button mnemonicParsing="false" text="Save" />
+                                                <Label id="game-engine-label" fx:id="isObjectSelectedLabel" text="Please Select an Object">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="16.0" />
+                                                   </VBox.margin></Label>
+                                                <Label id="game-engine-label" text="Width">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="16.0" />
+                                                   </VBox.margin></Label>
+                                                <Slider id="game-engine_slider" fx:id="widthSlider" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" right="8.0" />
+                                                   </VBox.margin></Slider>
+                                                <Label id="game-engine-label" text="Height">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="8.0" />
+                                                   </VBox.margin></Label>
+                                                <Slider id="game-engine_slider" fx:id="heightSlider" blockIncrement="1.0" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" right="8.0" />
+                                                   </VBox.margin></Slider>
+                                                <Label id="game-engine-label" text="Colour">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="8.0" />
+                                                   </VBox.margin></Label>
+                                                <ColorPicker id="game-engine-dropdown" fx:id="colorPicker">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="4.0" />
+                                                   </VBox.margin></ColorPicker>
+                                                <Button id="game-engine-button" fx:id="saveGeneralPropertiesButton" mnemonicParsing="false" onAction="#saveObjectProperties" text="SAVE">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="16.0" />
+                                                   </VBox.margin></Button>
                                              </children>
                                           </VBox>
                                        </content>
                                   </Tab>
-                                  <Tab closable="false" text="Movement">
+                                  <Tab id="sub-tab" closable="false" text="Movement">
                                        <content>
                                           <VBox minHeight="800.0" prefWidth="400.0">
                                              <children>
-                                                <Label text="Gravity" />
-                                                <Slider fx:id="gravitySlider" />
-                                                <Label text="Speed" />
-                                                <Slider fx:id="speedSlider" />
-                                                <Label text="Move Left" />
-                                                <ChoiceBox fx:id="leftInputChoiceBox" prefWidth="150.0" />
-                                                <Label text="Move Right" />
-                                                <ChoiceBox fx:id="rightInputChoiceBox" prefWidth="150.0" />
-                                                <Label text="Move Up" />
-                                                <ChoiceBox fx:id="upInputChoiceBox" prefWidth="150.0" />
-                                                <Label text="Move Down" />
-                                                <ChoiceBox fx:id="downInputChoiceBox" prefWidth="150.0" />
-                                                <Label text="Jump" />
-                                                <ChoiceBox fx:id="jumpInputChoiceBox" prefWidth="150.0" />
-                                                <Label text="Jump Height" />
-                                                <Slider fx:id="jumpHeightSlider" />
-                                                <Button mnemonicParsing="false" text="Save" />
+                                                <Label id="game-engine-label" text="Gravity">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="16.0" />
+                                                   </VBox.margin></Label>
+                                                <Slider id="game-engine_slider" fx:id="gravitySlider" majorTickUnit="1.0" max="10.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" right="8.0" />
+                                                   </VBox.margin></Slider>
+                                                <Label id="game-engine-label" text="Speed">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="8.0" />
+                                                   </VBox.margin></Label>
+                                                <Slider id="game-engine_slider" fx:id="speedSlider" majorTickUnit="5.0" max="50.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" right="8.0" />
+                                                   </VBox.margin></Slider>
+                                                <Label id="game-engine-label" text="Move Left">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="16.0" />
+                                                   </VBox.margin></Label>
+                                                <ChoiceBox id="game-engine-dropdown" fx:id="leftInputChoiceBox" prefWidth="150.0">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="4.0" />
+                                                   </VBox.margin></ChoiceBox>
+                                                <Label id="game-engine-label" text="Move Right">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="16.0" />
+                                                   </VBox.margin></Label>
+                                                <ChoiceBox id="game-engine-dropdown" fx:id="rightInputChoiceBox" prefWidth="150.0">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="4.0" />
+                                                   </VBox.margin></ChoiceBox>
+                                                <Label id="game-engine-label" text="Move Up">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="16.0" />
+                                                   </VBox.margin></Label>
+                                                <ChoiceBox id="game-engine-dropdown" fx:id="upInputChoiceBox" prefWidth="150.0">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="4.0" />
+                                                   </VBox.margin></ChoiceBox>
+                                                <Label id="game-engine-label" text="Move Down">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="16.0" />
+                                                   </VBox.margin></Label>
+                                                <ChoiceBox id="game-engine-dropdown" fx:id="downInputChoiceBox" prefWidth="150.0">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="4.0" />
+                                                   </VBox.margin></ChoiceBox>
+                                                <Label id="game-engine-label" text="Jump">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="16.0" />
+                                                   </VBox.margin></Label>
+                                                <ChoiceBox id="game-engine-dropdown" fx:id="jumpInputChoiceBox" prefWidth="150.0">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="4.0" />
+                                                   </VBox.margin></ChoiceBox>
+                                                <Label id="game-engine-label" text="Jump Height">
+                                                   <VBox.margin>
+                                                      <Insets top="16.0" />
+                                                   </VBox.margin></Label>
+                                                <Slider id="game-engine_slider" fx:id="jumpHeightSlider" majorTickUnit="4.0" max="40.0" showTickLabels="true" showTickMarks="true" snapToTicks="true">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" right="8.0" />
+                                                   </VBox.margin></Slider>
+                                                <Button id="game-engine-button" fx:id="saveMovementPropertiesButton" mnemonicParsing="false" onAction="#saveObjectProperties" text="SAVE">
+                                                   <VBox.margin>
+                                                      <Insets left="8.0" top="16.0" />
+                                                   </VBox.margin></Button>
                                              </children>
                                           </VBox>
                                        </content>
                                   </Tab>
-                                    <Tab closable="false" text="Actions">
-                                       <content>
-                                          <VBox prefHeight="200.0" prefWidth="100.0" />
-                                       </content>
-                                    </Tab>
                                 </tabs>
                               </TabPane>
                            </children>
                         </VBox>
                   </content>
                 </Tab>
-                  <Tab closable="false" text="Background">
-                     <content>
-                        <VBox prefHeight="200.0" prefWidth="100.0" />
-                     </content>
-                  </Tab>
               </tabs>
             </TabPane>
          </children>
       </VBox>
    </left>
    <center>
-      <Pane id="game-window" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <Pane id="game-window" fx:id="gameWindow" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
    <stylesheets>
-      <URL value="@../generic.css" />
+      <URL value="@../genericDefault.css" />
       <URL value="@gameengine.css" />
    </stylesheets>
 </BorderPane>

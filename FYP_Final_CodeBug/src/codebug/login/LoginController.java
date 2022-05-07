@@ -1,27 +1,33 @@
+/*
+Conor O'Donovan - D18125705
+Final Year Project
+CodeBug
+LoginController - Controls logic for Login and Registration page
+ */
+
 package codebug.login;
 
 import animatefx.animation.RubberBand;
 import codebug.database.DBUtils;
+import codebug.ui.NavigationManager;
 import codebug.ui.TopMenuBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.effect.Light;
+import javafx.scene.effect.Lighting;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.scene.paint.Color;
+
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class LoginController {
 
+    // Declaration of variables
+    // Variables annotated with @FXML are UI elements
     @FXML
     AnchorPane loginTop;
     @FXML
@@ -32,6 +38,8 @@ public class LoginController {
     MenuItem LoginMenuFile;
     @FXML
     MenuItem LoginMenuHelp;
+    @FXML
+    ImageView logoTop;
     @FXML
     ImageView imageViewLogo;
     @FXML
@@ -52,10 +60,27 @@ public class LoginController {
     Button buttonLogin;
     @FXML
     Button buttonRegister;
+    @FXML
+    Label loginWarningLabel;
+    @FXML
+    Label registerWarningLabel;
 
+    // Initialize method runs on first opening the page
     @FXML
     private void initialize() {
 
+        Lighting lighting = new Lighting();
+        Color color = Color.rgb(236, 151, 6);
+        lighting.setDiffuseConstant(1.0);
+        lighting.setSpecularConstant(0.0);
+        lighting.setSpecularExponent(0.0);
+        lighting.setSurfaceScale(0.0);
+        lighting.setLight(new Light.Distant(100, 100, color));
+        logoTop.setEffect(lighting);
+        imageViewLogo.setEffect(lighting);
+
+        loginWarningLabel.setText("");
+        registerWarningLabel.setText("");
     }
 
     // Top Menu Bar functionality
@@ -64,53 +89,85 @@ public class LoginController {
         TopMenuBar.openAboutWindow();
     }
 
+    // Open settings screen
+    @FXML
+    public void openSettingsWindow() throws Exception {
+        TopMenuBar.openSettingsWindow();
+    }
+
+    // Animate logo on mouse click
     public void mouseClick() {
         RubberBand logoTada = new RubberBand(imageViewLogo);
         logoTada.play();
     }
 
+    // Check database to see if login details are correct
     private boolean loginCheck() {
         return DBUtils.loginUser(textFieldUserName.getText(), textFieldPassword.getText());
-//        return true;
     }
 
+    // User registration
     @FXML
     private void userRegistration(ActionEvent event) throws SQLException, IOException {
-        // Check that al registration fields are complete
+        // Check that all registration fields are complete
         if (registerUsername.getText().isEmpty() || registerEmail.getText().isEmpty() || registerPassword.getText().isEmpty() || registerConfirmPassword.getText().isEmpty()) {
-            System.out.println("Please enter all required fields!");
+            registerWarningLabel.setText("Please complete all required fields!");
         // Check if Password and Confirm Password match
         } else if (!registerPassword.getText().equals(registerConfirmPassword.getText())) {
-            System.out.println("Password and Confirm Password do not match");
-        // Add user details to database
+            registerWarningLabel.setText("Password and Confirm Password do not match!");
+            // Add user details to database
         } else {
             DBUtils.registerUser(registerUsername.getText(), registerEmail.getText(), registerPassword.getText());
-
-            Parent root = FXMLLoader.load(getClass().getResource("/codebug/homepage/Homepage.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root, 1920, 1080);
-            stage.setScene(scene);
-            stage.show();
+            registerWarningLabel.setText("Registered successfully, please login to continue!");
         }
     }
 
+    // Go to main menu on successful login
     @FXML
-    public void switchToHomepage(ActionEvent event) throws IOException {
-        if (loginCheck()) {
-            Parent root = FXMLLoader.load(getClass().getResource("/codebug/homepage/Homepage.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root, 1920, 1080);
-            stage.setScene(scene);
-            stage.show();
+    public void switchToHomepage(ActionEvent e) throws IOException {
+        if (!loginBlank()) {
+            loginWarningLabel.setText("Username field cannot be blank!");
+        } else if (!loginPasswordBlank()) {
+            loginWarningLabel.setText("Password field cannot be blank!");
+        } if (loginCheck()) {
+            NavigationManager.goToMainMenuButton(e);
         }
     }
 
-    // For testing database connection
+    // Login error messages
     @FXML
-    public void checkDBConnection() {
-        String un = textFieldUserName.getText();
-        String pw = textFieldPassword.getText();
+    public boolean loginBlank() {
+        return !textFieldUserName.getText().equals("");
+    }
 
-        DBUtils.loginUser(un, pw);
+    @FXML
+    public boolean loginPasswordBlank() {
+        return !textFieldPassword.getText().equals("");
+    }
+
+    // Registration error messages
+    @FXML
+    public boolean usernameBlank() {
+        return !registerUsername.getText().equals("");
+    }
+
+    @FXML
+    public boolean emailBlank() {
+        return !registerEmail.getText().equals("");
+    }
+
+    @FXML
+    public boolean passwordBlank() {
+        return !registerPassword.getText().equals("") && !registerConfirmPassword.getText().equals("");
+    }
+
+    @FXML
+    public void usernameUnavailable() {
+
+    }
+
+    @FXML
+    public boolean passwordMismatch() {
+        return !registerPassword.getText().equals(registerConfirmPassword.getText());
     }
 }

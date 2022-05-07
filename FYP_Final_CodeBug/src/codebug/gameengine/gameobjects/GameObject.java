@@ -1,3 +1,10 @@
+/*
+Conor O'Donovan - D18125705
+Final Year Project
+CodeBug
+GameObject Class - Parent class for all game objects
+ */
+
 package codebug.gameengine.gameobjects;
 
 import javafx.scene.paint.Color;

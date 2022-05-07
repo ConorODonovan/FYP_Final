@@ -30,7 +30,7 @@
                     <menus>
                       <Menu id="top-menu" fx:id="LoginMenuFile" mnemonicParsing="false" text="File">
                         <items>
-                              <MenuItem mnemonicParsing="false" text="Preferences" />
+                              <MenuItem mnemonicParsing="false" onAction="#openSettingsWindow" text="Preferences" />
                           <MenuItem mnemonicParsing="false" text="Exit" />
                         </items>
                       </Menu>
@@ -43,7 +43,7 @@
                   </MenuBar>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="64.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="logoTop" fitHeight="64.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/logos/codebug_logo_fullsize.png" />
                            </image>
@@ -78,15 +78,18 @@
                         <Insets bottom="-20.0" left="-6.0" />
                      </padding>
                   </Label>
-                  <VBox id="login-vbox" fx:id="vboxLogin" alignment="CENTER" prefHeight="440.0" prefWidth="448.0">
+                  <VBox id="login-vbox" fx:id="vboxLogin" alignment="CENTER" minHeight="440.0" prefHeight="440.0" prefWidth="448.0">
                      <children>
-                        <Label id="login-register-label" alignment="CENTER" text="Already have an account?" GridPane.rowIndex="1" />
+                        <Label id="login-register-label" alignment="CENTER" text="Already have an account?" GridPane.rowIndex="1">
+                           <VBox.margin>
+                              <Insets left="32.0" right="32.0" top="16.0" />
+                           </VBox.margin></Label>
                         <Label id="login-register-label" text="Log in here!">
                            <VBox.margin>
                               <Insets top="8.0" />
                            </VBox.margin>
                         </Label>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <children>
                               <TextField id="login-field" fx:id="textFieldUserName" alignment="CENTER" focusTraversable="false" promptText="Username">
                                  <cursor>
@@ -97,17 +100,24 @@
                                  </HBox.margin></TextField>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                        <HBox alignment="CENTER" prefHeight="80.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <children>
                               <PasswordField id="login-field" fx:id="textFieldPassword" alignment="CENTER" focusTraversable="false" promptText="Password">
                                  <cursor>
                                     <Cursor fx:constant="TEXT" />
-                                 </cursor></PasswordField>
+                                 </cursor>
+                                 <HBox.margin>
+                                    <Insets top="16.0" />
+                                 </HBox.margin></PasswordField>
                            </children>
                         </HBox>
+                        <Label id="warning-label" fx:id="loginWarningLabel" text="Label">
+                           <VBox.margin>
+                              <Insets bottom="4.0" top="8.0" />
+                           </VBox.margin></Label>
                         <Button id="button-login" fx:id="buttonLogin" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToHomepage" text="LOG IN" GridPane.rowIndex="1">
                            <VBox.margin>
-                              <Insets top="16.0" />
+                              <Insets bottom="32.0" top="16.0" />
                            </VBox.margin>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -117,6 +127,7 @@
                         <Insets />
                      </VBox.margin>
                   </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
                </children>
             </VBox>
             <VBox maxHeight="600.0" maxWidth="440.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -137,7 +148,7 @@
                            </VBox.margin></Label>
                         <Label id="login-register-label" text="Create an account here!">
                            <VBox.margin>
-                              <Insets top="8.0" />
+                              <Insets bottom="8.0" top="8.0" />
                            </VBox.margin>
                         </Label>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
@@ -150,10 +161,7 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <children>
-                              <PasswordField id="password-field" fx:id="registerEmail" alignment="CENTER" focusTraversable="false" promptText="Email Address" GridPane.rowIndex="1">
-                                 <HBox.margin>
-                                    <Insets top="-8.0" />
-                                 </HBox.margin></PasswordField>
+                              <TextField id="password-field" fx:id="registerEmail" alignment="CENTER" promptText="Email Address" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
@@ -174,6 +182,10 @@
                               </PasswordField>
                            </children>
                         </HBox>
+                        <Label id="warning-label" fx:id="registerWarningLabel" text="Label">
+                           <VBox.margin>
+                              <Insets bottom="16.0" />
+                           </VBox.margin></Label>
                         <Button id="button-register" fx:id="buttonRegister" contentDisplay="CENTER" mnemonicParsing="false" onAction="#userRegistration" text="REGISTER" GridPane.rowIndex="1">
                            <VBox.margin>
                               <Insets bottom="32.0" />
@@ -196,7 +208,7 @@
       </GridPane>
    </center>
    <stylesheets>
-      <URL value="@../generic.css" />
-      <URL value="@login.css" />
+      <URL value="@../genericDefault.css" />
+      <URL value="@loginDefault.css" />
    </stylesheets>
 </BorderPane>
