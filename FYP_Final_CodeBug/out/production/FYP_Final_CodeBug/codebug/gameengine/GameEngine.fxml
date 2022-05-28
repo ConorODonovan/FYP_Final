@@ -31,14 +31,14 @@
                     <menus>
                       <Menu mnemonicParsing="false" text="File">
                         <items>
-                          <MenuItem mnemonicParsing="false" text="Preferences" />
-                              <MenuItem mnemonicParsing="false" text="Logout" />
-                              <MenuItem mnemonicParsing="false" text="Exit" />
+                          <MenuItem fx:id="menuPreferences" mnemonicParsing="false" onAction="#openSettingsWindow" text="Preferences" />
+                              <MenuItem fx:id="menuLogout" mnemonicParsing="false" onAction="#logout" text="Logout" />
+                              <MenuItem fx:id="menuExit" mnemonicParsing="false" onAction="#exitApplication" text="Exit" />
                         </items>
                       </Menu>
                       <Menu mnemonicParsing="false" text="Help">
                         <items>
-                          <MenuItem mnemonicParsing="false" onAction="#openAboutWindow" text="About" />
+                          <MenuItem fx:id="menuAbout" mnemonicParsing="false" onAction="#openAboutWindow" text="About" />
                         </items>
                       </Menu>
                     </menus>
@@ -64,14 +64,20 @@
                                  </HBox.margin>
                                  <padding>
                                     <Insets bottom="8.0" top="8.0" />
-                                 </padding></Button>
+                                 </padding>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                               <Button id="clear-button" fx:id="buttonReset" mnemonicParsing="false" onAction="#reset" prefWidth="140.0" text="CLEAR">
                                  <HBox.margin>
                                     <Insets right="480.0" />
                                  </HBox.margin>
                                  <padding>
                                     <Insets bottom="8.0" top="8.0" />
-                                 </padding></Button>
+                                 </padding>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                               <Label id="username-label" fx:id="usernameLabel" text="Username Label">
                                  <HBox.margin>
                                     <Insets right="32.0" />
@@ -101,14 +107,20 @@
                                  </VBox.margin>
                                  <padding>
                                     <Insets bottom="16.0" top="16.0" />
-                                 </padding></Button>
+                                 </padding>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                               <Button id="game-engine-button" fx:id="createWallButton" mnemonicParsing="false" onAction="#createWall" prefWidth="240.0" text="Create Wall">
                                  <VBox.margin>
                                     <Insets top="64.0" />
                                  </VBox.margin>
                                  <padding>
                                     <Insets bottom="16.0" top="16.0" />
-                                 </padding></Button>
+                                 </padding>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                            </children>
                         </VBox>
                   </content>
@@ -154,7 +166,10 @@
                                                 <Button id="game-engine-button" fx:id="saveGeneralPropertiesButton" mnemonicParsing="false" onAction="#saveObjectProperties" text="SAVE">
                                                    <VBox.margin>
                                                       <Insets left="8.0" top="16.0" />
-                                                   </VBox.margin></Button>
+                                                   </VBox.margin>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor></Button>
                                              </children>
                                           </VBox>
                                        </content>
@@ -230,7 +245,10 @@
                                                 <Button id="game-engine-button" fx:id="saveMovementPropertiesButton" mnemonicParsing="false" onAction="#saveObjectProperties" text="SAVE">
                                                    <VBox.margin>
                                                       <Insets left="8.0" top="16.0" />
-                                                   </VBox.margin></Button>
+                                                   </VBox.margin>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor></Button>
                                              </children>
                                           </VBox>
                                        </content>

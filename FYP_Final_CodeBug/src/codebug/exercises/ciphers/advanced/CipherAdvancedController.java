@@ -15,13 +15,18 @@ import codebug.ui.NavigationManager;
 import codebug.ui.TopMenuBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -101,6 +106,15 @@ public class CipherAdvancedController {
     Button buttonPreviousExercise;
     @FXML
     Button buttonExerciseMenu;
+
+    @FXML
+    MenuItem menuPreferences;
+    @FXML
+    MenuItem menuLogout;
+    @FXML
+    MenuItem menuExit;
+    @FXML
+    MenuItem menuAbout;
 
     // Initialize method runs on first opening the page
     @FXML
@@ -308,14 +322,6 @@ public class CipherAdvancedController {
         vigenereDecryptedText.setEditable(false);
     }
 
-
-
-    // Top Menu Bar functionality
-    @FXML
-    public void openAboutWindow() throws Exception {
-        TopMenuBar.openAboutWindow();
-    }
-
     @FXML
     public void encryptCaesar() {
         String plainText = caesarEncryptField.getText();
@@ -427,5 +433,35 @@ public class CipherAdvancedController {
     @FXML
     public void previousExercise(ActionEvent e) throws IOException {
         NavigationManager.goToCiphersIntermediate(e);
+    }
+
+    // Top Menu Bar functionality
+    // Open Settings Screen
+    @FXML
+    public void openSettingsWindow() throws Exception {
+        TopMenuBar.openSettingsWindow();
+    }
+
+    // Open About screen
+    @FXML
+    public void openAboutWindow() throws Exception {
+        TopMenuBar.openAboutWindow();
+    }
+
+    // Logout
+    @FXML
+    public void logout() throws IOException {
+        Parent root = FXMLLoader.load(NavigationManager.class.getResource("/codebug/login/Login.fxml"));
+        Stage stage = (Stage) logoTop.getScene().getWindow();
+        Scene scene = new Scene(root, 1920, 1080);
+        DBUtils.setCurrentUser(null);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    // Exit application
+    @FXML
+    public void exitApplication() {
+        TopMenuBar.exitApplication();
     }
 }

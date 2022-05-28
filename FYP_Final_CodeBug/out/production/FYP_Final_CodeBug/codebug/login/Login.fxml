@@ -30,8 +30,7 @@
                     <menus>
                       <Menu id="top-menu" fx:id="LoginMenuFile" mnemonicParsing="false" text="File">
                         <items>
-                              <MenuItem mnemonicParsing="false" onAction="#openSettingsWindow" text="Preferences" />
-                          <MenuItem mnemonicParsing="false" text="Exit" />
+                          <MenuItem fx:id="menuExit" mnemonicParsing="false" onAction="#exitApplication" text="Exit" />
                         </items>
                       </Menu>
                       <Menu fx:id="LoginMenuHelp" mnemonicParsing="false" text="Help">

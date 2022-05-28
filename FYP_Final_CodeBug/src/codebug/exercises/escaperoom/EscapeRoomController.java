@@ -1,16 +1,17 @@
 package codebug.exercises.escaperoom;
 
-import animatefx.animation.RubberBand;
 import animatefx.animation.Shake;
 import animatefx.animation.Tada;
 import codebug.database.DBUtils;
 import codebug.exercises.ciphers.CaesarCipher;
 import codebug.exercises.ciphers.VigenereCipher;
 import codebug.exercises.numbers.NumberConversion;
-import codebug.ui.Draggable;
 import codebug.ui.NavigationManager;
 import codebug.ui.TopMenuBar;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Light;
@@ -19,15 +20,19 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import javafx.util.Callback;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class EscapeRoomController {
 
     @FXML
     ImageView logoTop;
+
+    @FXML
+    Label usernameLabel;
 
     @FXML
     Label updateLabel;
@@ -269,11 +274,30 @@ public class EscapeRoomController {
     @FXML
     Button topDrawerButton;
 
+    @FXML
+    MenuItem menuPreferences;
+    @FXML
+    MenuItem menuLogout;
+    @FXML
+    MenuItem menuExit;
+    @FXML
+    MenuItem menuAbout;
+
     public EscapeRoomController() throws FileNotFoundException {
     }
 
     @FXML
     private void initialize() throws FileNotFoundException {
+
+        // Get user currently logged in
+        String currentUser = DBUtils.getCurrentUser();
+
+        // Sets label in top right to username
+        if (currentUser == null) {
+            usernameLabel.setText("Please log in");
+        } else {
+            usernameLabel.setText("Logged in as " + currentUser);
+        }
 
         switch (DBUtils.getTheme()) {
             case "Default": {
@@ -716,6 +740,8 @@ public class EscapeRoomController {
             }
         });
 
+        answer1.setButtonCell(answer1.getCellFactory().call(null));
+
         answer2.getItems().add(imageAND);
         answer2.getItems().add(imageOR);
         answer2.getItems().add(imageNOT);
@@ -748,6 +774,8 @@ public class EscapeRoomController {
             }
         });
 
+        answer2.setButtonCell(answer2.getCellFactory().call(null));
+
         answer3.getItems().add(imageAND);
         answer3.getItems().add(imageOR);
         answer3.getItems().add(imageNOT);
@@ -779,12 +807,8 @@ public class EscapeRoomController {
                 };
             }
         });
-    }
 
-    // Top Menu Bar functionality
-    @FXML
-    public void openAboutWindow() throws Exception {
-        TopMenuBar.openAboutWindow();
+        answer3.setButtonCell(answer3.getCellFactory().call(null));
     }
 
     // Return to main menu by clicking logo
@@ -1064,8 +1088,6 @@ public class EscapeRoomController {
 
     // Wall safe
     public void wallSafe() {
-        objectWallSafe.setImage(wallSafeOpened);
-
         if (numpadWallSafe.isVisible()) {
             numpadWallSafe.setVisible(false);
         } else {
@@ -1306,6 +1328,7 @@ public class EscapeRoomController {
             updateLabel.setText("New journal entry!");
             journalDoorNumpad1.setText("The code for the door is 33B -");
             journalDoorNumpad2.setText("it must be converted from Hex to Decimal");
+            objectWallSafe.setImage(wallSafeOpened);
             Tada logoTada = new Tada(updateLabel);
             logoTada.play();
         } else {
@@ -1325,5 +1348,35 @@ public class EscapeRoomController {
         } else {
             numpadWallSafeTextField.setText("INCORRECT");
         }
+    }
+
+    // Top Menu Bar functionality
+    // Open Settings Screen
+    @FXML
+    public void openSettingsWindow() throws Exception {
+        TopMenuBar.openSettingsWindow();
+    }
+
+    // Open About screen
+    @FXML
+    public void openAboutWindow() throws Exception {
+        TopMenuBar.openAboutWindow();
+    }
+
+    // Logout
+    @FXML
+    public void logout() throws IOException {
+        Parent root = FXMLLoader.load(NavigationManager.class.getResource("/codebug/login/Login.fxml"));
+        Stage stage = (Stage) logoTop.getScene().getWindow();
+        Scene scene = new Scene(root, 1920, 1080);
+        DBUtils.setCurrentUser(null);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    // Exit application
+    @FXML
+    public void exitApplication() {
+        TopMenuBar.exitApplication();
     }
 }

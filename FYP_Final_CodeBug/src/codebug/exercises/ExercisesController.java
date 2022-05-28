@@ -12,12 +12,18 @@ import codebug.ui.NavigationManager;
 import codebug.ui.TopMenuBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -83,6 +89,16 @@ public class ExercisesController {
     Label exercise9ProgressLabel;
     @FXML
     Label exercise10ProgressLabel;
+
+    // Top Menubar
+    @FXML
+    MenuItem menuPreferences;
+    @FXML
+    MenuItem menuLogout;
+    @FXML
+    MenuItem menuExit;
+    @FXML
+    MenuItem menuAbout;
 
     // Initialize method runs on first opening the page
     @FXML
@@ -263,12 +279,6 @@ public class ExercisesController {
         }
     }
 
-    // Top Menu Bar functionality
-    @FXML
-    public void openAboutWindow() throws Exception {
-        TopMenuBar.openAboutWindow();
-    }
-
     // Return to main menu by clicking CodeBug logo
     @FXML
     public void goToMainMenu() {
@@ -334,5 +344,35 @@ public class ExercisesController {
     @FXML
     public void goToEscapeRoom(ActionEvent e) throws IOException {
         NavigationManager.goToEscapeRoom(e);
+    }
+
+    // Top Menu Bar functionality
+    // Open Settings Screen
+    @FXML
+    public void openSettingsWindow() throws Exception {
+        TopMenuBar.openSettingsWindow();
+    }
+
+    // Open About screen
+    @FXML
+    public void openAboutWindow() throws Exception {
+        TopMenuBar.openAboutWindow();
+    }
+
+    // Logout
+    @FXML
+    public void logout() throws IOException {
+        Parent root = FXMLLoader.load(NavigationManager.class.getResource("/codebug/login/Login.fxml"));
+        Stage stage = (Stage) logoTop.getScene().getWindow();
+        Scene scene = new Scene(root, 1920, 1080);
+        DBUtils.setCurrentUser(null);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    // Exit application
+    @FXML
+    public void exitApplication() {
+        TopMenuBar.exitApplication();
     }
 }

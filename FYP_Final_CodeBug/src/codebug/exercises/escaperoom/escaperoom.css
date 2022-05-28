@@ -70,6 +70,7 @@
 #tablet-button:hover {
     -fx-font-size: 16px;
     -fx-background-color: #191970;
+    -fx-text-fill: #FFFFFF;
 }
 
 #tablet-logic-gates {

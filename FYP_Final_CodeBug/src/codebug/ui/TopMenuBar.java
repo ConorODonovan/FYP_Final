@@ -7,11 +7,18 @@ TopMenuBar Class - Handles all top menu bar actions
 
 package codebug.ui;
 
+import codebug.database.DBUtils;
 import codebug.themes.ThemeManager;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class TopMenuBar {
 
@@ -54,13 +61,19 @@ public class TopMenuBar {
     public static void openSettingsWindow() throws Exception {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(TopMenuBar.class.getResource("/codebug/settings/Settings.fxml"));
-            Parent root2 = fxmlLoader.load();
+            Parent root = fxmlLoader.load();
             Stage stage = new Stage();
-            stage.setScene(new Scene(root2));
+            stage.setScene(new Scene(root));
             stage.setTitle("Settings");
             stage.show();
         } catch(Exception e) {
             e.printStackTrace();
         }
+    }
+
+    // Exit application
+    public static void exitApplication() {
+        Platform.exit();
+        System.exit(0);
     }
 }

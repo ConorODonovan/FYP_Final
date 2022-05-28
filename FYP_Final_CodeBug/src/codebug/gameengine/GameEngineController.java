@@ -17,8 +17,11 @@ import javafx.animation.AnimationTimer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Point2D;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Light;
@@ -27,6 +30,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -92,6 +98,15 @@ public class GameEngineController {
     Button saveGeneralPropertiesButton;
     @FXML
     Button saveMovementPropertiesButton;
+
+    @FXML
+    MenuItem menuPreferences;
+    @FXML
+    MenuItem menuLogout;
+    @FXML
+    MenuItem menuExit;
+    @FXML
+    MenuItem menuAbout;
 
     // Other variables
     private HashMap<KeyCode, Boolean> keys = new HashMap<>();
@@ -687,15 +702,39 @@ public class GameEngineController {
         return keys.getOrDefault(key, false);
     }
 
+    // Return to main menu by clicking logo
+    @FXML
+    public void goToMainMenu() {
+        NavigationManager.goToMainMenuNoButton(logoTop);
+    }
+
     // Top Menu Bar functionality
+    // Open Settings Screen
+    @FXML
+    public void openSettingsWindow() throws Exception {
+        TopMenuBar.openSettingsWindow();
+    }
+
+    // Open About screen
     @FXML
     public void openAboutWindow() throws Exception {
         TopMenuBar.openAboutWindow();
     }
 
-    // Return to main menu by clicking logo
+    // Logout
     @FXML
-    public void goToMainMenu() {
-        NavigationManager.goToMainMenuNoButton(logoTop);
+    public void logout() throws IOException {
+        Parent root = FXMLLoader.load(NavigationManager.class.getResource("/codebug/login/Login.fxml"));
+        Stage stage = (Stage) logoTop.getScene().getWindow();
+        Scene scene = new Scene(root, 1920, 1080);
+        DBUtils.setCurrentUser(null);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    // Exit application
+    @FXML
+    public void exitApplication() {
+        TopMenuBar.exitApplication();
     }
 }

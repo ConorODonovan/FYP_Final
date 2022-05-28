@@ -31,14 +31,14 @@
                     <menus>
                       <Menu mnemonicParsing="false" text="File">
                         <items>
-                              <MenuItem mnemonicParsing="false" text="Preferences" />
-                          <MenuItem mnemonicParsing="false" text="Logout" />
-                              <MenuItem mnemonicParsing="false" text="Exit" />
+                              <MenuItem fx:id="menuPreferences" mnemonicParsing="false" onAction="#openSettingsWindow" text="Preferences" />
+                          <MenuItem fx:id="menuLogout" mnemonicParsing="false" onAction="#logout" text="Logout" />
+                              <MenuItem fx:id="menuExit" mnemonicParsing="false" onAction="#exitApplication" text="Exit" />
                         </items>
                       </Menu>
                       <Menu mnemonicParsing="false" text="Help">
                         <items>
-                          <MenuItem mnemonicParsing="false" onAction="#openAboutWindow" text="About" />
+                          <MenuItem fx:id="menuAbout" mnemonicParsing="false" onAction="#openAboutWindow" text="About" />
                         </items>
                       </Menu>
                     </menus>
@@ -214,6 +214,9 @@
                      <VBox.margin>
                         <Insets top="32.0" />
                      </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </VBox>
@@ -223,6 +226,9 @@
                      <VBox.margin>
                         <Insets top="32.0" />
                      </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </VBox>

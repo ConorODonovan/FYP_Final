@@ -1,0 +1,8 @@
+#admin-header {
+    -fx-font-size: 32px;
+    -fx-font-weight: 800;
+}
+
+#admin-table {
+    -fx-font-size: 14px;
+}

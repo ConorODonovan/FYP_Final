@@ -7,6 +7,7 @@ NavigationManager Class - Handles all navigation between different screens of th
 
 package codebug.ui;
 
+import codebug.database.DBUtils;
 import codebug.themes.ThemeManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -520,6 +521,28 @@ public class NavigationManager {
     @FXML
     public static void goToAdmin(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(NavigationManager.class.getResource("/codebug/admin/Admin.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, 1920, 1080);
+
+        // Setting correct theme
+        root.getStylesheets().remove("codebug/genericDefault.css");
+        root.getStylesheets().remove("codebug/genericNature.css");
+        root.getStylesheets().remove("codebug/genericOcean.css");
+        root.getStylesheets().remove("codebug/genericDusk.css");
+        root.getStylesheets().remove("codebug/genericSunset.css");
+        root.getStylesheets().remove("codebug/genericMonochrome.css");
+        root.getStylesheets().remove("codebug/genericHighContrast.css");
+        String css1 = "codebug/generic" + ThemeManager.loadCSS();
+        root.getStylesheets().add(css1);
+
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    // Go to Play screen
+    @FXML
+    public static void goToPlay(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(NavigationManager.class.getResource("/codebug/play/Play.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, 1920, 1080);
 

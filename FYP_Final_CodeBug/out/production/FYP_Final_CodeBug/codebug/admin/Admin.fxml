@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -14,7 +16,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../genericDefault.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebug.admin.AdminController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codebug.admin.AdminController">
    <top>
       <AnchorPane id="top-anchor-pane" prefHeight="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -24,31 +26,34 @@
                     <menus>
                       <Menu mnemonicParsing="false" text="File">
                         <items>
-                          <MenuItem mnemonicParsing="false" text="Preferences" />
-                              <MenuItem mnemonicParsing="false" text="Logout" />
-                              <MenuItem mnemonicParsing="false" text="Exit" />
+                          <MenuItem fx:id="menuPreferences" mnemonicParsing="false" onAction="#openSettingsWindow" text="Preferences" />
+                              <MenuItem fx:id="menuLogout" mnemonicParsing="false" onAction="#logout" text="Logout" />
+                              <MenuItem fx:id="menuExit" mnemonicParsing="false" onAction="#exitApplication" text="Exit" />
                         </items>
                       </Menu>
-                      <Menu mnemonicParsing="false" text="Edit">
+                      <Menu mnemonicParsing="false" text="Help">
                         <items>
-                          <MenuItem mnemonicParsing="false" text="About" />
+                          <MenuItem fx:id="menuAbout" mnemonicParsing="false" onAction="#openAboutWindow" text="About" />
                         </items>
                       </Menu>
                     </menus>
                   </MenuBar>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <ImageView fitHeight="64.0" fitWidth="280.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="logoTop" fitHeight="64.0" fitWidth="280.0" onMouseEntered="#goToMainMenu" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../resources/logos/codebug_logo_fullsize.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="12.0" top="5.0" />
                            </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Label id="username-label" text="Username Label">
+                              <Label id="username-label" fx:id="usernameLabel" text="Username Label">
                                  <HBox.margin>
                                     <Insets right="32.0" />
                                  </HBox.margin>
@@ -65,12 +70,12 @@
    <center>
       <VBox alignment="TOP_CENTER" minHeight="800.0" BorderPane.alignment="CENTER">
          <children>
-            <Label text="CodeBug User List">
+            <Label id="admin-header" text="CodeBug User List">
                <VBox.margin>
                   <Insets bottom="32.0" />
                </VBox.margin>
             </Label>
-            <TableView fx:id="adminTable" maxHeight="800.0" maxWidth="1440.0" minHeight="800.0" prefHeight="200.0" prefWidth="1440.0">
+            <TableView id="admin-table" fx:id="adminTable" maxHeight="800.0" maxWidth="1440.0" minHeight="800.0" prefHeight="200.0" prefWidth="1440.0">
               <columns>
                 <TableColumn fx:id="colUserID" prefWidth="240.0" text="User ID" />
                 <TableColumn fx:id="colUsername" prefWidth="240.0" text="Username" />
@@ -84,6 +89,13 @@
          <BorderPane.margin>
             <Insets top="64.0" />
          </BorderPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </VBox>
    </center>
+   <stylesheets>
+      <URL value="@../genericDefault.css" />
+      <URL value="@admin.css" />
+   </stylesheets>
 </BorderPane>

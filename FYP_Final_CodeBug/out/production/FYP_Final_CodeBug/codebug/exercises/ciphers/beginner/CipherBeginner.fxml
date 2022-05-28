@@ -31,14 +31,14 @@
                     <menus>
                       <Menu mnemonicParsing="false" text="File">
                         <items>
-                              <MenuItem mnemonicParsing="false" text="Preferences" />
-                          <MenuItem mnemonicParsing="false" text="Logout" />
-                              <MenuItem mnemonicParsing="false" text="Exit" />
+                              <MenuItem fx:id="menuPreferences" mnemonicParsing="false" onAction="#openSettingsWindow" text="Preferences" />
+                          <MenuItem fx:id="menuLogout" mnemonicParsing="false" onAction="#logout" text="Logout" />
+                              <MenuItem fx:id="menuExit" mnemonicParsing="false" onAction="#exitApplication" text="Exit" />
                         </items>
                       </Menu>
                       <Menu mnemonicParsing="false" text="Help">
                         <items>
-                          <MenuItem mnemonicParsing="false" onAction="#openAboutWindow" text="About" />
+                          <MenuItem fx:id="menuAbout" mnemonicParsing="false" onAction="#openAboutWindow" text="About" />
                         </items>
                       </Menu>
                     </menus>
@@ -160,7 +160,10 @@
                               <Button id="button-cipher-answer" fx:id="vigenereEncryptButton" mnemonicParsing="false" onAction="#encryptVigenere" text="ENCRYPT">
                                  <VBox.margin>
                                     <Insets top="8.0" />
-                                 </VBox.margin></Button>
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                               <Label id="cipher-left-label" text="Encrypted Text">
                                  <VBox.margin>
                                     <Insets top="16.0" />
@@ -188,7 +191,10 @@
                               <Button id="button-cipher-answer" fx:id="vigenereDecryptButton" mnemonicParsing="false" onAction="#decryptVigenere" text="DECRYPT">
                                  <VBox.margin>
                                     <Insets top="8.0" />
-                                 </VBox.margin></Button>
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
                               <Label id="cipher-left-label" text="Decrypted Text">
                                  <VBox.margin>
                                     <Insets top="16.0" />

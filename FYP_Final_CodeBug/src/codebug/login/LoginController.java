@@ -20,7 +20,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -38,6 +37,8 @@ public class LoginController {
     MenuItem LoginMenuFile;
     @FXML
     MenuItem LoginMenuHelp;
+    @FXML
+    MenuItem menuExit;
     @FXML
     ImageView logoTop;
     @FXML
@@ -89,12 +90,6 @@ public class LoginController {
         TopMenuBar.openAboutWindow();
     }
 
-    // Open settings screen
-    @FXML
-    public void openSettingsWindow() throws Exception {
-        TopMenuBar.openSettingsWindow();
-    }
-
     // Animate logo on mouse click
     public void mouseClick() {
         RubberBand logoTada = new RubberBand(imageViewLogo);
@@ -129,6 +124,8 @@ public class LoginController {
             loginWarningLabel.setText("Username field cannot be blank!");
         } else if (!loginPasswordBlank()) {
             loginWarningLabel.setText("Password field cannot be blank!");
+        } else if (!loginCheck()) {
+            loginWarningLabel.setText("Username or password is incorrect!");
         } if (loginCheck()) {
             NavigationManager.goToMainMenuButton(e);
         }
@@ -169,5 +166,11 @@ public class LoginController {
     @FXML
     public boolean passwordMismatch() {
         return !registerPassword.getText().equals(registerConfirmPassword.getText());
+    }
+
+    // Exit application
+    @FXML
+    public void exitApplication() {
+        TopMenuBar.exitApplication();
     }
 }

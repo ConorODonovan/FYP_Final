@@ -12,6 +12,9 @@ import codebug.ui.NavigationManager;
 import codebug.ui.TopMenuBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
@@ -20,6 +23,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -77,6 +81,15 @@ public class TransistorsBeginnerController {
     Button buttonBackToExerciseMenu;
     @FXML
     Button buttonNextExercise;
+
+    @FXML
+    MenuItem menuPreferences;
+    @FXML
+    MenuItem menuLogout;
+    @FXML
+    MenuItem menuExit;
+    @FXML
+    MenuItem menuAbout;
 
     // Initialize method runs on first opening the page
     @FXML
@@ -285,14 +298,16 @@ public class TransistorsBeginnerController {
         answer1.getItems().add(imageXOR);
         answer1.getItems().add(imageXNOR);
 
-        answer1.setCellFactory(new Callback<ListView<Image>, ListCell<Image>>() {
-            @Override public ListCell<Image> call(ListView<Image> p) {
-                return new ListCell<Image>() {
+        answer1.setCellFactory(new Callback<>() {
+            @Override
+            public ListCell<Image> call(ListView<Image> p) {
+                return new ListCell<>() {
                     {
                         setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
                     }
 
-                    @Override protected void updateItem(Image item, boolean empty) {
+                    @Override
+                    protected void updateItem(Image item, boolean empty) {
                         super.updateItem(item, empty);
 
                         if (item == null || empty) {
@@ -304,6 +319,8 @@ public class TransistorsBeginnerController {
                 };
             }
         });
+
+        answer1.setButtonCell(answer1.getCellFactory().call(null));
 
         answer2.getItems().add(imageAND);
         answer2.getItems().add(imageOR);
@@ -313,14 +330,16 @@ public class TransistorsBeginnerController {
         answer2.getItems().add(imageXOR);
         answer2.getItems().add(imageXNOR);
 
-        answer2.setCellFactory(new Callback<ListView<Image>, ListCell<Image>>() {
-            @Override public ListCell<Image> call(ListView<Image> p) {
-                return new ListCell<Image>() {
+        answer2.setCellFactory(new Callback<>() {
+            @Override
+            public ListCell<Image> call(ListView<Image> p) {
+                return new ListCell<>() {
                     {
                         setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
                     }
 
-                    @Override protected void updateItem(Image item, boolean empty) {
+                    @Override
+                    protected void updateItem(Image item, boolean empty) {
                         super.updateItem(item, empty);
 
                         if (item == null || empty) {
@@ -332,6 +351,8 @@ public class TransistorsBeginnerController {
                 };
             }
         });
+
+        answer2.setButtonCell(answer2.getCellFactory().call(null));
 
         answer3.getItems().add(imageAND);
         answer3.getItems().add(imageOR);
@@ -341,14 +362,16 @@ public class TransistorsBeginnerController {
         answer3.getItems().add(imageXOR);
         answer3.getItems().add(imageXNOR);
 
-        answer3.setCellFactory(new Callback<ListView<Image>, ListCell<Image>>() {
-            @Override public ListCell<Image> call(ListView<Image> p) {
-                return new ListCell<Image>() {
+        answer3.setCellFactory(new Callback<>() {
+            @Override
+            public ListCell<Image> call(ListView<Image> p) {
+                return new ListCell<>() {
                     {
                         setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
                     }
 
-                    @Override protected void updateItem(Image item, boolean empty) {
+                    @Override
+                    protected void updateItem(Image item, boolean empty) {
                         super.updateItem(item, empty);
 
                         if (item == null || empty) {
@@ -360,6 +383,8 @@ public class TransistorsBeginnerController {
                 };
             }
         });
+
+        answer3.setButtonCell(answer3.getCellFactory().call(null));
     }
 
     // Check answers
@@ -411,12 +436,6 @@ public class TransistorsBeginnerController {
         }
     }
 
-    // Top Menu Bar functionality
-    @FXML
-    public void openAboutWindow() throws Exception {
-        TopMenuBar.openAboutWindow();
-    }
-
     // Return to main menu by clicking logo
     @FXML
     public void goToMainMenu() {
@@ -432,6 +451,36 @@ public class TransistorsBeginnerController {
     // Go to next exercise
     @FXML
     public void nextExercise(ActionEvent e) throws IOException {
-        NavigationManager.goToTransistorsAdvanced(e);
+        NavigationManager.goToTransistorsIntermediate(e);
+    }
+
+    // Top Menu Bar functionality
+    // Open Settings Screen
+    @FXML
+    public void openSettingsWindow() throws Exception {
+        TopMenuBar.openSettingsWindow();
+    }
+
+    // Open About screen
+    @FXML
+    public void openAboutWindow() throws Exception {
+        TopMenuBar.openAboutWindow();
+    }
+
+    // Logout
+    @FXML
+    public void logout() throws IOException {
+        Parent root = FXMLLoader.load(NavigationManager.class.getResource("/codebug/login/Login.fxml"));
+        Stage stage = (Stage) logoTop.getScene().getWindow();
+        Scene scene = new Scene(root, 1920, 1080);
+        DBUtils.setCurrentUser(null);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    // Exit application
+    @FXML
+    public void exitApplication() {
+        TopMenuBar.exitApplication();
     }
 }

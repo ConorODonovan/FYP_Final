@@ -1,0 +1,28 @@
+#play-header {
+    -fx-font-size: 56px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #333333;
+}
+
+#play-label {
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #333333;
+}
+
+#play-button {
+    -fx-background-color: #333333;
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #FFFFFF;
+}
+
+#play-button:hover {
+    -fx-background-color: #FFFFFF;
+    -fx-border-style: solid;
+    -fx-border-color: #333333;
+    -fx-border-width: 4px;
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #333333;
+}

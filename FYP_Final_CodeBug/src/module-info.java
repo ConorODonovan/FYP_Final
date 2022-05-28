@@ -6,6 +6,7 @@ module JavaFX.Tests {
     requires java.logging;
     requires java.sql;
 
+    opens codebug.play;
     opens codebug.themes;
     opens codebug.settings;
     opens codebug.about;

@@ -27,14 +27,14 @@
                     <menus>
                       <Menu mnemonicParsing="false" text="File">
                         <items>
-                              <MenuItem mnemonicParsing="false" text="Preferences" />
-                          <MenuItem mnemonicParsing="false" text="Logout" />
-                              <MenuItem mnemonicParsing="false" text="Exit" />
+                              <MenuItem fx:id="menuPreferences" mnemonicParsing="false" onAction="#openSettingsWindow" text="Preferences" />
+                          <MenuItem fx:id="menuLogout" mnemonicParsing="false" onAction="#logout" text="Logout" />
+                              <MenuItem fx:id="menuExit" mnemonicParsing="false" onAction="#exitApplication" text="Exit" />
                         </items>
                       </Menu>
                       <Menu mnemonicParsing="false" text="Help">
                         <items>
-                          <MenuItem mnemonicParsing="false" onAction="#openAboutWindow" text="About" />
+                          <MenuItem fx:id="menuAbout" mnemonicParsing="false" onAction="#openAboutWindow" text="About" />
                         </items>
                       </Menu>
                     </menus>
@@ -288,16 +288,28 @@
                                                       <Button id="exercises-button" fx:id="cipherButtonBeginner" mnemonicParsing="false" onAction="#goToCiphersBeginner" prefWidth="200.0" text="Beginner">
                                                          <VBox.margin>
                                                             <Insets bottom="32.0" />
-                                                         </VBox.margin></Button>
+                                                         </VBox.margin>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor></Button>
                                                       <Button id="exercises-button" fx:id="cipherButtonIntermediate" mnemonicParsing="false" onAction="#goToCiphersIntermediate" prefWidth="200.0" text="Intermediate">
                                                          <VBox.margin>
                                                             <Insets bottom="32.0" />
-                                                         </VBox.margin></Button>
+                                                         </VBox.margin>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor></Button>
                                                       <Button id="exercises-button" fx:id="cipherButtonAdvanced" mnemonicParsing="false" onAction="#goToCiphersAdvanced" prefWidth="200.0" text="Advanced">
                                                          <VBox.margin>
                                                             <Insets bottom="32.0" />
-                                                         </VBox.margin></Button>
-                                                      <Button id="exercises-button" fx:id="buttonCiphers" mnemonicParsing="false" onAction="#goToCiphers" prefWidth="200.0" text="Sandbox" />
+                                                         </VBox.margin>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor></Button>
+                                                      <Button id="exercises-button" fx:id="buttonCiphers" mnemonicParsing="false" onAction="#goToCiphers" prefWidth="200.0" text="Sandbox">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor></Button>
                                                    </children>
                                                 </VBox>
                                              </children>
@@ -351,15 +363,24 @@
                                                       <Button id="exercises-button" fx:id="transistorsButtonBeginner" mnemonicParsing="false" onAction="#goToTransistorsBeginner" prefWidth="200.0" text="Beginner">
                                                          <VBox.margin>
                                                             <Insets bottom="32.0" />
-                                                         </VBox.margin></Button>
+                                                         </VBox.margin>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor></Button>
                                                       <Button id="exercises-button" fx:id="transistorsButtonIntermediate" mnemonicParsing="false" onAction="#goToTransistorsIntermediate" prefWidth="200.0" text="Intermediate">
                                                          <VBox.margin>
                                                             <Insets bottom="32.0" />
-                                                         </VBox.margin></Button>
+                                                         </VBox.margin>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor></Button>
                                                       <Button id="exercises-button" fx:id="transistorsButtonAdvanced" mnemonicParsing="false" onAction="#goToTransistorsAdvanced" prefWidth="200.0" text="Advanced">
                                                          <VBox.margin>
                                                             <Insets bottom="32.0" />
-                                                         </VBox.margin></Button>
+                                                         </VBox.margin>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor></Button>
                                                    </children>
                                                 </VBox>
                                              </children>

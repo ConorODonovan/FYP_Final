@@ -13,14 +13,19 @@ import codebug.ui.NavigationManager;
 import codebug.ui.TopMenuBar;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -34,6 +39,8 @@ public class HomepageController {
     Label usernameLabel;
     @FXML
     ImageView logoTop;
+    @FXML
+    MenuItem logoutMenuOption;
     @FXML
     ImageView imageViewLogo;
     @FXML
@@ -54,6 +61,8 @@ public class HomepageController {
     private Image imgPlay = new Image("codebug/homepage/icon-play.png");
     @FXML
     private ImageView playImage = new ImageView(imgPlay);
+    @FXML
+    MenuItem menuExit;
 
     // Initialize method runs on first opening the page
     @FXML
@@ -344,5 +353,28 @@ public class HomepageController {
     // Go to game engine
     public void goToGameEngine(ActionEvent e) throws IOException {
         NavigationManager.goToGameEngine(e);
+    }
+
+    // Go to Play screen
+    @FXML
+    public void goToPlay(ActionEvent e) throws IOException {
+        NavigationManager.goToPlay(e);
+    }
+
+    // Logout
+    @FXML
+    public void logout() throws IOException {
+        Parent root = FXMLLoader.load(NavigationManager.class.getResource("/codebug/login/Login.fxml"));
+        Stage stage = (Stage) logoTop.getScene().getWindow();
+        Scene scene = new Scene(root, 1920, 1080);
+        DBUtils.setCurrentUser(null);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    // Exit application
+    @FXML
+    public void exitApplication() {
+        TopMenuBar.exitApplication();
     }
 }

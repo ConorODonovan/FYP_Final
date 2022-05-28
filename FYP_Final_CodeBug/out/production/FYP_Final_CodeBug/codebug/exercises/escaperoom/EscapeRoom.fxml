@@ -34,12 +34,14 @@
                     <menus>
                       <Menu mnemonicParsing="false" text="File">
                         <items>
-                          <MenuItem mnemonicParsing="false" text="Close" />
+                          <MenuItem fx:id="menuPreferences" mnemonicParsing="false" onAction="#openSettingsWindow" text="Preferences" />
+                              <MenuItem fx:id="menuLogout" mnemonicParsing="false" onAction="#logout" text="Logout" />
+                              <MenuItem fx:id="menuExit" mnemonicParsing="false" onAction="#exitApplication" text="Exit" />
                         </items>
                       </Menu>
                       <Menu mnemonicParsing="false" text="Help">
                         <items>
-                          <MenuItem mnemonicParsing="false" onAction="#openAboutWindow" text="About" />
+                          <MenuItem fx:id="menuAbout" mnemonicParsing="false" onAction="#openAboutWindow" text="About" />
                         </items>
                       </Menu>
                     </menus>
@@ -57,6 +59,15 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label id="username-label" fx:id="usernameLabel" text="Username Label">
+                                 <HBox.margin>
+                                    <Insets right="32.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
                      </children>
                   </HBox>
                </children>
@@ -200,6 +211,9 @@
                                        <VBox.margin>
                                           <Insets top="16.0" />
                                        </VBox.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
                                  </children>
                               </VBox>
@@ -224,7 +238,10 @@
                                     <Button id="tablet-button" fx:id="buttonEncrypt" mnemonicParsing="false" onAction="#encrypt" text="Encrypt">
                                        <VBox.margin>
                                           <Insets top="8.0" />
-                                       </VBox.margin></Button>
+                                       </VBox.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></Button>
                                     <Label id="tablet-label" text="Encrypted Text">
                                        <VBox.margin>
                                           <Insets top="8.0" />
@@ -244,7 +261,10 @@
                                     <Button id="tablet-button" fx:id="buttonDecrypt" mnemonicParsing="false" onAction="#decrypt" text="Decrypt">
                                        <VBox.margin>
                                           <Insets top="8.0" />
-                                       </VBox.margin></Button>
+                                       </VBox.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></Button>
                                     <Label id="tablet-label" text="Decrypted Text">
                                        <VBox.margin>
                                           <Insets top="8.0" />
@@ -284,7 +304,10 @@
                                     <Button id="tablet-button" fx:id="vigenereEncrypt" mnemonicParsing="false" onAction="#encryptVigenere" text="Encrypt">
                                        <VBox.margin>
                                           <Insets top="8.0" />
-                                       </VBox.margin></Button>
+                                       </VBox.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></Button>
                                     <Label id="tablet-label" text="Encrypted Text">
                                        <VBox.margin>
                                           <Insets top="8.0" />
@@ -308,7 +331,10 @@
                                     <TextField id="tablet-textfield" fx:id="keywordDecrypt">
                                        <VBox.margin>
                                           <Insets left="32.0" right="32.0" top="8.0" />
-                                       </VBox.margin></TextField>
+                                       </VBox.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></TextField>
                                     <Button id="tablet-button" fx:id="vigenereDecrypt" mnemonicParsing="false" onAction="#decryptVigenere" text="Decrypt">
                                        <VBox.margin>
                                           <Insets top="8.0" />
@@ -468,18 +494,54 @@
                      <GridPane.margin>
                         <Insets left="16.0" right="16.0" />
                      </GridPane.margin></TextField>
-                  <Button id="numpad-button-number" fx:id="filingCabinetButton1" mnemonicParsing="false" onAction="#filingCabinetButton1" prefWidth="50.0" text="1" GridPane.rowIndex="1" />
-                  <Button id="numpad-button-number" fx:id="filingCabinetButton2" mnemonicParsing="false" onAction="#filingCabinetButton2" prefWidth="50.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button id="numpad-button-number" fx:id="filingCabinetButton3" mnemonicParsing="false" onAction="#filingCabinetButton3" prefWidth="50.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button id="numpad-button-number" fx:id="filingCabinetButton4" mnemonicParsing="false" onAction="#filingCabinetButton4" prefWidth="50.0" text="4" GridPane.rowIndex="2" />
-                  <Button id="numpad-button-number" fx:id="filingCabinetButton5" mnemonicParsing="false" onAction="#filingCabinetButton5" prefWidth="50.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button id="numpad-button-number" fx:id="filingCabinetButton6" mnemonicParsing="false" onAction="#filingCabinetButton6" prefWidth="50.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Button id="numpad-button-number" fx:id="filingCabinetButton7" mnemonicParsing="false" onAction="#filingCabinetButton7" prefWidth="50.0" text="7" GridPane.rowIndex="3" />
-                  <Button id="numpad-button-number" fx:id="filingCabinetButton8" mnemonicParsing="false" onAction="#filingCabinetButton8" prefWidth="50.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Button id="numpad-button-number" fx:id="filingCabinetButton9" mnemonicParsing="false" onAction="#filingCabinetButton9" prefWidth="50.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Button id="numpad-button-clear" fx:id="filingCabinetButtonClear" mnemonicParsing="false" onAction="#filingCabinetButtonClear" prefWidth="50.0" text="X" GridPane.rowIndex="4" />
-                  <Button id="numpad-button-number" fx:id="filingCabinetButton0" mnemonicParsing="false" onAction="#filingCabinetButton0" prefWidth="50.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Button id="numpad-button-ok" fx:id="filingCabinetButtonOK" mnemonicParsing="false" onAction="#checkMiddleFilingCabinetDrawerAnswer" prefWidth="50.0" text="OK" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Button id="numpad-button-number" fx:id="filingCabinetButton1" mnemonicParsing="false" onAction="#filingCabinetButton1" prefWidth="50.0" text="1" GridPane.rowIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="filingCabinetButton2" mnemonicParsing="false" onAction="#filingCabinetButton2" prefWidth="50.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="filingCabinetButton3" mnemonicParsing="false" onAction="#filingCabinetButton3" prefWidth="50.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="filingCabinetButton4" mnemonicParsing="false" onAction="#filingCabinetButton4" prefWidth="50.0" text="4" GridPane.rowIndex="2">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="filingCabinetButton5" mnemonicParsing="false" onAction="#filingCabinetButton5" prefWidth="50.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="filingCabinetButton6" mnemonicParsing="false" onAction="#filingCabinetButton6" prefWidth="50.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="filingCabinetButton7" mnemonicParsing="false" onAction="#filingCabinetButton7" prefWidth="50.0" text="7" GridPane.rowIndex="3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="filingCabinetButton8" mnemonicParsing="false" onAction="#filingCabinetButton8" prefWidth="50.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="filingCabinetButton9" mnemonicParsing="false" onAction="#filingCabinetButton9" prefWidth="50.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-clear" fx:id="filingCabinetButtonClear" mnemonicParsing="false" onAction="#filingCabinetButtonClear" prefWidth="50.0" text="X" GridPane.rowIndex="4">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="filingCabinetButton0" mnemonicParsing="false" onAction="#filingCabinetButton0" prefWidth="50.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-ok" fx:id="filingCabinetButtonOK" mnemonicParsing="false" onAction="#checkMiddleFilingCabinetDrawerAnswer" prefWidth="50.0" text="OK" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </GridPane>
             <GridPane id="numpad" fx:id="numpadWallSafe" alignment="CENTER" layoutX="220.0" layoutY="104.0" prefHeight="260.0" prefWidth="200.0" visible="false">
@@ -500,18 +562,54 @@
                      <GridPane.margin>
                         <Insets left="16.0" right="16.0" />
                      </GridPane.margin></TextField>
-                  <Button id="numpad-button-number" fx:id="wallSafeButton1" mnemonicParsing="false" onAction="#wallSafeButton1" prefWidth="50.0" text="1" GridPane.rowIndex="1" />
-                  <Button id="numpad-button-number" fx:id="wallSafeButton2" mnemonicParsing="false" onAction="#wallSafeButton2" prefWidth="50.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button id="numpad-button-number" fx:id="wallSafeButton3" mnemonicParsing="false" onAction="#wallSafeButton3" prefWidth="50.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button id="numpad-button-number" fx:id="wallSafeButton4" mnemonicParsing="false" onAction="#wallSafeButton4" prefWidth="50.0" text="4" GridPane.rowIndex="2" />
-                  <Button id="numpad-button-number" fx:id="wallSafeButton5" mnemonicParsing="false" onAction="#wallSafeButton5" prefWidth="50.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button id="numpad-button-number" fx:id="wallSafeButton6" mnemonicParsing="false" onAction="#wallSafeButton6" prefWidth="50.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Button id="numpad-button-number" fx:id="wallSafeButton7" mnemonicParsing="false" onAction="#wallSafeButton7" prefWidth="50.0" text="7" GridPane.rowIndex="3" />
-                  <Button id="numpad-button-number" fx:id="wallSafeButton8" mnemonicParsing="false" onAction="#wallSafeButton8" prefWidth="50.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Button id="numpad-button-number" fx:id="wallSafeButton9" mnemonicParsing="false" onAction="#wallSafeButton9" prefWidth="50.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Button id="numpad-button-clear" fx:id="wallSafeButtonClear" mnemonicParsing="false" onAction="#wallSafeButtonClear" prefWidth="50.0" text="X" GridPane.rowIndex="4" />
-                  <Button id="numpad-button-number" fx:id="wallSafeButton0" mnemonicParsing="false" onAction="#wallSafeButton0" prefWidth="50.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Button id="numpad-button-ok" fx:id="wallSafeButtonOK" mnemonicParsing="false" onAction="#checkWallSafeAnswer" prefWidth="50.0" text="OK" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Button id="numpad-button-number" fx:id="wallSafeButton1" mnemonicParsing="false" onAction="#wallSafeButton1" prefWidth="50.0" text="1" GridPane.rowIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="wallSafeButton2" mnemonicParsing="false" onAction="#wallSafeButton2" prefWidth="50.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="wallSafeButton3" mnemonicParsing="false" onAction="#wallSafeButton3" prefWidth="50.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="wallSafeButton4" mnemonicParsing="false" onAction="#wallSafeButton4" prefWidth="50.0" text="4" GridPane.rowIndex="2">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="wallSafeButton5" mnemonicParsing="false" onAction="#wallSafeButton5" prefWidth="50.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="wallSafeButton6" mnemonicParsing="false" onAction="#wallSafeButton6" prefWidth="50.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="wallSafeButton7" mnemonicParsing="false" onAction="#wallSafeButton7" prefWidth="50.0" text="7" GridPane.rowIndex="3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="wallSafeButton8" mnemonicParsing="false" onAction="#wallSafeButton8" prefWidth="50.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="wallSafeButton9" mnemonicParsing="false" onAction="#wallSafeButton9" prefWidth="50.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-clear" fx:id="wallSafeButtonClear" mnemonicParsing="false" onAction="#wallSafeButtonClear" prefWidth="50.0" text="X" GridPane.rowIndex="4">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="wallSafeButton0" mnemonicParsing="false" onAction="#wallSafeButton0" prefWidth="50.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-ok" fx:id="wallSafeButtonOK" mnemonicParsing="false" onAction="#checkWallSafeAnswer" prefWidth="50.0" text="OK" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </GridPane>
             <GridPane id="numpad" fx:id="numpadDoor" layoutX="1177.0" layoutY="152.0" prefHeight="260.0" prefWidth="200.0" visible="false">
@@ -532,18 +630,54 @@
                      <GridPane.margin>
                         <Insets left="16.0" right="16.0" />
                      </GridPane.margin></TextField>
-                  <Button id="numpad-button-number" fx:id="doorButton1" mnemonicParsing="false" onAction="#doorButton1" prefWidth="50.0" text="1" GridPane.rowIndex="1" />
-                  <Button id="numpad-button-number" fx:id="doorButton2" mnemonicParsing="false" onAction="#doorButton2" prefWidth="50.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Button id="numpad-button-number" fx:id="doorButton3" mnemonicParsing="false" onAction="#doorButton3" prefWidth="50.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <Button id="numpad-button-number" fx:id="doorButton4" mnemonicParsing="false" onAction="#doorButton4" prefWidth="50.0" text="4" GridPane.rowIndex="2" />
-                  <Button id="numpad-button-number" fx:id="doorButton5" mnemonicParsing="false" onAction="#doorButton5" prefWidth="50.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button id="numpad-button-number" fx:id="doorButton6" mnemonicParsing="false" onAction="#doorButton6" prefWidth="50.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <Button id="numpad-button-number" fx:id="doorButton7" mnemonicParsing="false" onAction="#doorButton7" prefWidth="50.0" text="7" GridPane.rowIndex="3" />
-                  <Button id="numpad-button-number" fx:id="doorButton8" mnemonicParsing="false" onAction="#doorButton8" prefWidth="50.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Button id="numpad-button-number" fx:id="doorButton9" mnemonicParsing="false" onAction="#doorButton9" prefWidth="50.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Button id="numpad-button-clear" fx:id="doorButtonClear" mnemonicParsing="false" onAction="#doorButtonClear" prefWidth="50.0" text="X" GridPane.rowIndex="4" />
-                  <Button id="numpad-button-number" fx:id="doorButton0" mnemonicParsing="false" onAction="#doorButton0" prefWidth="50.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Button id="numpad-button-ok" fx:id="doorButtonOK" mnemonicParsing="false" onAction="#checkDoorAnswer" prefWidth="50.0" text="OK" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Button id="numpad-button-number" fx:id="doorButton1" mnemonicParsing="false" onAction="#doorButton1" prefWidth="50.0" text="1" GridPane.rowIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="doorButton2" mnemonicParsing="false" onAction="#doorButton2" prefWidth="50.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="doorButton3" mnemonicParsing="false" onAction="#doorButton3" prefWidth="50.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="doorButton4" mnemonicParsing="false" onAction="#doorButton4" prefWidth="50.0" text="4" GridPane.rowIndex="2">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="doorButton5" mnemonicParsing="false" onAction="#doorButton5" prefWidth="50.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="doorButton6" mnemonicParsing="false" onAction="#doorButton6" prefWidth="50.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="doorButton7" mnemonicParsing="false" onAction="#doorButton7" prefWidth="50.0" text="7" GridPane.rowIndex="3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="doorButton8" mnemonicParsing="false" onAction="#doorButton8" prefWidth="50.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="doorButton9" mnemonicParsing="false" onAction="#doorButton9" prefWidth="50.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-clear" fx:id="doorButtonClear" mnemonicParsing="false" onAction="#doorButtonClear" prefWidth="50.0" text="X" GridPane.rowIndex="4">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-number" fx:id="doorButton0" mnemonicParsing="false" onAction="#doorButton0" prefWidth="50.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button id="numpad-button-ok" fx:id="doorButtonOK" mnemonicParsing="false" onAction="#checkDoorAnswer" prefWidth="50.0" text="OK" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </GridPane>
             <VBox id="password-computer" fx:id="passwordComputer" layoutX="540.0" layoutY="142.0" prefHeight="280.0" prefWidth="400.0" visible="false">
@@ -597,7 +731,10 @@
                   <Button id="button-computer" fx:id="computerPasswordSubmit" mnemonicParsing="false" onAction="#checkComputerAnswer" text="SUBMIT">
                      <VBox.margin>
                         <Insets left="16.0" top="16.0" />
-                     </VBox.margin></Button>
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </VBox>
             <VBox id="password-filing-cabinet" fx:id="passwordFilingCabinet" alignment="CENTER" layoutX="1409.0" layoutY="387.0" prefHeight="100.0" prefWidth="300.0" visible="false">
@@ -606,13 +743,19 @@
                      <VBox.margin>
                         <Insets bottom="8.0" left="16.0" right="16.0" />
                      </VBox.margin></TextField>
-                  <Button id="password-button-filing-cabinet" fx:id="topDrawerButton" mnemonicParsing="false" onAction="#checkTopFilingCabinetDrawerAnswer" text="SUBMIT" />
+                  <Button id="password-button-filing-cabinet" fx:id="topDrawerButton" mnemonicParsing="false" onAction="#checkTopFilingCabinetDrawerAnswer" text="SUBMIT">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </VBox>
             <AnchorPane layoutX="383.0" layoutY="503.0" prefHeight="200.0" prefWidth="200.0" />
             <AnchorPane id="transistor-box" fx:id="transistorBox" layoutX="843.0" layoutY="427.0" prefHeight="400.0" prefWidth="400.0" visible="false">
                <children>
-                  <Button id="power-box-button" fx:id="powerBoxButton" layoutX="159.0" layoutY="346.0" mnemonicParsing="false" onAction="#checkPowerBoxAnswers" text="POWER ON" />
+                  <Button id="power-box-button" fx:id="powerBoxButton" layoutX="159.0" layoutY="346.0" mnemonicParsing="false" onAction="#checkPowerBoxAnswers" text="POWER ON">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                   <ComboBox id="transistors-dropdown" fx:id="answer2" layoutX="144.0" layoutY="157.0" prefHeight="48.0" prefWidth="48.0" />
                   <ComboBox id="transistors-dropdown" fx:id="answer3" layoutX="219.0" layoutY="188.0" prefHeight="48.0" prefWidth="48.0" />
                   <ComboBox id="transistors-dropdown" fx:id="answer1" layoutX="194.0" layoutY="91.0" prefHeight="48.0" prefWidth="48.0" />

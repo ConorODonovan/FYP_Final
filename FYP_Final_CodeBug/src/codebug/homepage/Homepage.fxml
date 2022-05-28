@@ -24,13 +24,13 @@
          <children>
             <VBox id="top-vbox" prefHeight="100.0" prefWidth="1920.0">
                <children>
-                  <MenuBar id="menu-bar">
+                  <MenuBar id="menu-bar" fx:id="menuBar">
                     <menus>
                       <Menu mnemonicParsing="false" text="File">
                         <items>
                           <MenuItem mnemonicParsing="false" onAction="#openSettingsWindow" text="Preferences" />
-                              <MenuItem mnemonicParsing="false" text="Logout" />
-                              <MenuItem mnemonicParsing="false" text="Exit" />
+                              <MenuItem fx:id="logoutMenuOption" mnemonicParsing="false" onAction="#logout" text="Logout" />
+                              <MenuItem fx:id="menuExit" mnemonicParsing="false" onAction="#exitApplication" text="Exit" />
                         </items>
                       </Menu>
                       <Menu mnemonicParsing="false" text="Help">
@@ -135,7 +135,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <children>
-                  <Button id="button-homepage" fx:id="playButton" alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="300.0" maxWidth="300.0" minHeight="300.0" minWidth="300.0" mnemonicParsing="false" onMouseEntered="#mouseEnterPlayButton" prefHeight="300.0" prefWidth="300.0" text="PLAY">
+                  <Button id="button-homepage" fx:id="playButton" alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="300.0" maxWidth="300.0" minHeight="300.0" minWidth="300.0" mnemonicParsing="false" onAction="#goToPlay" onMouseEntered="#mouseEnterPlayButton" prefHeight="300.0" prefWidth="300.0" text="PLAY">
                      <padding>
                         <Insets bottom="64.0" left="32.0" right="32.0" top="24.0" />
                      </padding>
